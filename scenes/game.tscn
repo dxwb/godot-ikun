@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dkqfcysl5kgn8"]
+[gd_scene load_steps=14 format=3 uid="uid://dkqfcysl5kgn8"]
 
 [ext_resource type="Texture2D" uid="uid://77p03m6lvlck" path="res://art/water.png" id="1_jgakt"]
 [ext_resource type="PackedScene" uid="uid://eeurcc2rw5n6" path="res://scenes/player/player.tscn" id="1_l8ear"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bmdqtfgxrfajh" path="res://art/hills.png" id="2_fxr34"]
 [ext_resource type="Texture2D" uid="uid://dr5tb8wchq7fq" path="res://art/grass.png" id="3_yip4i"]
 [ext_resource type="PackedScene" uid="uid://bbwfnwqrlhl8n" path="res://scenes/kun/kun.tscn" id="6_58e3v"]
+[ext_resource type="PackedScene" uid="uid://drghvmfe4dg1i" path="res://scenes/UI/caught_chickens.tscn" id="7_8751o"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_sj7jw"]
 vertices = PackedVector2Array(118, 338, 102, 230, 155, 230, 155, 246, 187, 246, 187, 310, 580, 322, 325, 310, 325, 278, 331, 278, 331, 310, 501, 310, 501, 294, 517, 294, 517, 278, 549, 278, 549, 246, 581, 246, 581, 167, 549, 167, 549, 39, 583, 32, 443, 39, 443, 71, 427, 71, 427, 87, 389, 87, 389, 71, 213, 71, 213, 39, 91, 159, 72, 42, 91, 42, 459, 199, 437, 199, 437, 166, 459, 166, 485, 230, 485, 135, 523, 215, 523, 247, 491, 247, 299, 247, 213, 215, 181, 199, 187, 102, 363, 102, 363, 118, 357, 247, 453, 118, 453, 102, 469, 102, 469, 70, 523, 70, 523, 198, 555, 198, 555, 215, 411, 135, 411, 230, 491, 263, 475, 263, 475, 279, 357, 279, 299, 279, 213, 279, 181, 215, 117, 199, 117, 70, 187, 70)
@@ -621,3 +622,11 @@ position = Vector2(491, 121)
 
 [node name="Kun3" parent="." instance=ExtResource("6_58e3v")]
 position = Vector2(148, 141)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CaughtChickens" parent="CanvasLayer" instance=ExtResource("7_8751o")]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 69.0
+offset_bottom = 47.0

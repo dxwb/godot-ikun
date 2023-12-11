@@ -16,7 +16,8 @@ func _physics_process(delta):
 	set_smoke_z_index(dir)
 
 func set_smoke_z_index(moveInput):
-	smokeParticle.z_index = 0 if moveInput.y >= 0 else 1
+	if (smokeParticle.emitting):
+		smokeParticle.z_index = 0 if moveInput.y >= 0 else 1
 
 func set_walk_particle(moveInput):
 	smokeParticle.emitting = moveInput != Vector2.ZERO

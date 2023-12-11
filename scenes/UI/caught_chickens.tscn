@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://drghvmfe4dg1i"]
+
+[ext_resource type="Texture2D" uid="uid://bh72a8d8fxod2" path="res://art/kun.png" id="1_0ukgh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ax4w"]
+atlas = ExtResource("1_0ukgh")
+region = Rect2(0, 0, 16, 16)
+
+[node name="CaughtChickens" type="PanelContainer"]
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_7ax4w")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
