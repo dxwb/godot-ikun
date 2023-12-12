@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.2", "GL Compatibility")
 [autoload]
 
 DataManager="*res://scenes/managers/data_manager.tscn"
+ParticlesCache="*res://scripts/particles_cache.gd"
 
 [debug]
 

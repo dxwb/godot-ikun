@@ -228,6 +228,9 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0, 0.001)
 parameters/walk/blend_position = Vector2(0, 0)
 
+[node name="Smoke" parent="." instance=ExtResource("2_d8w1c")]
+emitting = false
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -7)
 texture = ExtResource("1_vra16")
@@ -237,6 +240,3 @@ vframes = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_6s8fg")
-
-[node name="Smoke" parent="." instance=ExtResource("2_d8w1c")]
-emitting = false

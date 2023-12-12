@@ -12,20 +12,20 @@ func _physics_process(delta):
 	move_and_slide()
 	pick_new_state(dir)
 	set_animation(dir)
-	#set_walk_particle(dir)
-	#set_smoke_z_index(dir)
+	set_walk_particle(dir)
+	set_smoke_z_index(dir)
 
-#func set_smoke_z_index(moveInput):
-	#if (smokeParticle.emitting):
-		#smokeParticle.z_index = 0 if moveInput.y >= 0 else 1
+func set_smoke_z_index(moveInput):
+	if (smokeParticle.emitting):
+		smokeParticle.z_index = 0 if moveInput.y >= 0 else 1
 
 func set_walk_particle(moveInput):
 	smokeParticle.emitting = moveInput != Vector2.ZERO
 
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			set_walk_particle(Vector2.UP)
+#func _input(event):
+	#if event is InputEventMouseButton:
+		#if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			#set_walk_particle(Vector2.UP)
 
 func set_animation(moveInput):
 	if (moveInput != Vector2.ZERO):
