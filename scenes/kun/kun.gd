@@ -30,3 +30,8 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(body):
 	player = null
 	state_chart.send_event('player_exited')
+
+# 进入鸡窝
+func _on_kun_house_area_area_entered(area):
+	DataManager.add_caught_kuns()
+	queue_free()

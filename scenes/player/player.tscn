@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_b03eb"]
 [ext_resource type="Texture2D" uid="uid://dljmp5rj6c3ef" path="res://art/player.png" id="1_vra16"]
-[ext_resource type="PackedScene" uid="uid://dptrlrbvlka5d" path="res://scenes/smoke.tscn" id="3_y0p0c"]
+[ext_resource type="PackedScene" uid="uid://dptrlrbvlka5d" path="res://scenes/VFX/smoke/smoke.tscn" id="2_d8w1c"]
 
 [sub_resource type="Animation" id="Animation_ve2np"]
 resource_name = "idle"
@@ -211,7 +211,6 @@ size = Vector2(12, 6)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_b03eb")
 
@@ -229,9 +228,6 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0, 0.001)
 parameters/walk/blend_position = Vector2(0, 0)
 
-[node name="Smoke" parent="." instance=ExtResource("3_y0p0c")]
-emitting = false
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -7)
 texture = ExtResource("1_vra16")
@@ -241,3 +237,6 @@ vframes = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_6s8fg")
+
+[node name="Smoke" parent="." instance=ExtResource("2_d8w1c")]
+emitting = false

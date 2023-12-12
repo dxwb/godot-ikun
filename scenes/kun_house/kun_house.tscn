@@ -9,7 +9,6 @@ size = Vector2(38, 44)
 size = Vector2(38, 7)
 
 [node name="KunHouse" type="StaticBody2D"]
-collision_layer = 4
 collision_mask = 0
 
 [node name="ChickenHouse" type="Sprite2D" parent="."]

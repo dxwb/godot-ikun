@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://dptrlrbvlka5d"]
+
+[ext_resource type="Material" uid="uid://1ku8nqbybsp0" path="res://scenes/VFX/smoke/smoke_particle_process.tres" id="1_3gk6q"]
+[ext_resource type="Material" uid="uid://blxhw574570v1" path="res://scenes/VFX/smoke/smoke_canvas_item.tres" id="1_ymdud"]
+[ext_resource type="Texture2D" uid="uid://t66ouvgdgi1q" path="res://art/smoke.png" id="2_8lvtb"]
+
+[node name="Smoke" type="GPUParticles2D"]
+material = ExtResource("1_ymdud")
+process_material = ExtResource("1_3gk6q")
+texture = ExtResource("2_8lvtb")

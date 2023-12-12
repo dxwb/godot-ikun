@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bbwfnwqrlhl8n"]
+[gd_scene load_steps=25 format=3 uid="uid://bbwfnwqrlhl8n"]
 
 [ext_resource type="Texture2D" uid="uid://bh72a8d8fxod2" path="res://art/kun.png" id="1_dy8lm"]
 [ext_resource type="Script" path="res://scenes/kun/kun.gd" id="1_olteq"]
@@ -222,9 +222,11 @@ states/walk/position = Vector2(481, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_o4nrm")]
 graph_offset = Vector2(4, -50)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kq73s"]
+radius = 6.0
+
 [node name="Kun" type="CharacterBody2D"]
 collision_layer = 0
-collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_olteq")
 
@@ -233,7 +235,6 @@ position = Vector2(0, -6)
 texture = ExtResource("1_dy8lm")
 hframes = 4
 vframes = 2
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -2.5)
@@ -243,11 +244,11 @@ shape = SubResource("RectangleShape2D_ogox0")
 path_desired_distance = 5.0
 debug_enabled = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="FleeArea" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FleeArea"]
 shape = SubResource("CircleShape2D_elx0v")
 
 [node name="StateChart" type="Node" parent="."]
@@ -312,11 +313,20 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = 0.001
 parameters/walk/blend_position = 0.0
 
+[node name="KunHouseArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KunHouseArea"]
+position = Vector2(-1, -5)
+shape = SubResource("CircleShape2D_kq73s")
+
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="FleeArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="FleeArea" to="." method="_on_area_2d_body_exited"]
 [connection signal="state_entered" from="StateChart/Root/Idle" to="." method="_on_idle_state_entered"]
 [connection signal="state_entered" from="StateChart/Root/Walking" to="." method="_on_walk_state_entered"]
 [connection signal="state_entered" from="StateChart/Root/Flee" to="FleeState" method="_on_flee_state_entered"]
 [connection signal="state_exited" from="StateChart/Root/Flee" to="FleeState" method="_on_flee_state_exited"]
 [connection signal="timeout" from="FleeState/Timer" to="FleeState" method="_on_timer_timeout"]
+[connection signal="area_entered" from="KunHouseArea" to="." method="_on_kun_house_area_area_entered"]

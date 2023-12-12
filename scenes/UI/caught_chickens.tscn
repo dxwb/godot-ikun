@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://drghvmfe4dg1i"]
+[gd_scene load_steps=4 format=3 uid="uid://drghvmfe4dg1i"]
 
 [ext_resource type="Texture2D" uid="uid://bh72a8d8fxod2" path="res://art/kun.png" id="1_0ukgh"]
+[ext_resource type="Script" path="res://scenes/UI/caught_chickens.gd" id="1_jc7nn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mlry1"]
 atlas = ExtResource("1_0ukgh")
@@ -10,6 +11,7 @@ region = Rect2(0, 0, 16, 16)
 offset_right = 8.0
 offset_bottom = 4.0
 mouse_filter = 2
+script = ExtResource("1_jc7nn")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
