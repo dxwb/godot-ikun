@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var movement_speed = 120.0
+@export var fireworksParticle: PackedScene
 
 @onready var state_chart = $StateChart
 @onready var movement = $Movement
@@ -32,6 +33,10 @@ func _on_area_2d_body_exited(body):
 	state_chart.send_event('player_exited')
 
 # 进入鸡窝
-func _on_kun_house_area_area_entered(area):
+func enter_kun_house():
 	DataManager.add_caught_kuns()
 	queue_free()
+	var fireworks: GPUParticles2D = fireworksParticle.instantiate()
+	get_parent().add_child(fireworks)
+	fireworks.global_position = global_position
+	fireworks.emitting = true

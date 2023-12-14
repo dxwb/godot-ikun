@@ -27,6 +27,7 @@ func add_caught_kuns():
 func save_data():
 	var save_game = FileAccess.open(file_path, FileAccess.WRITE)
 	save_game.store_var(data)
+	save_game.close()
 
 func load_data():
 	if (!FileAccess.file_exists(file_path)): return
@@ -34,3 +35,4 @@ func load_data():
 	var save_game = FileAccess.open(file_path, FileAccess.READ)
 	var save_data = save_game.get_var()
 	set_caught_kuns(save_data.CaughtKuns)
+	save_game.close()

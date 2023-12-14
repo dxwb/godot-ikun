@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bi43kuo8aysxj"]
+[gd_scene load_steps=5 format=3 uid="uid://bi43kuo8aysxj"]
 
 [ext_resource type="Texture2D" uid="uid://cuind7wt3ujbq" path="res://art/chicken_house.png" id="1_8ghob"]
+[ext_resource type="Script" path="res://scenes/kun_house/kun_house.gd" id="1_ytxj6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ebkg"]
 size = Vector2(38, 44)
@@ -10,19 +11,23 @@ size = Vector2(38, 7)
 
 [node name="KunHouse" type="StaticBody2D"]
 collision_mask = 0
+script = ExtResource("1_ytxj6")
 
-[node name="ChickenHouse" type="Sprite2D" parent="."]
-position = Vector2(0, -13)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 3)
 texture = ExtResource("1_8ghob")
+offset = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_6ebkg")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 0
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_imp41")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
