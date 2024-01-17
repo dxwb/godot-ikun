@@ -616,15 +616,6 @@ layer_2/tile_data = PackedInt32Array(196614, 65539, 0, 196615, 131075, 3, 262150
 [node name="Player" parent="." instance=ExtResource("1_l8ear")]
 position = Vector2(334, 233)
 
-[node name="Kun" parent="." instance=ExtResource("6_58e3v")]
-position = Vector2(338, 132)
-
-[node name="Kun2" parent="." instance=ExtResource("6_58e3v")]
-position = Vector2(491, 121)
-
-[node name="Kun3" parent="." instance=ExtResource("6_58e3v")]
-position = Vector2(182, 149)
-
 [node name="KunHouse" parent="." instance=ExtResource("8_yevne")]
 position = Vector2(344, 79)
 
@@ -635,3 +626,12 @@ offset_left = 16.0
 offset_top = 16.0
 offset_right = 47.0
 offset_bottom = 37.0
+
+[node name="Kun" parent="." instance=ExtResource("6_58e3v")]
+position = Vector2(167, 167)
+
+[node name="Kun2" parent="." instance=ExtResource("6_58e3v")]
+position = Vector2(337, 134)
+
+[node name="Kun3" parent="." instance=ExtResource("6_58e3v")]
+position = Vector2(513, 207)
