@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://dkudctx1718u4"]
 
-[ext_resource type="Texture2D" uid="uid://bf4d7sqhtw2b2" path="res://art/ghost.png" id="1_bcldl"]
-[ext_resource type="Script" path="res://scenes/emeny/emeny.gd" id="1_m4dip"]
-[ext_resource type="Script" path="res://scenes/emeny/movement.gd" id="2_78g1i"]
+[ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_vsdc2"]
+[ext_resource type="Texture2D" uid="uid://bf4d7sqhtw2b2" path="res://art/ghost.png" id="2_0o3ri"]
+[ext_resource type="Script" path="res://scenes/enemy/movement.gd" id="3_h8rfs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ag51h"]
 radius = 7.0
@@ -160,14 +160,14 @@ _data = {
 "walk_right": SubResource("Animation_7gisp")
 }
 
-[node name="Emeny" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 0
-script = ExtResource("1_m4dip")
+script = ExtResource("1_vsdc2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -9)
-texture = ExtResource("1_bcldl")
+texture = ExtResource("2_0o3ri")
 hframes = 8
 vframes = 6
 frame = 1
@@ -185,5 +185,5 @@ autoplay = "idle_right"
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="Movement" type="Node" parent="."]
-script = ExtResource("2_78g1i")
+script = ExtResource("3_h8rfs")
 movement_speed = 50.0

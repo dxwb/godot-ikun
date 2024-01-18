@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
-@export var player: Player
-
 @onready var movement = $Movement
 
 var timer = 1.0
+var player: Player
+
+func _ready():
+	player = get_tree().get_first_node_in_group("player")
 
 func _process(delta):
 	if timer < 0:

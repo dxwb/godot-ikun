@@ -5,6 +5,8 @@ extends StaticBody2D
 @onready var sprite_2d = $Sprite2D
 @onready var spawn_timer = $SpawnTimer
 
+signal kun_entered(area: Area2D)
+
 var kun_count = 3
 
 func _ready():
@@ -16,6 +18,7 @@ func _on_zone_triggered(area: Area2D):
 	tween.tween_property(sprite_2d, 'scale', Vector2(1.0, 1.5), .1)
 	tween.tween_property(sprite_2d, 'scale', Vector2(1.0, 1.0), .5).set_trans(Tween.TRANS_BACK)
 	kun_count -= 1
+	emit_signal("kun_entered", area)
 
 # 让小鸡从鸡舍里面逃出来
 func _on_spawn_timer_timeout():
