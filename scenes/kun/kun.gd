@@ -1,13 +1,12 @@
 extends CharacterBody2D
 class_name Kun
 
-@export var movement_speed = 120.0
 @export var fireworksParticle: PackedScene
 
 @onready var state_chart = $StateChart
 @onready var movement = $Movement
 @onready var flee_area = $FleeArea
-@onready var kun_house_area = $KunHouseArea
+@onready var kun_house_receiver = $KunHouseReceiver
 
 var player = null
 var leave_home_target: Vector2
@@ -42,7 +41,7 @@ func _on_area_2d_body_exited(body):
 	state_chart.send_event('player_exited')
 
 # 进入鸡窝
-func enter_kun_house():
+func on_kun_house_received(area: Area2D):
 	DataManager.add_caught_kuns()
 	queue_free()
 	var fireworks: GPUParticles2D = fireworksParticle.instantiate()
@@ -57,7 +56,7 @@ func enter_leave_home():
 # 逃出鸡窝
 func _leave_kun_house(pos: Vector2):
 	# 逃出时不应被进入鸡窝的area检测到
-	kun_house_area.monitorable = false
+	kun_house_receiver.monitorable = false
 	# 不应检测玩家
 	flee_area.monitoring = false
 	# 设置出逃目标点
@@ -69,5 +68,5 @@ func leave_kun_house(pos: Vector2):
 
 # 逃出到目标地点，恢复组件状态
 func leave_kun_house_finished():
-	kun_house_area.monitorable = true
+	kun_house_receiver.monitorable = true
 	flee_area.monitoring = true

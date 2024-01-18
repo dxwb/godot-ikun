@@ -11,14 +11,7 @@ func _ready():
 	set_random_wait_time()
 	spawn_timer.start()
 
-
-func _process(delta):
-	pass
-
-
-func _on_area_2d_area_entered(area: Area2D):
-	if (area.owner.has_method('enter_kun_house')):
-		area.owner.enter_kun_house()
+func _on_zone_triggered(area: Area2D):
 	var tween = get_tree().create_tween()
 	tween.tween_property(sprite_2d, 'scale', Vector2(1.0, 1.5), .1)
 	tween.tween_property(sprite_2d, 'scale', Vector2(1.0, 1.0), .5).set_trans(Tween.TRANS_BACK)
@@ -27,7 +20,7 @@ func _on_area_2d_area_entered(area: Area2D):
 # 让小鸡从鸡舍里面逃出来
 func _on_spawn_timer_timeout():
 	# 场景中最多10只小鸡
-	if (kun_count >= 10): return
+	if kun_count >= 10: return
 	
 	var x = randi_range(-200, 200)
 	var y = randi_range(50, 200)

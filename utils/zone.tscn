@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi0sx3gir7eop"]
+
+[ext_resource type="Script" path="res://utils/zone.gd" id="1_dy7le"]
+
+[node name="Zone" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_dy7le")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

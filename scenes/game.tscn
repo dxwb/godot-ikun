@@ -637,5 +637,6 @@ position = Vector2(337, 134)
 [node name="Kun3" parent="." instance=ExtResource("6_58e3v")]
 position = Vector2(513, 207)
 
-[node name="Emeny" parent="." instance=ExtResource("9_560wv")]
+[node name="Emeny" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_560wv")]
 position = Vector2(244, 202)
+player = NodePath("../Player")

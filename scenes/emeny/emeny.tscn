@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkudctx1718u4"]
+[gd_scene load_steps=11 format=3 uid="uid://dkudctx1718u4"]
 
 [ext_resource type="Texture2D" uid="uid://bf4d7sqhtw2b2" path="res://art/ghost.png" id="1_bcldl"]
+[ext_resource type="Script" path="res://scenes/emeny/emeny.gd" id="1_m4dip"]
+[ext_resource type="Script" path="res://scenes/emeny/movement.gd" id="2_78g1i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ag51h"]
-radius = 8.0
-height = 20.0
+radius = 7.0
+height = 18.0
 
 [sub_resource type="Animation" id="Animation_6i7rn"]
 length = 0.001
@@ -161,6 +163,7 @@ _data = {
 [node name="Emeny" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 0
+script = ExtResource("1_m4dip")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -9)
@@ -170,7 +173,7 @@ vframes = 6
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -10)
+position = Vector2(0, -9)
 shape = SubResource("CapsuleShape2D_ag51h")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -178,3 +181,9 @@ libraries = {
 "": SubResource("AnimationLibrary_ywb00")
 }
 autoplay = "idle_right"
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Movement" type="Node" parent="."]
+script = ExtResource("2_78g1i")
+movement_speed = 50.0
