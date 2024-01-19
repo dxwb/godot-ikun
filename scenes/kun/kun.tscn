@@ -340,7 +340,6 @@ parameters/idle/blend_position = 0.001
 parameters/walk/blend_position = 0.0
 
 [node name="KunHouseReceiver" parent="." instance=ExtResource("11_55e88")]
-collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KunHouseReceiver"]
 position = Vector2(-1, -5)
@@ -356,4 +355,4 @@ shape = SubResource("CircleShape2D_kq73s")
 [connection signal="state_exited" from="StateChart/Root/Flee" to="FleeState" method="_on_flee_state_exited"]
 [connection signal="state_entered" from="StateChart/Root/LeaveHome" to="LeaveHomeState" method="_on_leave_home_state_entered"]
 [connection signal="timeout" from="FleeState/Timer" to="FleeState" method="_on_timer_timeout"]
-[connection signal="received" from="KunHouseReceiver" to="." method="on_kun_house_received"]
+[connection signal="received_entered" from="KunHouseReceiver" to="." method="on_kun_house_received"]

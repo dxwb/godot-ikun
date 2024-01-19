@@ -16,7 +16,7 @@ func _physics_process(delta):
 
 	owner.velocity = dir * movement_speed
 	owner.move_and_slide()
-	
+
 	set_animation(dir)
 
 func set_movement_target(movement_target: Vector2):

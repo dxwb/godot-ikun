@@ -26,7 +26,6 @@ position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_6ebkg")
 
 [node name="Zone" parent="." instance=ExtResource("4_nm5b8")]
-collision_mask = 4
 entered_receiver = "KunHouseReceiver"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zone"]
@@ -35,5 +34,5 @@ shape = SubResource("RectangleShape2D_imp41")
 
 [node name="SpawnTimer" type="Timer" parent="."]
 
-[connection signal="triggered" from="Zone" to="." method="_on_zone_triggered"]
+[connection signal="entered" from="Zone" to="." method="_on_zone_triggered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

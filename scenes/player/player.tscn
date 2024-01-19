@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://eeurcc2rw5n6"]
+[gd_scene load_steps=27 format=3 uid="uid://eeurcc2rw5n6"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_b03eb"]
 [ext_resource type="Texture2D" uid="uid://dljmp5rj6c3ef" path="res://art/player.png" id="1_vra16"]
 [ext_resource type="PackedScene" uid="uid://dptrlrbvlka5d" path="res://scenes/VFX/smoke/smoke.tscn" id="2_d8w1c"]
+[ext_resource type="PackedScene" uid="uid://df1kk6okomxoo" path="res://scenes/enemy/hurt_receiver.tscn" id="4_p6rfv"]
 
 [sub_resource type="Animation" id="Animation_ve2np"]
 resource_name = "idle"
@@ -236,8 +237,16 @@ position = Vector2(0, -7)
 texture = ExtResource("1_vra16")
 hframes = 4
 vframes = 4
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_6s8fg")
+
+[node name="HurtReceiver" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("4_p6rfv")]
+sprite = NodePath("../Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtReceiver"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_6s8fg")
+
+[connection signal="hurted" from="HurtReceiver" to="." method="_on_hurt_receiver_hurted"]

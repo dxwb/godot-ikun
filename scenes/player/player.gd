@@ -7,7 +7,13 @@ class_name Player
 @onready var state_machine = animation_tree["parameters/playback"]
 @onready var smokeParticle = $Smoke
 
+signal died()
+
+var is_alive = true
+
 func _physics_process(delta):
+	if not is_alive: return
+
 	var dir = Input.get_vector('walk_left', 'walk_right', 'walk_up', 'walk_down').normalized()
 	velocity = dir * speed
 	move_and_slide()
@@ -38,3 +44,7 @@ func pick_new_state(moveInput):
 		state_machine.travel('walk')
 	else:
 		state_machine.travel('idle')
+
+func _on_hurt_receiver_hurted():
+	is_alive = false
+	emit_signal("died")

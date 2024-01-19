@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkudctx1718u4"]
+[gd_scene load_steps=12 format=3 uid="uid://dkudctx1718u4"]
 
 [ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_vsdc2"]
 [ext_resource type="Texture2D" uid="uid://bf4d7sqhtw2b2" path="res://art/ghost.png" id="2_0o3ri"]
-[ext_resource type="Script" path="res://scenes/enemy/movement.gd" id="3_h8rfs"]
+[ext_resource type="PackedScene" uid="uid://bi0sx3gir7eop" path="res://utils/zone.tscn" id="4_wtes2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ag51h"]
 radius = 7.0
@@ -160,6 +160,9 @@ _data = {
 "walk_right": SubResource("Animation_7gisp")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6a4wt"]
+radius = 23.0217
+
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 0
@@ -182,8 +185,15 @@ libraries = {
 }
 autoplay = "idle_right"
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="AttackZone" parent="." instance=ExtResource("4_wtes2")]
+entered_receiver = "HurtReceiver"
 
-[node name="Movement" type="Node" parent="."]
-script = ExtResource("3_h8rfs")
-movement_speed = 50.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackZone"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_6a4wt")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-5.36442e-07, -9)
+scale = Vector2(0.7, 0.9)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
