@@ -50,6 +50,7 @@ func _on_hurt_receiver_hurted():
 	emit_signal("died")
 
 func dead():
+	DataManager.add_death_count()
 	is_alive = false
 	bloodParticle.emitting = true
 	state_machine.travel('dead')
