@@ -1,17 +1,24 @@
 extends Node
 
 @export var enemy_packed_scene: PackedScene
+@export var gradient: Array
 
 var kun_count = 0
+var index = 0
 
 # 实现本次小鸡进入鸡窝10只后，出现敌人
 func on_kun_entered_to_house(area: Area2D):
 	kun_count += 1
 
-	if kun_count == 1:
+	if kun_count == gradient[index]:
 		var enemy = enemy_packed_scene.instantiate()
 		enemy.global_position = get_random_position()
 		get_tree().get_current_scene().call_deferred("add_child", enemy)
+
+		kun_count = 0
+
+		if index + 1 < gradient.size():
+			index += 1
 
 # 获取屏幕外随机坐标
 func get_random_position():
