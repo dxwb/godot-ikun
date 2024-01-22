@@ -7,8 +7,8 @@ var data = {
 
 const file_path = 'user://savegame.save'
 
-signal caught_kuns_changed
-signal death_count_changed
+signal caught_kuns_changed(num: int)
+signal death_count_changed(num: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,6 +44,12 @@ func load_data():
 
 	var save_game = FileAccess.open(file_path, FileAccess.READ)
 	var save_data = save_game.get_var()
-	set_caught_kuns(save_data.CaughtKuns)
-	set_death_count(save_data.get("DeathCount") || 0)
+
+	data.CaughtKuns = save_data.CaughtKuns
+	var _DeathCount = save_data.get("DeathCount")
+	data.DeathCount = _DeathCount if _DeathCount != null else 0
+
+	caught_kuns_changed.emit(data.CaughtKuns)
+	death_count_changed.emit(data.DeathCount)
+
 	save_game.close()

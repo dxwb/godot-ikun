@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://drghvmfe4dg1i"]
+[gd_scene load_steps=4 format=3 uid="uid://dsmgbaahbnxx7"]
 
-[ext_resource type="Texture2D" uid="uid://bh72a8d8fxod2" path="res://art/kun.png" id="1_0ukgh"]
-[ext_resource type="Script" path="res://scenes/UI/caught_chickens.gd" id="1_jc7nn"]
+[ext_resource type="Script" path="res://scenes/UI/death_count.gd" id="1_ow56p"]
+[ext_resource type="Texture2D" uid="uid://dljmp5rj6c3ef" path="res://art/player.png" id="2_yxme4"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mlry1"]
-atlas = ExtResource("1_0ukgh")
-region = Rect2(1, 3, 11, 12)
+[sub_resource type="AtlasTexture" id="AtlasTexture_yryll"]
+atlas = ExtResource("2_yxme4")
+region = Rect2(17, 16, 14, 16)
 
-[node name="CaughtChickens" type="PanelContainer"]
+[node name="DeathCount" type="PanelContainer"]
 offset_right = 8.0
 offset_bottom = 4.0
 mouse_filter = 2
-script = ExtResource("1_jc7nn")
+script = ExtResource("1_ow56p")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -24,9 +24,9 @@ theme_override_constants/margin_bottom = 2
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(17, 17)
 layout_mode = 2
-texture = SubResource("AtlasTexture_mlry1")
+texture = SubResource("AtlasTexture_yryll")
+expand_mode = 2
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]

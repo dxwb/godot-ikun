@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dkqfcysl5kgn8"]
+[gd_scene load_steps=20 format=3 uid="uid://dkqfcysl5kgn8"]
 
 [ext_resource type="Texture2D" uid="uid://77p03m6lvlck" path="res://art/water.png" id="1_jgakt"]
 [ext_resource type="PackedScene" uid="uid://eeurcc2rw5n6" path="res://scenes/player/player.tscn" id="1_l8ear"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bbwfnwqrlhl8n" path="res://scenes/kun/kun.tscn" id="6_58e3v"]
 [ext_resource type="PackedScene" uid="uid://drghvmfe4dg1i" path="res://scenes/UI/caught_chickens.tscn" id="7_8751o"]
 [ext_resource type="PackedScene" uid="uid://dci26b0jta0u3" path="res://scenes/death_countdown/death_countdown_ui.tscn" id="8_6dde7"]
+[ext_resource type="PackedScene" uid="uid://dsmgbaahbnxx7" path="res://scenes/UI/death_count.tscn" id="8_gn12n"]
 [ext_resource type="PackedScene" uid="uid://bi43kuo8aysxj" path="res://scenes/kun_house/kun_house.tscn" id="8_yevne"]
 [ext_resource type="PackedScene" uid="uid://dkudctx1718u4" path="res://scenes/enemy/enemy.tscn" id="9_560wv"]
 [ext_resource type="PackedScene" uid="uid://dfk4wljs5m6kc" path="res://scenes/enemy_spawner/enemy_spawner.tscn" id="10_iscgd"]
@@ -625,11 +626,17 @@ position = Vector2(344, 79)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="CaughtChickens" parent="CanvasLayer" instance=ExtResource("7_8751o")]
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 47.0
-offset_bottom = 37.0
+[node name="CountUI" type="VBoxContainer" parent="CanvasLayer"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 56.0
+
+[node name="CaughtChickens" parent="CanvasLayer/CountUI" instance=ExtResource("7_8751o")]
+layout_mode = 2
+
+[node name="DeathCount" parent="CanvasLayer/CountUI" instance=ExtResource("8_gn12n")]
+layout_mode = 2
 
 [node name="DeathCountdownUI" parent="CanvasLayer" instance=ExtResource("8_6dde7")]
 visible = false
