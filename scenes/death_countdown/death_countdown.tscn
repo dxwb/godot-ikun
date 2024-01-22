@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://byrlpyfasng2a"]
+
+[ext_resource type="Script" path="res://scenes/death_countdown/death_countdown.gd" id="1_u2xei"]
+
+[node name="DeathCountdown" type="Timer"]
+script = ExtResource("1_u2xei")
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]

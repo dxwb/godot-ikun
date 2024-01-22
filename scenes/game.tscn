@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dkqfcysl5kgn8"]
+[gd_scene load_steps=19 format=3 uid="uid://dkqfcysl5kgn8"]
 
 [ext_resource type="Texture2D" uid="uid://77p03m6lvlck" path="res://art/water.png" id="1_jgakt"]
 [ext_resource type="PackedScene" uid="uid://eeurcc2rw5n6" path="res://scenes/player/player.tscn" id="1_l8ear"]
@@ -7,9 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://dr5tb8wchq7fq" path="res://art/grass.png" id="3_yip4i"]
 [ext_resource type="PackedScene" uid="uid://bbwfnwqrlhl8n" path="res://scenes/kun/kun.tscn" id="6_58e3v"]
 [ext_resource type="PackedScene" uid="uid://drghvmfe4dg1i" path="res://scenes/UI/caught_chickens.tscn" id="7_8751o"]
+[ext_resource type="PackedScene" uid="uid://dci26b0jta0u3" path="res://scenes/death_countdown/death_countdown_ui.tscn" id="8_6dde7"]
 [ext_resource type="PackedScene" uid="uid://bi43kuo8aysxj" path="res://scenes/kun_house/kun_house.tscn" id="8_yevne"]
 [ext_resource type="PackedScene" uid="uid://dkudctx1718u4" path="res://scenes/enemy/enemy.tscn" id="9_560wv"]
 [ext_resource type="PackedScene" uid="uid://dfk4wljs5m6kc" path="res://scenes/enemy_spawner/enemy_spawner.tscn" id="10_iscgd"]
+[ext_resource type="PackedScene" uid="uid://byrlpyfasng2a" path="res://scenes/death_countdown/death_countdown.tscn" id="11_m1i0x"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_sj7jw"]
 vertices = PackedVector2Array(118, 338, 102, 230, 155, 230, 155, 246, 187, 246, 187, 310, 580, 322, 325, 310, 325, 278, 331, 278, 331, 310, 501, 310, 501, 294, 517, 294, 517, 278, 549, 278, 549, 246, 581, 246, 581, 167, 549, 167, 549, 39, 583, 32, 443, 39, 443, 71, 373, 71, 373, 36, 91, 159, 72, 42, 91, 42, 459, 199, 437, 199, 437, 166, 459, 166, 315, 71, 213, 71, 213, 39, 315, 37, 485, 230, 485, 135, 523, 215, 523, 247, 491, 247, 325, 102, 325, 96, 363, 96, 363, 102, 357, 247, 469, 102, 469, 70, 523, 70, 523, 198, 555, 198, 555, 215, 411, 135, 411, 230, 491, 263, 475, 263, 475, 279, 357, 279, 299, 247, 299, 279, 213, 279, 213, 215, 181, 215, 181, 199, 187, 102, 117, 199, 117, 70, 187, 70)
@@ -629,6 +631,17 @@ offset_top = 16.0
 offset_right = 47.0
 offset_bottom = 37.0
 
+[node name="DeathCountdownUI" parent="CanvasLayer" instance=ExtResource("8_6dde7")]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_top = 10.0
+offset_right = 48.0
+offset_bottom = 104.0
+grow_horizontal = 2
+
 [node name="Kun" parent="." instance=ExtResource("6_58e3v")]
 position = Vector2(167, 167)
 
@@ -641,4 +654,7 @@ position = Vector2(513, 207)
 [node name="EnemySpawner" parent="." instance=ExtResource("10_iscgd")]
 enemy_packed_scene = ExtResource("9_560wv")
 
+[node name="DeathCountdown" parent="." instance=ExtResource("11_m1i0x")]
+
+[connection signal="died" from="Player" to="DeathCountdown" method="_on_player_died"]
 [connection signal="kun_entered" from="KunHouse" to="EnemySpawner" method="on_kun_entered_to_house"]
