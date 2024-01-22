@@ -6,6 +6,22 @@
 [ext_resource type="PackedScene" uid="uid://cvywdgu4qrx1c" path="res://scenes/VFX/blood/blood.tscn" id="3_vmc5q"]
 [ext_resource type="PackedScene" uid="uid://df1kk6okomxoo" path="res://scenes/enemy/hurt_receiver.tscn" id="4_p6rfv"]
 
+[sub_resource type="Animation" id="Animation_axld4"]
+resource_name = "dead"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+
 [sub_resource type="Animation" id="Animation_ve2np"]
 resource_name = "idle"
 loop_mode = 1
@@ -136,22 +152,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [6, 7]
-}
-
-[sub_resource type="Animation" id="Animation_axld4"]
-resource_name = "dead"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [16]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r3x1j"]

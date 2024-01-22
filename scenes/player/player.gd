@@ -11,6 +11,10 @@ class_name Player
 signal died()
 
 var is_alive = true
+var birth_point: Vector2
+
+func _ready():
+	birth_point = global_position
 
 func _physics_process(delta):
 	if not is_alive: return
@@ -30,11 +34,6 @@ func set_smoke_z_index(moveInput):
 func set_walk_particle(moveInput):
 	smokeParticle.emitting = moveInput != Vector2.ZERO
 
-#func _input(event):
-	#if event is InputEventMouseButton:
-		#if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			#set_walk_particle(Vector2.UP)
-
 func set_animation(moveInput):
 	if (moveInput != Vector2.ZERO):
 		animation_tree.set("parameters/idle/blend_position", moveInput)
@@ -47,7 +46,18 @@ func pick_new_state(moveInput):
 		state_machine.travel('idle')
 
 func _on_hurt_receiver_hurted():
+	dead()
+	emit_signal("died")
+
+func dead():
 	is_alive = false
 	bloodParticle.emitting = true
 	state_machine.travel('dead')
-	emit_signal("died")
+	set_collision_layer_value(2, false)
+	set_walk_particle(Vector2.ZERO)
+
+# 复活
+func resuscitate():
+	is_alive = true
+	set_collision_layer_value(2, true)
+	global_position = birth_point

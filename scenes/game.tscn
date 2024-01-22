@@ -658,3 +658,4 @@ enemy_packed_scene = ExtResource("9_560wv")
 
 [connection signal="died" from="Player" to="DeathCountdown" method="_on_player_died"]
 [connection signal="kun_entered" from="KunHouse" to="EnemySpawner" method="on_kun_entered_to_house"]
+[connection signal="countdown_timeout" from="DeathCountdown" to="Player" method="resuscitate"]

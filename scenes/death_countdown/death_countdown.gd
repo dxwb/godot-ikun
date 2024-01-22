@@ -27,5 +27,6 @@ func _on_timeout():
 		_time = time
 		stop()
 		emit_signal("countdown_timeout")
+		ui.hide()
 	else:
 		start()
