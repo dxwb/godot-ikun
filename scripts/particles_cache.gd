@@ -3,10 +3,12 @@ extends CanvasLayer
 
 var smokeParticles = preload("res://scenes/VFX/smoke/smoke_particle_process.tres")
 var fireworkParticles = preload("res://scenes/VFX/fireworks/fireworks_particle_process.tres")
+var bloodParticles = preload("res://scenes/VFX/blood/blood_particle_process.tres")
 
 var materials = [
 	smokeParticles,
-	fireworkParticles
+	fireworkParticles,
+	bloodParticles
 ]
 
 var frames = 0

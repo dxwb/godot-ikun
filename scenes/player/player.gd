@@ -6,6 +6,7 @@ class_name Player
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree["parameters/playback"]
 @onready var smokeParticle = $Smoke
+@onready var bloodParticle = $Blood
 
 signal died()
 
@@ -47,4 +48,6 @@ func pick_new_state(moveInput):
 
 func _on_hurt_receiver_hurted():
 	is_alive = false
+	bloodParticle.emitting = true
+	state_machine.travel('dead')
 	emit_signal("died")

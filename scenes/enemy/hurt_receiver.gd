@@ -27,5 +27,9 @@ func _on_hurt_receiver_received_exited(sender):
 
 # 受伤
 func _on_hurt_timer_timeout():
-	hurt_timer.start()
+	# 因为目前角色是一击必杀，所以暂时这样写
+	# 受伤后解除受击，防止角色死亡后仍然有受击的效果
+	hurting = false
+	sprite.modulate = Color.WHITE
+	#hurt_timer.start()
 	emit_signal("hurted")

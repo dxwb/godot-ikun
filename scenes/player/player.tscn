@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://eeurcc2rw5n6"]
+[gd_scene load_steps=30 format=3 uid="uid://eeurcc2rw5n6"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_b03eb"]
 [ext_resource type="Texture2D" uid="uid://dljmp5rj6c3ef" path="res://art/player.png" id="1_vra16"]
 [ext_resource type="PackedScene" uid="uid://dptrlrbvlka5d" path="res://scenes/VFX/smoke/smoke.tscn" id="2_d8w1c"]
+[ext_resource type="PackedScene" uid="uid://cvywdgu4qrx1c" path="res://scenes/VFX/blood/blood.tscn" id="3_vmc5q"]
 [ext_resource type="PackedScene" uid="uid://df1kk6okomxoo" path="res://scenes/enemy/hurt_receiver.tscn" id="4_p6rfv"]
 
 [sub_resource type="Animation" id="Animation_ve2np"]
@@ -137,8 +138,25 @@ tracks/0/keys = {
 "values": [6, 7]
 }
 
+[sub_resource type="Animation" id="Animation_axld4"]
+resource_name = "dead"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r3x1j"]
 _data = {
+"dead": SubResource("Animation_axld4"),
 "idle_down": SubResource("Animation_ve2np"),
 "idle_left": SubResource("Animation_ctc5i"),
 "idle_right": SubResource("Animation_e1dub"),
@@ -148,6 +166,9 @@ _data = {
 "walk_right": SubResource("Animation_mxu32"),
 "walk_up": SubResource("Animation_lax2v")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mmps6"]
+animation = &"dead"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8dcal"]
 animation = &"idle_up"
@@ -200,12 +221,14 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hntm2"]
 states/Start/position = Vector2(231, 100)
+states/dead/node = SubResource("AnimationNodeAnimation_mmps6")
+states/dead/position = Vector2(379.25, 200)
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_71cjo")
 states/idle/position = Vector2(381, 100)
 states/walk/node = SubResource("AnimationNodeBlendSpace2D_j2kx4")
 states/walk/position = Vector2(522, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_v0gnf")]
-graph_offset = Vector2(135, -55)
+graph_offset = Vector2(162, -30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6s8fg"]
 size = Vector2(12, 6)
@@ -226,7 +249,7 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_hntm2")
 anim_player = NodePath("../AnimationPlayer")
-parameters/idle/blend_position = Vector2(0, 0.001)
+parameters/idle/blend_position = Vector2(0.001, 0.001)
 parameters/walk/blend_position = Vector2(0, 0)
 
 [node name="Smoke" parent="." instance=ExtResource("2_d8w1c")]
@@ -236,7 +259,11 @@ emitting = false
 position = Vector2(0, -7)
 texture = ExtResource("1_vra16")
 hframes = 4
-vframes = 4
+vframes = 5
+frame = 1
+
+[node name="Blood" parent="." instance=ExtResource("3_vmc5q")]
+position = Vector2(0, -7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
