@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Enemy
 
 @export var movement_speed = 50.0
 
@@ -35,6 +36,9 @@ func set_animation(moveInput: Vector2):
 		animation_player.play("idle_right" if lastMoveInput.x > 0 else "idle_left")
 
 func _on_player_died():
+	leave_scene()
+
+func leave_scene():
 	is_chasing = false
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

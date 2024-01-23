@@ -660,7 +660,7 @@ position = Vector2(513, 207)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("10_iscgd")]
 enemy_packed_scene = ExtResource("9_560wv")
-gradient = [10, 20, 30, 40, 50]
+gradient = [5, 10, 15, 20, 25]
 
 [node name="DeathCountdown" parent="." instance=ExtResource("11_m1i0x")]
 

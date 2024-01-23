@@ -5,16 +5,23 @@ extends Node
 
 var kun_count = 0
 var index = 0
+var current_enemy: Enemy# 确保场景中只有一个敌人
 
 # 实现本次小鸡进入鸡窝10只后，出现敌人
 func on_kun_entered_to_house(area: Area2D):
 	kun_count += 1
+
+	# 赶鸡数量大于下一个梯度的一半时，敌人退出场景
+	if current_enemy != null and kun_count >= gradient[index] / 2:
+		current_enemy.leave_scene()
+		current_enemy = null
 
 	if kun_count == gradient[index]:
 		var enemy = enemy_packed_scene.instantiate()
 		enemy.global_position = get_random_position()
 		get_tree().get_current_scene().call_deferred("add_child", enemy)
 
+		current_enemy = enemy
 		kun_count = 0
 
 		if index + 1 < gradient.size():
