@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://77p03m6lvlck"
-path="res://.godot/imported/water.png-af3cf2c8f777e56972540a1d34848554.ctex"
+uid="uid://dnd4hjlglk7bo"
+path="res://.godot/imported/fences.png-2fb2d24ccf7994cf532208fff47e3fdc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/water.png"
-dest_files=["res://.godot/imported/water.png-af3cf2c8f777e56972540a1d34848554.ctex"]
+source_file="res://assets/art/fences.png"
+dest_files=["res://.godot/imported/fences.png-2fb2d24ccf7994cf532208fff47e3fdc.ctex"]
 
 [params]
 

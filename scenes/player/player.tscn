@@ -1,7 +1,7 @@
 [gd_scene load_steps=30 format=3 uid="uid://eeurcc2rw5n6"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_b03eb"]
-[ext_resource type="Texture2D" uid="uid://dljmp5rj6c3ef" path="res://art/player.png" id="1_vra16"]
+[ext_resource type="Texture2D" uid="uid://dljmp5rj6c3ef" path="res://assets/art/player.png" id="1_vra16"]
 [ext_resource type="PackedScene" uid="uid://dptrlrbvlka5d" path="res://scenes/VFX/smoke/smoke.tscn" id="2_d8w1c"]
 [ext_resource type="PackedScene" uid="uid://cvywdgu4qrx1c" path="res://scenes/VFX/blood/blood.tscn" id="3_vmc5q"]
 [ext_resource type="PackedScene" uid="uid://df1kk6okomxoo" path="res://scenes/enemy/hurt_receiver.tscn" id="4_p6rfv"]

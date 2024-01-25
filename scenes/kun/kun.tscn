@@ -1,6 +1,6 @@
 [gd_scene load_steps=28 format=3 uid="uid://bbwfnwqrlhl8n"]
 
-[ext_resource type="Texture2D" uid="uid://bh72a8d8fxod2" path="res://art/kun.png" id="1_dy8lm"]
+[ext_resource type="Texture2D" uid="uid://bh72a8d8fxod2" path="res://assets/art/kun.png" id="1_dy8lm"]
 [ext_resource type="Script" path="res://scenes/kun/kun.gd" id="1_olteq"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="3_7gdmg"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="4_18uyi"]

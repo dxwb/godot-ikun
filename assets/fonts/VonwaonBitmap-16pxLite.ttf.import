@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://d05ubkhhhg7px"
-path="res://.godot/imported/VonwaonBitmap-16pxLite.ttf-ab603dc731826447884e4197335c97d2.fontdata"
+path="res://.godot/imported/VonwaonBitmap-16pxLite.ttf-d35011e1c69ad974270d389c9be83e8c.fontdata"
 
 [deps]
 
-source_file="res://fonts/VonwaonBitmap-16pxLite.ttf"
-dest_files=["res://.godot/imported/VonwaonBitmap-16pxLite.ttf-ab603dc731826447884e4197335c97d2.fontdata"]
+source_file="res://assets/fonts/VonwaonBitmap-16pxLite.ttf"
+dest_files=["res://.godot/imported/VonwaonBitmap-16pxLite.ttf-d35011e1c69ad974270d389c9be83e8c.fontdata"]
 
 [params]
 

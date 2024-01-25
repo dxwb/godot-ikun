@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t66ouvgdgi1q"
-path="res://.godot/imported/smoke.png-e736dd290ea6721313a01669b075a47d.ctex"
+uid="uid://cm4ynje5cv3ox"
+path="res://.godot/imported/vortex.png-d82dbc7aea10858892713b110da7d005.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/smoke.png"
-dest_files=["res://.godot/imported/smoke.png-e736dd290ea6721313a01669b075a47d.ctex"]
+source_file="res://assets/art/vortex.png"
+dest_files=["res://.godot/imported/vortex.png-d82dbc7aea10858892713b110da7d005.ctex"]
 
 [params]
 

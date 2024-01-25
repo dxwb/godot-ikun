@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://drghvmfe4dg1i"]
 
-[ext_resource type="Texture2D" uid="uid://bh72a8d8fxod2" path="res://art/kun.png" id="1_0ukgh"]
+[ext_resource type="Texture2D" uid="uid://bh72a8d8fxod2" path="res://assets/art/kun.png" id="1_0ukgh"]
 [ext_resource type="Script" path="res://scenes/UI/caught_chickens.gd" id="1_jc7nn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mlry1"]

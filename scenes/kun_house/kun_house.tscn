@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bi43kuo8aysxj"]
 
-[ext_resource type="Texture2D" uid="uid://cuind7wt3ujbq" path="res://art/chicken_house.png" id="1_8ghob"]
+[ext_resource type="Texture2D" uid="uid://cuind7wt3ujbq" path="res://assets/art/chicken_house.png" id="1_8ghob"]
 [ext_resource type="Script" path="res://scenes/kun_house/kun_house.gd" id="1_ytxj6"]
 [ext_resource type="PackedScene" uid="uid://bbwfnwqrlhl8n" path="res://scenes/kun/kun.tscn" id="2_7ejlm"]
 [ext_resource type="PackedScene" uid="uid://bi0sx3gir7eop" path="res://utils/zone.tscn" id="4_nm5b8"]

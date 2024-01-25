@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnd4hjlglk7bo"
-path="res://.godot/imported/fences.png-6eaaa218e995eb12a3edcd35888a3553.ctex"
+uid="uid://t66ouvgdgi1q"
+path="res://.godot/imported/smoke.png-14b1b1656c871f528c4e8f119e516cb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/fences.png"
-dest_files=["res://.godot/imported/fences.png-6eaaa218e995eb12a3edcd35888a3553.ctex"]
+source_file="res://assets/art/smoke.png"
+dest_files=["res://.godot/imported/smoke.png-14b1b1656c871f528c4e8f119e516cb2.ctex"]
 
 [params]
 

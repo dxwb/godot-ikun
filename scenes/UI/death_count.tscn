@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dsmgbaahbnxx7"]
 
 [ext_resource type="Script" path="res://scenes/UI/death_count.gd" id="1_ow56p"]
-[ext_resource type="Texture2D" uid="uid://dljmp5rj6c3ef" path="res://art/player.png" id="2_yxme4"]
+[ext_resource type="Texture2D" uid="uid://dljmp5rj6c3ef" path="res://assets/art/player.png" id="2_yxme4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yryll"]
 atlas = ExtResource("2_yxme4")

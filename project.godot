@@ -16,8 +16,8 @@ config/features=PackedStringArray("4.2", "GL Compatibility")
 
 [autoload]
 
-DataManager="*res://scenes/managers/data_manager.tscn"
-ParticlesCache="*res://scripts/particles_cache.gd"
+DataManager="*res://auto/data_manager.tscn"
+ParticlesCache="*res://auto/particles_cache.gd"
 
 [debug]
 
@@ -39,6 +39,10 @@ project/assembly_name="ikun"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg", "res://addons/smoothing/plugin.cfg")
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 
