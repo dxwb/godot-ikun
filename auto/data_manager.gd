@@ -7,20 +7,11 @@ var data = {
 
 const file_path = 'user://savegame.save'
 
-signal caught_kuns_changed(num: int)
-signal death_count_changed(num: int)
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	call_deferred('load_data')
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func set_caught_kuns(num: int):
 	data.CaughtKuns = num
-	caught_kuns_changed.emit(data.CaughtKuns)
 	save_data()
 
 func add_caught_kuns():
@@ -28,7 +19,6 @@ func add_caught_kuns():
 
 func set_death_count(num: int):
 	data.DeathCount = num
-	death_count_changed.emit(data.DeathCount)
 	save_data()
 
 func add_death_count():
@@ -48,8 +38,5 @@ func load_data():
 	data.CaughtKuns = save_data.CaughtKuns
 	var _DeathCount = save_data.get("DeathCount")
 	data.DeathCount = _DeathCount if _DeathCount != null else 0
-
-	caught_kuns_changed.emit(data.CaughtKuns)
-	death_count_changed.emit(data.DeathCount)
 
 	save_game.close()

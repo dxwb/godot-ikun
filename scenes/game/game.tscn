@@ -1,18 +1,19 @@
-[gd_scene load_steps=20 format=3 uid="uid://dkqfcysl5kgn8"]
+[gd_scene load_steps=21 format=3 uid="uid://dkqfcysl5kgn8"]
 
-[ext_resource type="Texture2D" uid="uid://77p03m6lvlck" path="res://assets/art/water.png" id="1_jgakt"]
-[ext_resource type="PackedScene" uid="uid://eeurcc2rw5n6" path="res://scenes/player/player.tscn" id="1_l8ear"]
-[ext_resource type="Texture2D" uid="uid://dnd4hjlglk7bo" path="res://assets/art/fences.png" id="2_0x2jn"]
-[ext_resource type="Texture2D" uid="uid://bmdqtfgxrfajh" path="res://assets/art/hills.png" id="2_fxr34"]
-[ext_resource type="Texture2D" uid="uid://dr5tb8wchq7fq" path="res://assets/art/grass.png" id="3_yip4i"]
-[ext_resource type="PackedScene" uid="uid://bbwfnwqrlhl8n" path="res://scenes/kun/kun.tscn" id="6_58e3v"]
-[ext_resource type="PackedScene" uid="uid://drghvmfe4dg1i" path="res://scenes/UI/caught_chickens.tscn" id="7_8751o"]
-[ext_resource type="PackedScene" uid="uid://dci26b0jta0u3" path="res://scenes/death_countdown/death_countdown_ui.tscn" id="8_6dde7"]
-[ext_resource type="PackedScene" uid="uid://dsmgbaahbnxx7" path="res://scenes/UI/death_count.tscn" id="8_gn12n"]
-[ext_resource type="PackedScene" uid="uid://bi43kuo8aysxj" path="res://scenes/kun_house/kun_house.tscn" id="8_yevne"]
-[ext_resource type="PackedScene" uid="uid://dkudctx1718u4" path="res://scenes/enemy/enemy.tscn" id="9_560wv"]
-[ext_resource type="PackedScene" uid="uid://dfk4wljs5m6kc" path="res://scenes/enemy_spawner/enemy_spawner.tscn" id="10_iscgd"]
-[ext_resource type="PackedScene" uid="uid://byrlpyfasng2a" path="res://scenes/death_countdown/death_countdown.tscn" id="11_m1i0x"]
+[ext_resource type="Texture2D" uid="uid://77p03m6lvlck" path="res://assets/art/water.png" id="1_85ivb"]
+[ext_resource type="Texture2D" uid="uid://bmdqtfgxrfajh" path="res://assets/art/hills.png" id="2_lul38"]
+[ext_resource type="Texture2D" uid="uid://dr5tb8wchq7fq" path="res://assets/art/grass.png" id="3_8ihik"]
+[ext_resource type="Texture2D" uid="uid://dnd4hjlglk7bo" path="res://assets/art/fences.png" id="4_jps3f"]
+[ext_resource type="PackedScene" uid="uid://eeurcc2rw5n6" path="res://scenes/player/player.tscn" id="5_v5wkx"]
+[ext_resource type="PackedScene" uid="uid://bi43kuo8aysxj" path="res://scenes/kun_house/kun_house.tscn" id="6_p34uf"]
+[ext_resource type="PackedScene" uid="uid://drghvmfe4dg1i" path="res://scenes/UI/caught_chickens.tscn" id="7_lo7df"]
+[ext_resource type="PackedScene" uid="uid://dsmgbaahbnxx7" path="res://scenes/UI/death_count.tscn" id="8_n4ts6"]
+[ext_resource type="PackedScene" uid="uid://dci26b0jta0u3" path="res://scenes/death_countdown/death_countdown_ui.tscn" id="9_o4fp0"]
+[ext_resource type="PackedScene" uid="uid://bbwfnwqrlhl8n" path="res://scenes/kun/kun.tscn" id="10_l6e2d"]
+[ext_resource type="PackedScene" uid="uid://dfk4wljs5m6kc" path="res://scenes/enemy_spawner/enemy_spawner.tscn" id="11_yha8r"]
+[ext_resource type="PackedScene" uid="uid://dkudctx1718u4" path="res://scenes/enemy/enemy.tscn" id="12_tvnhi"]
+[ext_resource type="PackedScene" uid="uid://byrlpyfasng2a" path="res://scenes/death_countdown/death_countdown.tscn" id="13_7ypfa"]
+[ext_resource type="Script" path="res://scenes/game/game_data.gd" id="14_p8sh7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_sj7jw"]
 vertices = PackedVector2Array(118, 338, 102, 230, 155, 230, 155, 246, 187, 246, 187, 310, 580, 322, 325, 310, 325, 278, 331, 278, 331, 310, 501, 310, 501, 294, 517, 294, 517, 278, 549, 278, 549, 246, 581, 246, 581, 167, 549, 167, 549, 39, 583, 32, 443, 39, 443, 71, 373, 71, 373, 36, 91, 159, 72, 42, 91, 42, 459, 199, 437, 199, 437, 166, 459, 166, 315, 71, 213, 71, 213, 39, 315, 37, 485, 230, 485, 135, 523, 215, 523, 247, 491, 247, 325, 102, 325, 96, 363, 96, 363, 102, 357, 247, 469, 102, 469, 70, 523, 70, 523, 198, 555, 198, 555, 215, 411, 135, 411, 230, 491, 263, 475, 263, 475, 279, 357, 279, 299, 247, 299, 279, 213, 279, 213, 215, 181, 215, 181, 199, 187, 102, 117, 199, 117, 70, 187, 70)
@@ -21,7 +22,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(61, 33, 110, 349, 590, 
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wt2iu"]
-texture = ExtResource("1_jgakt")
+texture = ExtResource("1_85ivb")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -36,7 +37,7 @@ texture = ExtResource("1_jgakt")
 3:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sm4ml"]
-texture = ExtResource("2_fxr34")
+texture = ExtResource("2_lul38")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -147,7 +148,7 @@ texture = ExtResource("2_fxr34")
 5:5/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aqsut"]
-texture = ExtResource("3_yip4i")
+texture = ExtResource("3_8ihik")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -460,7 +461,7 @@ texture = ExtResource("3_yip4i")
 7:7/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0wsnt"]
-texture = ExtResource("2_0x2jn")
+texture = ExtResource("4_jps3f")
 0:0/0 = 0
 0:0/0/terrain_set = 1
 0:0/0/terrain = 0
@@ -618,10 +619,10 @@ layer_1/tile_data = PackedInt32Array(1179660, 65538, 5, 1179661, 131074, 5, 1179
 layer_2/name = "env"
 layer_2/tile_data = PackedInt32Array(196614, 65539, 0, 196615, 131075, 3, 262150, 3, 1, 327686, 3, 1, 393222, 3, 1, 458758, 3, 1, 524294, 3, 1, 589830, 3, 1, 655366, 3, 1, 720902, 3, 1, 786438, 3, 1, 851974, 65539, 2, 851975, 131075, 3, 196616, 131075, 3, 196617, 131075, 3, 196618, 131075, 3, 196619, 131075, 3, 851976, 131075, 3, 851977, 131075, 3, 851978, 196611, 0, 917514, 65539, 2, 917515, 131075, 3, 196620, 196611, 0, 262156, 3, 1, 327692, 65539, 2, 327693, 131075, 3, 327694, 131075, 3, 327695, 131075, 3, 917516, 196611, 0, 983052, 3, 1, 1048588, 3, 1, 1114124, 3, 1, 1179660, 65539, 2, 1179661, 131075, 3, 1179662, 131075, 3, 1179663, 131075, 3, 327696, 131075, 3, 327697, 131075, 3, 327698, 131075, 3, 327699, 196611, 3, 1048595, 65539, 0, 1114131, 3, 1, 1179664, 131075, 3, 1179665, 131075, 3, 1179666, 131075, 3, 1179667, 196611, 2, 327703, 65539, 3, 1048596, 131075, 3, 1048597, 196611, 0, 1114133, 3, 1, 1179669, 65539, 2, 1179670, 131075, 3, 1179671, 131075, 3, 327704, 131075, 3, 327705, 131075, 3, 327706, 131075, 3, 327707, 131075, 3, 589850, 65539, 0, 589851, 131075, 3, 655386, 3, 1, 720922, 3, 1, 786458, 3, 1, 851994, 65539, 2, 851995, 131075, 3, 1179672, 131075, 3, 1179673, 131075, 3, 1179674, 131075, 3, 1179675, 131075, 3, 196636, 65539, 0, 196637, 131075, 3, 196638, 131075, 3, 196639, 131075, 3, 262172, 3, 1, 327708, 196611, 2, 589852, 131075, 3, 589853, 196611, 0, 655389, 3, 1, 720925, 3, 1, 786461, 3, 1, 851996, 131075, 3, 851997, 196611, 2, 1048607, 65539, 0, 1114142, 65539, 0, 1114143, 196611, 2, 1179676, 131075, 3, 1179677, 131075, 3, 1179678, 196611, 2, 196640, 131075, 3, 196641, 196611, 0, 262177, 3, 1, 327713, 3, 1, 393249, 3, 1, 458785, 3, 1, 524321, 3, 1, 589857, 3, 1, 655393, 3, 1, 720929, 65539, 2, 720930, 131075, 3, 720931, 196611, 0, 786467, 3, 1, 852003, 3, 1, 917537, 65539, 0, 917538, 131075, 3, 917539, 196611, 2, 983073, 3, 1, 1048608, 131075, 3, 1048609, 196611, 2)
 
-[node name="Player" parent="." groups=["player"] instance=ExtResource("1_l8ear")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("5_v5wkx")]
 position = Vector2(334, 233)
 
-[node name="KunHouse" parent="." instance=ExtResource("8_yevne")]
+[node name="KunHouse" parent="." instance=ExtResource("6_p34uf")]
 position = Vector2(344, 79)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -632,13 +633,13 @@ offset_top = 10.0
 offset_right = 50.0
 offset_bottom = 56.0
 
-[node name="CaughtChickens" parent="CanvasLayer/CountUI" instance=ExtResource("7_8751o")]
+[node name="CaughtChickens" parent="CanvasLayer/CountUI" instance=ExtResource("7_lo7df")]
 layout_mode = 2
 
-[node name="DeathCount" parent="CanvasLayer/CountUI" instance=ExtResource("8_gn12n")]
+[node name="DeathCount" parent="CanvasLayer/CountUI" instance=ExtResource("8_n4ts6")]
 layout_mode = 2
 
-[node name="DeathCountdownUI" parent="CanvasLayer" instance=ExtResource("8_6dde7")]
+[node name="DeathCountdownUI" parent="CanvasLayer" instance=ExtResource("9_o4fp0")]
 visible = false
 anchors_preset = 5
 anchor_left = 0.5
@@ -649,21 +650,26 @@ offset_right = 48.0
 offset_bottom = 104.0
 grow_horizontal = 2
 
-[node name="Kun" parent="." instance=ExtResource("6_58e3v")]
+[node name="Kun" parent="." instance=ExtResource("10_l6e2d")]
 position = Vector2(167, 167)
 
-[node name="Kun2" parent="." instance=ExtResource("6_58e3v")]
+[node name="Kun2" parent="." instance=ExtResource("10_l6e2d")]
 position = Vector2(337, 134)
 
-[node name="Kun3" parent="." instance=ExtResource("6_58e3v")]
+[node name="Kun3" parent="." instance=ExtResource("10_l6e2d")]
 position = Vector2(513, 207)
 
-[node name="EnemySpawner" parent="." instance=ExtResource("10_iscgd")]
-enemy_packed_scene = ExtResource("9_560wv")
+[node name="EnemySpawner" parent="." instance=ExtResource("11_yha8r")]
+enemy_packed_scene = ExtResource("12_tvnhi")
 gradient = [5, 10, 15, 20, 25]
 
-[node name="DeathCountdown" parent="." instance=ExtResource("11_m1i0x")]
+[node name="DeathCountdown" parent="." instance=ExtResource("13_7ypfa")]
+
+[node name="GameData" type="Node" parent="."]
+script = ExtResource("14_p8sh7")
 
 [connection signal="died" from="Player" to="DeathCountdown" method="_on_player_died"]
+[connection signal="died" from="Player" to="GameData" method="_on_player_died"]
 [connection signal="kun_entered" from="KunHouse" to="EnemySpawner" method="on_kun_entered_to_house"]
+[connection signal="kun_entered" from="KunHouse" to="GameData" method="_on_kun_house_kun_entered"]
 [connection signal="countdown_timeout" from="DeathCountdown" to="Player" method="resuscitate"]

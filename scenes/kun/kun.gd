@@ -42,7 +42,6 @@ func _on_area_2d_body_exited(body):
 
 # 进入鸡窝
 func on_kun_house_received(area: Area2D):
-	DataManager.add_caught_kuns()
 	queue_free()
 	var fireworks: GPUParticles2D = fireworksParticle.instantiate()
 	get_parent().add_child(fireworks)
