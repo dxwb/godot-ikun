@@ -16,8 +16,8 @@ config/features=PackedStringArray("4.2", "GL Compatibility")
 
 [autoload]
 
-DataManager="*res://auto/data_manager.tscn"
 ParticlesCache="*res://auto/particles_cache.gd"
+SaverLoader="*res://auto/saver_loader/saver_loader.gd"
 
 [debug]
 

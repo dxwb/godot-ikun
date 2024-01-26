@@ -4,16 +4,18 @@ extends Node
 @onready var death_count:  = $"../CanvasLayer/CountUI/DeathCount"
 
 func _ready():
-	call_deferred("init")
+	init()
 
 func _on_player_died():
-	DataManager.add_death_count()
-	death_count.set_count_num(DataManager.data.DeathCount)
+	SaverLoader.running_data.death_count += 1
+	SaverLoader.save_game()
+	death_count.set_count_num(SaverLoader.running_data.death_count)
 
 func _on_kun_house_kun_entered(area):
-	DataManager.add_caught_kuns()
-	caught_chickens.set_kuns_num(DataManager.data.CaughtKuns)
+	SaverLoader.running_data.caught_kuns += 1
+	SaverLoader.save_game()
+	caught_chickens.set_kuns_num(SaverLoader.running_data.caught_kuns)
 
 func init():
-	caught_chickens.set_kuns_num(DataManager.data.CaughtKuns)
-	death_count.set_count_num(DataManager.data.DeathCount)
+	caught_chickens.set_kuns_num(SaverLoader.running_data.caught_kuns)
+	death_count.set_count_num(SaverLoader.running_data.death_count)
