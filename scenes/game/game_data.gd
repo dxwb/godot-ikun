@@ -9,13 +9,13 @@ func _ready():
 func _on_player_died():
 	SaverLoader.running_data.death_count += 1
 	SaverLoader.save_game()
-	death_count.set_count_num(SaverLoader.running_data.death_count)
+	death_count.set_num(SaverLoader.running_data.death_count)
 
 func _on_kun_house_kun_entered(area):
 	SaverLoader.running_data.caught_kuns += 1
 	SaverLoader.save_game()
-	caught_chickens.set_kuns_num(SaverLoader.running_data.caught_kuns)
+	caught_chickens.set_num(SaverLoader.running_data.caught_kuns)
 
 func init():
-	caught_chickens.set_kuns_num(SaverLoader.running_data.caught_kuns)
-	death_count.set_count_num(SaverLoader.running_data.death_count)
+	caught_chickens.set_num(SaverLoader.running_data.caught_kuns)
+	death_count.set_num(SaverLoader.running_data.death_count)

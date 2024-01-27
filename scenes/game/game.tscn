@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dkqfcysl5kgn8"]
+[gd_scene load_steps=22 format=3 uid="uid://dkqfcysl5kgn8"]
 
 [ext_resource type="Texture2D" uid="uid://77p03m6lvlck" path="res://assets/art/water.png" id="1_85ivb"]
 [ext_resource type="Texture2D" uid="uid://bmdqtfgxrfajh" path="res://assets/art/hills.png" id="2_lul38"]
@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dnd4hjlglk7bo" path="res://assets/art/fences.png" id="4_jps3f"]
 [ext_resource type="PackedScene" uid="uid://eeurcc2rw5n6" path="res://scenes/player/player.tscn" id="5_v5wkx"]
 [ext_resource type="PackedScene" uid="uid://bi43kuo8aysxj" path="res://scenes/kun_house/kun_house.tscn" id="6_p34uf"]
-[ext_resource type="PackedScene" uid="uid://drghvmfe4dg1i" path="res://scenes/UI/caught_chickens.tscn" id="7_lo7df"]
-[ext_resource type="PackedScene" uid="uid://dsmgbaahbnxx7" path="res://scenes/UI/death_count.tscn" id="8_n4ts6"]
+[ext_resource type="PackedScene" uid="uid://drghvmfe4dg1i" path="res://scenes/UI/count_ui.tscn" id="7_lo7df"]
+[ext_resource type="Texture2D" uid="uid://dljmp5rj6c3ef" path="res://assets/art/player.png" id="8_rvayy"]
 [ext_resource type="PackedScene" uid="uid://dci26b0jta0u3" path="res://scenes/death_countdown/death_countdown_ui.tscn" id="9_o4fp0"]
 [ext_resource type="PackedScene" uid="uid://bbwfnwqrlhl8n" path="res://scenes/kun/kun.tscn" id="10_l6e2d"]
 [ext_resource type="PackedScene" uid="uid://dfk4wljs5m6kc" path="res://scenes/enemy_spawner/enemy_spawner.tscn" id="11_yha8r"]
@@ -603,6 +603,10 @@ sources/1 = SubResource("TileSetAtlasSource_sm4ml")
 sources/2 = SubResource("TileSetAtlasSource_aqsut")
 sources/3 = SubResource("TileSetAtlasSource_0wsnt")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jg73y"]
+atlas = ExtResource("8_rvayy")
+region = Rect2(17, 16, 14, 16)
+
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 
@@ -636,8 +640,11 @@ offset_bottom = 56.0
 [node name="CaughtChickens" parent="CanvasLayer/CountUI" instance=ExtResource("7_lo7df")]
 layout_mode = 2
 
-[node name="DeathCount" parent="CanvasLayer/CountUI" instance=ExtResource("8_n4ts6")]
+[node name="DeathCount" parent="CanvasLayer/CountUI" instance=ExtResource("7_lo7df")]
 layout_mode = 2
+
+[node name="TextureRect" parent="CanvasLayer/CountUI/DeathCount/MarginContainer/HBoxContainer" index="0"]
+texture = SubResource("AtlasTexture_jg73y")
 
 [node name="DeathCountdownUI" parent="CanvasLayer" instance=ExtResource("9_o4fp0")]
 visible = false
@@ -673,3 +680,5 @@ script = ExtResource("14_p8sh7")
 [connection signal="kun_entered" from="KunHouse" to="EnemySpawner" method="on_kun_entered_to_house"]
 [connection signal="kun_entered" from="KunHouse" to="GameData" method="_on_kun_house_kun_entered"]
 [connection signal="countdown_timeout" from="DeathCountdown" to="Player" method="resuscitate"]
+
+[editable path="CanvasLayer/CountUI/DeathCount"]
