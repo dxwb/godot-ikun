@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "pkg": "^5.8.1"
+    "pkg": "^5.8.1",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.1/xlsx-0.20.1.tgz"
   }
 }

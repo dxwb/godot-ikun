@@ -1,3 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
 node_modules/
+data_source/converter/data_table.xlsx
+data_source/converter/csv/
