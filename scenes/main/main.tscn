@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://b233kmj3uif7v"]
+
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_w8toc"]
+[ext_resource type="Script" path="res://scenes/main/procedure_manager.gd" id="2_4plmt"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="3_obky0"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="4_r66c1"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_gofwv"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="6_8s3ni"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_w8toc")
+
+[node name="ProcedureManager" type="Node" parent="."]
+script = ExtResource("2_4plmt")
+
+[node name="StateChart" type="Node" parent="ProcedureManager"]
+script = ExtResource("3_obky0")
+
+[node name="Root" type="Node" parent="ProcedureManager/StateChart"]
+script = ExtResource("4_r66c1")
+initial_state = NodePath("Launch")
+
+[node name="Launch" type="Node" parent="ProcedureManager/StateChart/Root"]
+script = ExtResource("5_gofwv")
+
+[node name="To Loading" type="Node" parent="ProcedureManager/StateChart/Root/Launch"]
+script = ExtResource("6_8s3ni")
+to = NodePath("../../Loading")
+
+[node name="Loading" type="Node" parent="ProcedureManager/StateChart/Root"]
+script = ExtResource("5_gofwv")
+
+[node name="To BeginGame" type="Node" parent="ProcedureManager/StateChart/Root/Loading"]
+script = ExtResource("6_8s3ni")
+to = NodePath("../../BeginGame")
+event = &"loaded"
+
+[node name="BeginGame" type="Node" parent="ProcedureManager/StateChart/Root"]
+script = ExtResource("5_gofwv")
+
+[connection signal="state_entered" from="ProcedureManager/StateChart/Root/Loading" to="ProcedureManager" method="_on_loading_state_entered"]

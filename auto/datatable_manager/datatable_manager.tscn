@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://1hsp5qnjhjuo"]
+
+[ext_resource type="Script" path="res://auto/datatable_manager/datatable_manager.gd" id="1_dakgb"]
+
+[node name="DatatableManager" type="Node"]
+script = ExtResource("1_dakgb")
+datatable_path = "res://data_source/csv"
