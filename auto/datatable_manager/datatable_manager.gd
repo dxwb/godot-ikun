@@ -49,6 +49,7 @@ func _load_datatable(datatable_name: String) -> Dictionary:
 			var _d_desc: StringName = desc[i]
 			var _d_type: StringName = type_name[i]
 
+			# TODO 补充类型解析
 			match _d_type:
 				"int":
 					row[_d_name] = raw_row_data[i].to_int() if raw_row_data[i] != "" else 0
@@ -67,3 +68,8 @@ func _emit_load_completed(_name, data):
 
 func _emit_all_load_completed():
 	all_load_completed.emit(_datatable_dics)
+
+func get_data(data_name: String) -> Dictionary:
+	var data = _datatable_dics[data_name]
+	assert(data != null, "没有名为“" + data_name + "”的数据")
+	return data

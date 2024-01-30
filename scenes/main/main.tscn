@@ -38,4 +38,6 @@ event = &"loaded"
 [node name="BeginGame" type="Node" parent="ProcedureManager/StateChart/Root"]
 script = ExtResource("5_gofwv")
 
+[connection signal="begin_game" from="ProcedureManager" to="." method="_on_procedure_manager_begin_game"]
 [connection signal="state_entered" from="ProcedureManager/StateChart/Root/Loading" to="ProcedureManager" method="_on_loading_state_entered"]
+[connection signal="state_entered" from="ProcedureManager/StateChart/Root/BeginGame" to="ProcedureManager" method="_on_begin_game_state_entered"]
