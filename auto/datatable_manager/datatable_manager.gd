@@ -16,18 +16,15 @@ func _exit_tree():
 func load_datatables(datatable_names: PackedStringArray) -> void:
 	if can_async:
 		thread.start(_load_datatables.bind(datatable_names))
-		#var ret = thread.wait_to_finish()
-		#for name in datatable_names:
-			#var data = ret[name]
-			#load_completed.emit(name, data)
 	else:
 		_load_datatables(datatable_names)
 
 func _load_datatables(datatable_names: PackedStringArray) -> void:
-	for name in datatable_names:
-		var data = _load_datatable(name)
-		load_completed.emit(name, data)
-	all_load_completed.emit(_datatable_dics)
+	for _name in datatable_names:
+		var data = _load_datatable(_name)
+		_emit_load_completed.call_deferred(_name, data)
+
+	_emit_all_load_completed.call_deferred()
 
 # 加载数据表
 func _load_datatable(datatable_name: String) -> Dictionary:
@@ -64,3 +61,9 @@ func _load_datatable(datatable_name: String) -> Dictionary:
 	_datatable_dics[datatable_name] = result
 
 	return result
+
+func _emit_load_completed(_name, data):
+	load_completed.emit(_name, data)
+
+func _emit_all_load_completed():
+	all_load_completed.emit(_datatable_dics)
