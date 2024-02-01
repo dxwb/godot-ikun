@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhgi2dlwvdfds"]
+
+[ext_resource type="Script" path="res://auto/challenge_service/challenge_service.gd" id="1_38gjo"]
+
+[node name="ChallengeService" type="Node"]
+script = ExtResource("1_38gjo")

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dnd4hjlglk7bo" path="res://assets/art/fences.png" id="4_jps3f"]
 [ext_resource type="PackedScene" uid="uid://eeurcc2rw5n6" path="res://scenes/player/player.tscn" id="5_v5wkx"]
 [ext_resource type="PackedScene" uid="uid://bi43kuo8aysxj" path="res://scenes/kun_house/kun_house.tscn" id="6_p34uf"]
-[ext_resource type="PackedScene" uid="uid://drghvmfe4dg1i" path="res://scenes/UI/count_ui.tscn" id="7_lo7df"]
+[ext_resource type="PackedScene" uid="uid://drghvmfe4dg1i" path="res://scenes/UI/count_ui/count_ui.tscn" id="7_lo7df"]
 [ext_resource type="Texture2D" uid="uid://dljmp5rj6c3ef" path="res://assets/art/player.png" id="8_rvayy"]
 [ext_resource type="PackedScene" uid="uid://dci26b0jta0u3" path="res://scenes/death_countdown/death_countdown_ui.tscn" id="9_o4fp0"]
 [ext_resource type="PackedScene" uid="uid://bbwfnwqrlhl8n" path="res://scenes/kun/kun.tscn" id="10_l6e2d"]

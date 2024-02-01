@@ -1,6 +1,6 @@
-ID,name,title,rarity,texture,condition,note
-ID,名称,显示名称,稀有度,图片纹理,获取条件,备注
-string,string,string,string,string,string,string
-1,first_kun,第一只鸡,下,res://assets/kun_pictures/first_kun.jpg,将一只小鸡赶入鸡窝,这是一个备注
-2,hello_ghost,鬼来了,中,res://assets/kun_pictures/hello_ghost.jpg,召唤出幽灵,他们来了…
-3,first_blood,一血,上,res://assets/kun_pictures/first_blood.jpg,死亡一次,早死早超生
+ID,title,rarity,texture,condition,note
+ID,显示名称,稀有度,图片纹理,获取条件,备注
+string,string,string,string,string,string
+first_kun,第一只鸡,下,res://assets/kun_pictures/first_kun.jpg,将一只小鸡赶入鸡窝,这是一个备注
+hello_ghost,鬼来了,中,res://assets/kun_pictures/hello_ghost.jpg,召唤出幽灵,他们来了…
+first_blood,一血,上,res://assets/kun_pictures/first_blood.jpg,死亡一次,早死早超生
