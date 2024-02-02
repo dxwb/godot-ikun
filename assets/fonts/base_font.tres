@@ -1,6 +1,0 @@
-[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://j1j4fkxw5b5f"]
-
-[ext_resource type="FontFile" uid="uid://d05ubkhhhg7px" path="res://assets/fonts/VonwaonBitmap-16pxLite.ttf" id="1_wc45h"]
-
-[resource]
-base_font = ExtResource("1_wc45h")

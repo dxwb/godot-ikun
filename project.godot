@@ -48,6 +48,10 @@ enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
 
 import/blender/enabled=false
 
+[gui]
+
+theme/custom="res://themes/default_theme.tres"
+
 [input]
 
 walk_up={
