@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dkqfcysl5kgn8"]
+[gd_scene load_steps=24 format=3 uid="uid://dkqfcysl5kgn8"]
 
 [ext_resource type="Texture2D" uid="uid://77p03m6lvlck" path="res://assets/art/water.png" id="1_85ivb"]
 [ext_resource type="Texture2D" uid="uid://bmdqtfgxrfajh" path="res://assets/art/hills.png" id="2_lul38"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dci26b0jta0u3" path="res://scenes/death_countdown/death_countdown_ui.tscn" id="9_o4fp0"]
 [ext_resource type="PackedScene" uid="uid://bbwfnwqrlhl8n" path="res://scenes/kun/kun.tscn" id="10_l6e2d"]
 [ext_resource type="PackedScene" uid="uid://jen87ijxmgm4" path="res://scenes/UI/challenge_ui/challenge_completed_notice.tscn" id="10_rpa7j"]
+[ext_resource type="PackedScene" uid="uid://b4l1llduemqit" path="res://scenes/UI/pause_menu/pause_menu.tscn" id="11_c5d7d"]
 [ext_resource type="PackedScene" uid="uid://dfk4wljs5m6kc" path="res://scenes/enemy_spawner/enemy_spawner.tscn" id="11_yha8r"]
 [ext_resource type="PackedScene" uid="uid://dkudctx1718u4" path="res://scenes/enemy/enemy.tscn" id="12_tvnhi"]
 [ext_resource type="PackedScene" uid="uid://byrlpyfasng2a" path="res://scenes/death_countdown/death_countdown.tscn" id="13_7ypfa"]
@@ -659,6 +660,8 @@ offset_bottom = 104.0
 grow_horizontal = 2
 
 [node name="ChallengeCompletedNotice" parent="CanvasLayer" instance=ExtResource("10_rpa7j")]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_c5d7d")]
 
 [node name="Kun" parent="." instance=ExtResource("10_l6e2d")]
 position = Vector2(167, 167)
