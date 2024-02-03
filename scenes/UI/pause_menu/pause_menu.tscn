@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4l1llduemqit"]
+
+[ext_resource type="Script" path="res://scenes/UI/pause_menu/pause_menu.gd" id="1_sbhy6"]
+[ext_resource type="Texture2D" uid="uid://hsusvm6gy58v" path="res://assets/art/UI_books.png" id="2_brsjr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir420"]
+atlas = ExtResource("2_brsjr")
+region = Rect2(688, 208, 16, 16)
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sbhy6")
+icon = SubResource("AtlasTexture_ir420")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -138.0
+offset_right = 113.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChallengePanel" type="PanelContainer" parent="TabContainer"]
+layout_mode = 2
+theme_type_variation = &"MenuPanelContainer"
+
+[node name="Label" type="Label" parent="TabContainer/ChallengePanel"]
+layout_mode = 2
+text = "111"
+
+[node name="SettingPanel" type="PanelContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_type_variation = &"MenuPanelContainer"
+
+[node name="Label" type="Label" parent="TabContainer/SettingPanel"]
+layout_mode = 2
+text = "222"
