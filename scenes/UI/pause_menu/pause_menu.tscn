@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scenes/UI/pause_menu/pause_menu.gd" id="1_sbhy6"]
 [ext_resource type="Texture2D" uid="uid://hsusvm6gy58v" path="res://assets/art/UI_books.png" id="2_brsjr"]
+[ext_resource type="PackedScene" uid="uid://c50uu5paig2ut" path="res://scenes/UI/pause_menu/challenge_panel/challenge_panel.tscn" id="3_dp1ap"]
 [ext_resource type="PackedScene" uid="uid://cqwj1cct67j22" path="res://scenes/UI/pause_menu/menu_panel.tscn" id="3_ieo57"]
-[ext_resource type="PackedScene" uid="uid://c50uu5paig2ut" path="res://scenes/UI/pause_menu/challenge_panel.tscn" id="3_wx8fe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ir420"]
 atlas = ExtResource("2_brsjr")
@@ -52,7 +52,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ChallengePanel" parent="Control/TabContainer" instance=ExtResource("3_wx8fe")]
+[node name="ChallengePanel" parent="Control/TabContainer" instance=ExtResource("3_dp1ap")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="SettingPanel" parent="Control/TabContainer" instance=ExtResource("3_ieo57")]

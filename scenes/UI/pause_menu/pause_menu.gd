@@ -3,6 +3,7 @@ extends Control
 @export var icon: Texture2D
 
 @onready var tab_container = %TabContainer
+@onready var challenge_panel = %ChallengePanel
 
 func _ready():
 	var _children = tab_container.get_children()
@@ -20,6 +21,7 @@ func _unhandled_key_input(event):
 func open():
 	show()
 	get_tree().paused = true
+	challenge_panel.render_challenges()
 
 func close():
 	hide()
