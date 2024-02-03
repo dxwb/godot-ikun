@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scenes/UI/challenge_ui/challenge_completed_notice.gd" id="1_7b6aj"]
 
 [node name="ChallengeCompletedNotice" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
@@ -12,13 +13,14 @@ size_flags_vertical = 0
 script = ExtResource("1_7b6aj")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -33.0
-offset_right = 33.0
-offset_bottom = 43.0
+offset_left = -40.0
+offset_top = -53.0
+offset_right = 40.0
 grow_horizontal = 2
 theme_type_variation = &"NoticePanelContainer"
 
@@ -51,3 +53,7 @@ expand_mode = 1
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
