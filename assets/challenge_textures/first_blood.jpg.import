@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2raensvv146r"
-path="res://.godot/imported/hello_ghost.jpg-a7e5dac7ab28544226e93c0cb7fdafe3.ctex"
+uid="uid://g2jpwo3ix6yo"
+path="res://.godot/imported/first_blood.jpg-06413562241ee638accb05664446692e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/kun_pictures/hello_ghost.jpg"
-dest_files=["res://.godot/imported/hello_ghost.jpg-a7e5dac7ab28544226e93c0cb7fdafe3.ctex"]
+source_file="res://assets/challenge_textures/first_blood.jpg"
+dest_files=["res://.godot/imported/first_blood.jpg-06413562241ee638accb05664446692e.ctex"]
 
 [params]
 

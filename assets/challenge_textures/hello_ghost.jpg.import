@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pmqknhwwg5h5"
-path="res://.godot/imported/first_kun.jpg-3517da5a4326b394ea858f492c1eb238.ctex"
+uid="uid://c2raensvv146r"
+path="res://.godot/imported/hello_ghost.jpg-4b19b12188b334b36927cc30e308bd51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/kun_pictures/first_kun.jpg"
-dest_files=["res://.godot/imported/first_kun.jpg-3517da5a4326b394ea858f492c1eb238.ctex"]
+source_file="res://assets/challenge_textures/hello_ghost.jpg"
+dest_files=["res://.godot/imported/hello_ghost.jpg-4b19b12188b334b36927cc30e308bd51.ctex"]
 
 [params]
 
