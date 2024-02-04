@@ -1,0 +1,12 @@
+ID,title,group,value,rarity,texture,condition,note
+ID,显示名称,挑战所属分组,达成所需数值,稀有度,图片纹理,获取条件,备注
+string,string,string,int,string,string,string,string
+first_kun,第一只鸡,KUNS,1,下,res://assets/kun_pictures/first_kun.jpg,将一只小鸡赶入鸡窝,一
+ten_kuns,十只鸡,KUNS,10,中,res://assets/kun_pictures/first_kun.jpg,将十只小鸡赶入鸡窝,十
+fifty_chickens,五十只鸡！,KUNS,50,上,res://assets/kun_pictures/first_kun.jpg,将五十只小鸡赶入鸡窝,五十
+hello_ghost,鬼来了,GHOST,1,下,res://assets/kun_pictures/hello_ghost.jpg,召唤出幽灵,他们来了…
+three_ghost,三个鬼,GHOST,3,中,res://assets/kun_pictures/hello_ghost.jpg,召唤出3个幽灵,三鬼行…
+five_ghost,五个鬼,GHOST,5,上,res://assets/kun_pictures/hello_ghost.jpg,召唤出5个幽灵,五鬼搬运法…
+first_blood,一血,BLOOD,1,下,res://assets/kun_pictures/first_blood.jpg,死亡一次,早死早超生
+five_blood,杀人如麻,BLOOD,5,中,res://assets/kun_pictures/first_blood.jpg,死亡五次,是被杀人如麻
+ten_blood,超鬼,BLOOD,10,上,res://assets/kun_pictures/first_blood.jpg,死亡十次,有人超神，有人超鬼

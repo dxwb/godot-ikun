@@ -4,7 +4,7 @@ extends Node
 
 signal begin_game()
 
-var datatable_names = ["kun_pictures"]
+var datatable_names = ["challenges"]
 
 func _ready():
 	DatatableManager.all_load_completed.connect(_on_datatable_manager_all_load_completed)
@@ -20,7 +20,7 @@ func _on_datatable_manager_all_load_completed(data: Dictionary):
 
 # 为各个系统派发数据
 func _dispatch_data():
-	ChallengeService.challenges = DatatableManager.get_data("kun_pictures")
+	ChallengeService.challenges = DatatableManager.get_data("challenges")
 
 # 开始游戏
 func _on_begin_game_state_entered():

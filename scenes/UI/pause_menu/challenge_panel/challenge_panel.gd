@@ -11,7 +11,7 @@ func _ready():
 	ui_root = get_tree().get_first_node_in_group("ui_canvas_layer")
 
 func render_challenges():
-	var challenges = DatatableManager.get_data("kun_pictures")
+	var challenges = DatatableManager.get_data("challenges")
 
 	for child in grid_container.get_children():
 		child.queue_free()
