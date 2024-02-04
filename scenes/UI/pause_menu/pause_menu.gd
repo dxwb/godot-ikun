@@ -1,7 +1,5 @@
 extends Control
 
-@export var icon: Texture2D
-
 @onready var tab_container = %TabContainer
 @onready var challenge_panel = %ChallengePanel
 
