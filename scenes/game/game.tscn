@@ -631,7 +631,7 @@ position = Vector2(334, 233)
 [node name="KunHouse" parent="." instance=ExtResource("6_p34uf")]
 position = Vector2(344, 79)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["ui_canvas_layer"]]
 
 [node name="CountUI" type="VBoxContainer" parent="CanvasLayer"]
 offset_left = 10.0

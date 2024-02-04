@@ -32,6 +32,8 @@ func _on_mouse_exited():
 	tween.tween_property(self, "scale", Vector2(1, 1), .1)
 
 func _on_gui_input(event):
+	if not check: return
+
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			click.emit()
