@@ -13,5 +13,8 @@ func render_challenges():
 		var chal_data = challenges[chal_id]
 		var item = item_scene.instantiate()
 
-		item.call_deferred("set_challenge", chal_data)
 		grid_container.add_child(item)
+
+		var check = SaverLoader.running_data.challenges_completed.has(chal_id)
+		item.call_deferred("set_challenge", chal_data)
+		item.call_deferred("set_check", check)

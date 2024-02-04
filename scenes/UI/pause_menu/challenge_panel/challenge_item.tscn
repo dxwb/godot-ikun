@@ -1,27 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://dvnknis7eol6u"]
 
+[ext_resource type="StyleBox" uid="uid://bvqblbhl76hkg" path="res://scenes/UI/pause_menu/challenge_panel/item_check_style.tres" id="1_fith2"]
 [ext_resource type="Script" path="res://scenes/UI/pause_menu/challenge_panel/challenge_item.gd" id="1_r4bqq"]
 [ext_resource type="Texture2D" uid="uid://g2jpwo3ix6yo" path="res://assets/kun_pictures/first_blood.jpg" id="2_cu6ab"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64umm"]
-content_margin_left = 5.0
-content_margin_top = 3.0
-content_margin_right = 5.0
-content_margin_bottom = 3.0
-bg_color = Color(0.992157, 0.819608, 0.47451, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-shadow_color = Color(0, 0, 0, 0.294118)
-shadow_size = 2
 
 [node name="ChallengeItem" type="PanelContainer"]
 offset_right = 21.0
 offset_bottom = 16.0
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_64umm")
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = ExtResource("1_fith2")
 script = ExtResource("1_r4bqq")
+check = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -39,3 +29,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "asdasd"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
