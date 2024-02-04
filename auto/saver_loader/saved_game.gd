@@ -7,4 +7,7 @@ class_name SavedGame
 # 死亡次数
 @export var death_count := 0
 
+# 招鬼次数
+@export var ghost_spawn_count := 0
+
 @export var challenges_completed: Array[StringName] = []

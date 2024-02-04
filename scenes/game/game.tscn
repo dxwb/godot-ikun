@@ -685,6 +685,7 @@ script = ExtResource("14_p8sh7")
 [connection signal="died" from="Player" to="GameData" method="_on_player_died"]
 [connection signal="kun_entered" from="KunHouse" to="EnemySpawner" method="on_kun_entered_to_house"]
 [connection signal="kun_entered" from="KunHouse" to="GameData" method="_on_kun_house_kun_entered"]
+[connection signal="enemy_spawned" from="EnemySpawner" to="GameData" method="_on_enemy_spawner_enemy_spawned"]
 [connection signal="countdown_timeout" from="DeathCountdown" to="Player" method="resuscitate"]
 
 [editable path="CanvasLayer/CountUI/DeathCount"]

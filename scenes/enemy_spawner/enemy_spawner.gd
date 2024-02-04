@@ -3,6 +3,8 @@ extends Node
 @export var enemy_packed_scene: PackedScene
 @export var gradient: Array
 
+signal enemy_spawned(enemy: Enemy)
+
 var kun_count = 0
 var index = 0
 var current_enemy: Enemy# 确保场景中只有一个敌人
@@ -26,6 +28,8 @@ func on_kun_entered_to_house(area: Area2D):
 
 		if index + 1 < gradient.size():
 			index += 1
+
+		enemy_spawned.emit(enemy)
 
 # 获取屏幕外随机坐标
 func get_random_position():
