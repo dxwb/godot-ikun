@@ -1,10 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://eeurcc2rw5n6"]
+[gd_scene load_steps=32 format=3 uid="uid://eeurcc2rw5n6"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_b03eb"]
 [ext_resource type="Texture2D" uid="uid://dljmp5rj6c3ef" path="res://assets/art/player.png" id="1_vra16"]
 [ext_resource type="PackedScene" uid="uid://dptrlrbvlka5d" path="res://VFX/smoke/smoke.tscn" id="2_d8w1c"]
 [ext_resource type="PackedScene" uid="uid://cvywdgu4qrx1c" path="res://VFX/blood/blood.tscn" id="3_vmc5q"]
 [ext_resource type="PackedScene" uid="uid://df1kk6okomxoo" path="res://entities/enemy/hurt_receiver.tscn" id="4_p6rfv"]
+[ext_resource type="PackedScene" uid="uid://bi0sx3gir7eop" path="res://common/zone/zone.tscn" id="6_vvaj2"]
 
 [sub_resource type="Animation" id="Animation_axld4"]
 resource_name = "dead"
@@ -233,6 +234,9 @@ graph_offset = Vector2(162, -30)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6s8fg"]
 size = Vector2(12, 6)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3kxp7"]
+radius = 101.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 motion_mode = 1
@@ -274,5 +278,11 @@ sprite = NodePath("../Sprite2D")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtReceiver"]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_6s8fg")
+
+[node name="PickUpZone" parent="." instance=ExtResource("6_vvaj2")]
+entered_receiver = "PickUpReceiver"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpZone"]
+shape = SubResource("CircleShape2D_3kxp7")
 
 [connection signal="hurted" from="HurtReceiver" to="." method="_on_hurt_receiver_hurted"]

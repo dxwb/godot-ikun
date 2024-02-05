@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfosurdxu805n"]
+[gd_scene load_steps=3 format=3 uid="uid://cfosurdxu805n"]
 
 [ext_resource type="Script" path="res://common/loot/loot_bag.gd" id="1_mjwbl"]
+[ext_resource type="PackedScene" uid="uid://b8i2j5ngdksvi" path="res://common/loot/loot.tscn" id="2_8wuqv"]
 
 [node name="LootBag" type="Node"]
 script = ExtResource("1_mjwbl")
+loot_scene = ExtResource("2_8wuqv")
