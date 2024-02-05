@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://do4gtca4bjigf"]
 
-[ext_resource type="Script" path="res://utils/receiver.gd" id="1_tm8ca"]
+[ext_resource type="Script" path="res://common/zone/receiver.gd" id="1_tm8ca"]
 
 [node name="Receiver" type="Area2D"]
 collision_layer = 4

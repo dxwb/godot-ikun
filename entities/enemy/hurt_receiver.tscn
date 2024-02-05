@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://df1kk6okomxoo"]
 
-[ext_resource type="PackedScene" uid="uid://do4gtca4bjigf" path="res://utils/receiver.tscn" id="1_8aowu"]
+[ext_resource type="PackedScene" uid="uid://do4gtca4bjigf" path="res://common/zone/receiver.tscn" id="1_8aowu"]
 [ext_resource type="Script" path="res://entities/enemy/hurt_receiver.gd" id="2_fetbr"]
 
 [node name="HurtReceiver" instance=ExtResource("1_8aowu")]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://entities/enemy/enemy.gd" id="1_vsdc2"]
 [ext_resource type="Texture2D" uid="uid://bf4d7sqhtw2b2" path="res://assets/art/ghost.png" id="2_0o3ri"]
 [ext_resource type="Texture2D" uid="uid://cm4ynje5cv3ox" path="res://assets/art/vortex.png" id="2_8auif"]
-[ext_resource type="PackedScene" uid="uid://bi0sx3gir7eop" path="res://utils/zone.tscn" id="4_wtes2"]
+[ext_resource type="PackedScene" uid="uid://bi0sx3gir7eop" path="res://common/zone/zone.tscn" id="4_wtes2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7xk2j"]
 atlas = ExtResource("2_8auif")
