@@ -4,6 +4,7 @@ extends StaticBody2D
 
 @onready var sprite_2d = $Sprite2D
 @onready var spawn_timer = $SpawnTimer
+@onready var loot_bag = $LootBag
 
 signal kun_entered(area: Area2D)
 
@@ -20,11 +21,13 @@ func _on_zone_triggered(area: Area2D):
 	kun_count -= 1
 	emit_signal("kun_entered", area)
 
+	loot_bag.drop()
+
 # 让小鸡从鸡舍里面逃出来
 func _on_spawn_timer_timeout():
 	# 场景中最多10只小鸡
 	if kun_count >= 10: return
-	
+
 	var x = randi_range(-200, 200)
 	var y = randi_range(50, 200)
 	var pos = global_position + Vector2(x, y)

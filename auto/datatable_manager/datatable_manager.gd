@@ -53,6 +53,8 @@ func _load_datatable(datatable_name: String) -> Dictionary:
 			match _d_type:
 				"int":
 					row[_d_name] = raw_row_data[i].to_int() if raw_row_data[i] != "" else 0
+				"float":
+					row[_d_name] = raw_row_data[i].to_float() if raw_row_data[i] != "" else 0.0
 				"string":
 					row[_d_name] = raw_row_data[i]
 

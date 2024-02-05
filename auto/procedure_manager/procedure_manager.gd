@@ -4,7 +4,7 @@ extends Node
 
 signal begin_game()
 
-var datatable_names = ["challenges"]
+var datatable_names = ["challenges", "cards"]
 
 func _ready():
 	DatatableManager.all_load_completed.connect(_on_datatable_manager_all_load_completed)

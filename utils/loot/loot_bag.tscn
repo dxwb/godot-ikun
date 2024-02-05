@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfosurdxu805n"]
+
+[ext_resource type="Script" path="res://utils/loot/loot_bag.gd" id="1_mjwbl"]
+
+[node name="LootBag" type="Node"]
+script = ExtResource("1_mjwbl")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi43kuo8aysxj"]
+[gd_scene load_steps=8 format=3 uid="uid://bi43kuo8aysxj"]
 
 [ext_resource type="Texture2D" uid="uid://cuind7wt3ujbq" path="res://assets/art/chicken_house.png" id="1_8ghob"]
 [ext_resource type="Script" path="res://entities/kun_house/kun_house.gd" id="1_ytxj6"]
 [ext_resource type="PackedScene" uid="uid://bbwfnwqrlhl8n" path="res://entities/kun/kun.tscn" id="2_7ejlm"]
 [ext_resource type="PackedScene" uid="uid://bi0sx3gir7eop" path="res://utils/zone.tscn" id="4_nm5b8"]
+[ext_resource type="PackedScene" uid="uid://cfosurdxu805n" path="res://utils/loot/loot_bag.tscn" id="5_5jk40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ebkg"]
 size = Vector2(38, 44)
@@ -33,6 +34,8 @@ position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_imp41")
 
 [node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="LootBag" parent="." instance=ExtResource("5_5jk40")]
 
 [connection signal="entered" from="Zone" to="." method="_on_zone_triggered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
