@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dkqfcysl5kgn8"]
+[gd_scene load_steps=23 format=3 uid="uid://dkqfcysl5kgn8"]
 
 [ext_resource type="Texture2D" uid="uid://77p03m6lvlck" path="res://assets/art/water.png" id="1_85ivb"]
 [ext_resource type="Texture2D" uid="uid://bmdqtfgxrfajh" path="res://assets/art/hills.png" id="2_lul38"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://bbwfnwqrlhl8n" path="res://entities/kun/kun.tscn" id="10_l6e2d"]
 [ext_resource type="PackedScene" uid="uid://jen87ijxmgm4" path="res://UI/challenge_ui/challenge_completed_notice.tscn" id="10_rpa7j"]
 [ext_resource type="PackedScene" uid="uid://b4l1llduemqit" path="res://UI/pause_menu/pause_menu.tscn" id="11_c5d7d"]
-[ext_resource type="PackedScene" uid="uid://dkudctx1718u4" path="res://entities/enemy/enemy.tscn" id="12_tvnhi"]
 [ext_resource type="Script" path="res://scenes/game/enemy_spawner.gd" id="13_g3bpi"]
 [ext_resource type="Script" path="res://scenes/game/game_data.gd" id="14_p8sh7"]
 [ext_resource type="Script" path="res://scenes/game/death_countdown.gd" id="15_adx2e"]
@@ -674,8 +673,6 @@ position = Vector2(513, 207)
 
 [node name="EnemySpawner" type="Node" parent="."]
 script = ExtResource("13_g3bpi")
-enemy_packed_scene = ExtResource("12_tvnhi")
-gradient = [5, 10, 15, 20, 25]
 
 [node name="DeathCountdown" type="Timer" parent="."]
 script = ExtResource("15_adx2e")
@@ -683,9 +680,7 @@ script = ExtResource("15_adx2e")
 [node name="GameData" type="Node" parent="."]
 script = ExtResource("14_p8sh7")
 
-[connection signal="died" from="Player" to="DeathCountdown" method="_on_player_died"]
 [connection signal="died" from="Player" to="GameData" method="_on_player_died"]
-[connection signal="kun_entered" from="KunHouse" to="EnemySpawner" method="on_kun_entered_to_house"]
 [connection signal="kun_entered" from="KunHouse" to="GameData" method="_on_kun_house_kun_entered"]
 [connection signal="enemy_spawned" from="EnemySpawner" to="GameData" method="_on_enemy_spawner_enemy_spawned"]
 [connection signal="countdown_timeout" from="DeathCountdown" to="Player" method="resuscitate"]

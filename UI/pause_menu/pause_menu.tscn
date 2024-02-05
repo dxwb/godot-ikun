@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4l1llduemqit"]
+
+[ext_resource type="Script" path="res://UI/pause_menu/pause_menu.gd" id="1_sbhy6"]
+[ext_resource type="Texture2D" uid="uid://hsusvm6gy58v" path="res://assets/art/UI_books.png" id="2_brsjr"]
+[ext_resource type="PackedScene" uid="uid://c50uu5paig2ut" path="res://UI/pause_menu/challenge_panel/challenge_panel.tscn" id="3_dp1ap"]
+[ext_resource type="PackedScene" uid="uid://cqwj1cct67j22" path="res://UI/pause_menu/menu_panel.tscn" id="3_ieo57"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir420"]
+atlas = ExtResource("2_brsjr")
+region = Rect2(688, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7par"]
+atlas = ExtResource("2_brsjr")
+region = Rect2(688, 224, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t10g"]
+atlas = ExtResource("2_brsjr")
+region = Rect2(784, 208, 16, 16)
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sbhy6")
+icon = SubResource("AtlasTexture_ir420")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = -149.0
+offset_right = 204.0
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChallengePanel" parent="Control/TabContainer" instance=ExtResource("3_dp1ap")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SettingPanel" parent="Control/TabContainer" instance=ExtResource("3_ieo57")]
+visible = false
+layout_mode = 2
+icon = SubResource("AtlasTexture_x7par")
+
+[node name="Label" type="Label" parent="Control/TabContainer/SettingPanel"]
+layout_mode = 2
+text = "222"
+
+[node name="CloseButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_right = -8.0
+offset_bottom = 24.0
+grow_horizontal = 0
+icon = SubResource("AtlasTexture_8t10g")
+
+[connection signal="pressed" from="Control/CloseButton" to="." method="_on_close_button_pressed"]
