@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://cqwj1cct67j22" path="res://UI/pause_menu/menu_panel.tscn" id="1_4lp7s"]
 [ext_resource type="Script" path="res://UI/pause_menu/challenge_panel/challenge_panel.gd" id="2_wkrq1"]
-[ext_resource type="Texture2D" uid="uid://hsusvm6gy58v" path="res://assets/art/UI_books.png" id="3_nnrhe"]
 [ext_resource type="PackedScene" uid="uid://bgbjpa05uanhu" path="res://UI/pause_menu/challenge_panel/challenge_card.tscn" id="4_43ybm"]
 [ext_resource type="PackedScene" uid="uid://dvnknis7eol6u" path="res://UI/pause_menu/challenge_panel/challenge_item.tscn" id="4_ctr1c"]
+[ext_resource type="Texture2D" uid="uid://dwubf3o5hpss0" path="res://assets/art/icons.png" id="5_b8jp6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30rjq"]
 content_margin_left = 10.0
@@ -13,9 +13,9 @@ content_margin_right = 10.0
 content_margin_bottom = 10.0
 draw_center = false
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_604ac"]
-atlas = ExtResource("3_nnrhe")
-region = Rect2(736, 176, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbgqg"]
+atlas = ExtResource("5_b8jp6")
+region = Rect2(272, 176, 16, 16)
 
 [node name="ChallengePanel" instance=ExtResource("1_4lp7s")]
 offset_right = 185.0
@@ -24,7 +24,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_30rjq")
 script = ExtResource("2_wkrq1")
 item_scene = ExtResource("4_ctr1c")
 card_scene = ExtResource("4_43ybm")
-icon = SubResource("AtlasTexture_604ac")
+icon = SubResource("AtlasTexture_lbgqg")
 
 [node name="GridContainer" type="GridContainer" parent="." index="0"]
 unique_name_in_owner = true

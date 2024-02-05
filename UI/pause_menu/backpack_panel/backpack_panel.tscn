@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxsq4xo0mdscc"]
+
+[ext_resource type="PackedScene" uid="uid://cqwj1cct67j22" path="res://UI/pause_menu/menu_panel.tscn" id="1_3m60c"]
+[ext_resource type="Texture2D" uid="uid://dwubf3o5hpss0" path="res://assets/art/icons.png" id="2_dy4hj"]
+[ext_resource type="Script" path="res://UI/pause_menu/backpack_panel/backpack_panel.gd" id="2_gql3j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ionfg"]
+atlas = ExtResource("2_dy4hj")
+region = Rect2(80, 240, 16, 16)
+
+[node name="BackpackPanel" instance=ExtResource("1_3m60c")]
+offset_right = 397.0
+offset_bottom = 276.0
+script = ExtResource("2_gql3j")
+icon = SubResource("AtlasTexture_ionfg")
+
+[node name="GridContainer" type="GridContainer" parent="." index="0"]
+layout_mode = 2
+columns = 5
