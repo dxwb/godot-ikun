@@ -19,7 +19,7 @@ func complete_challenge_by_group(group_name: StringName, value: int):
 	var chals = get_challenge_by_group(group_name)
 	for chal_data in chals:
 		if value >= chal_data.value:
-			complete_challenge(chal_data.ID)
+			complete_challenge(chal_data.name_id)
 
 func get_challenge_by_group(group_name: StringName) -> Array[Dictionary]:
 	var result: Array[Dictionary] = []

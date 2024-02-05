@@ -59,7 +59,7 @@ func _load_datatable(datatable_name: String) -> Dictionary:
 					row[_d_name] = raw_row_data[i]
 
 		if not row.is_empty():
-			result[StringName(row["ID"])] = row
+			result[StringName(row["name_id"])] = row
 
 	_datatable_dics[datatable_name] = result
 
