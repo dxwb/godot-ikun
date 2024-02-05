@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8i2j5ngdksvi"]
+
+[ext_resource type="Script" path="res://common/loot/loot.gd" id="1_6mhmu"]
+[ext_resource type="PackedScene" uid="uid://do4gtca4bjigf" path="res://common/zone/receiver.tscn" id="1_h6led"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c6vuq"]
+size = Vector2(20, 30)
+
+[node name="Loot" type="Node2D"]
+script = ExtResource("1_6mhmu")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = -10.0
+offset_top = -24.0
+offset_right = 10.0
+offset_bottom = 6.0
+theme_type_variation = &"CardPanelContainer"
+
+[node name="PickUpReceiver" parent="." instance=ExtResource("1_h6led")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpReceiver"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_c6vuq")
+
+[connection signal="received_entered" from="PickUpReceiver" to="." method="_on_pick_up_receiver_received_entered"]
