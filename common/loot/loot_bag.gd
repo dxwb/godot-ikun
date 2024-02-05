@@ -18,7 +18,7 @@ func drop():
 		get_tree().get_current_scene().call_deferred("add_child", loot)
 
 func _get_random_loot() -> Dictionary:
-	var loots = DatatableManager.get_data("cards") as Dictionary
+	var loots = BackpackManager.get_unowned_loots() as Dictionary
 	var size = loots.size()
 	var keys = loots.keys()
 	var index = randi_range(0, size - 1)

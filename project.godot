@@ -22,6 +22,7 @@ DatatableManager="*res://auto/datatable_manager/datatable_manager.tscn"
 SceneManager="*res://auto/scene_manager.gd"
 ProcedureManager="*res://auto/procedure_manager/procedure_manager.tscn"
 ChallengeService="*res://auto/challenge_service/challenge_service.tscn"
+BackpackManager="*res://auto/backpack_manager.gd"
 
 [debug]
 

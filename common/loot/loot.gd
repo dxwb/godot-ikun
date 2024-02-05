@@ -15,6 +15,7 @@ func _move_to_target(delta):
 	if target == null: return
 
 	if global_position.distance_to(target.global_position) < 5:
+		BackpackManager.add_loot(loot_data)
 		queue_free()
 		return
 
