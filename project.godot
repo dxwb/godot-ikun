@@ -17,7 +17,7 @@ config/features=PackedStringArray("4.2", "GL Compatibility")
 [autoload]
 
 ParticlesCache="*res://auto/particles_cache.gd"
-SaverLoader="*res://auto/saver_loader/saver_loader.gd"
+SaverLoader="*res://auto/saver_loader/saver_loader.tscn"
 DatatableManager="*res://auto/datatable_manager/datatable_manager.tscn"
 SceneManager="*res://auto/scene_manager.gd"
 ProcedureManager="*res://auto/procedure_manager/procedure_manager.tscn"

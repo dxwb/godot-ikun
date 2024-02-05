@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://t05atf6tsw05"]
+
+[ext_resource type="Script" path="res://auto/saver_loader/saver_loader.gd" id="1_iyl2q"]
+
+[node name="SaverLoader" type="Node"]
+script = ExtResource("1_iyl2q")
+
+[node name="DebounceTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="DebounceTimer" to="." method="_on_debounce_timer_timeout"]
