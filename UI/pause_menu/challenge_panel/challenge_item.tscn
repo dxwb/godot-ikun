@@ -21,7 +21,7 @@ custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 texture = ExtResource("2_cu6ab")
 expand_mode = 1
-stretch_mode = 5
+stretch_mode = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2

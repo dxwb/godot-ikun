@@ -5,6 +5,9 @@ class_name LootBag
 
 func drop():
 	var loot_data = _get_random_loot()
+
+	if loot_data == null: return
+
 	# 概率判断
 	var f = randf()
 	var droprate = loot_data.droprate / 100
@@ -17,9 +20,12 @@ func drop():
 
 		get_tree().get_current_scene().call_deferred("add_child", loot)
 
-func _get_random_loot() -> Dictionary:
+func _get_random_loot():
 	var loots = BackpackManager.get_unowned_loots() as Dictionary
 	var size = loots.size()
+
+	if size == 0: return null
+	
 	var keys = loots.keys()
 	var index = randi_range(0, size - 1)
 
