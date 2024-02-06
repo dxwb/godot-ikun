@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dkqfcysl5kgn8"]
+[gd_scene load_steps=26 format=3 uid="uid://dkqfcysl5kgn8"]
 
 [ext_resource type="Texture2D" uid="uid://77p03m6lvlck" path="res://assets/art/water.png" id="1_85ivb"]
 [ext_resource type="Texture2D" uid="uid://bmdqtfgxrfajh" path="res://assets/art/hills.png" id="2_lul38"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b4l1llduemqit" path="res://UI/pause_menu/pause_menu.tscn" id="11_c5d7d"]
 [ext_resource type="PackedScene" uid="uid://dkudctx1718u4" path="res://entities/enemy/enemy.tscn" id="12_tvnhi"]
 [ext_resource type="Script" path="res://scenes/game/enemy_spawner.gd" id="13_g3bpi"]
+[ext_resource type="PackedScene" uid="uid://7ue6ltf3qy20" path="res://entities/snowman/snowman.tscn" id="13_v82gh"]
 [ext_resource type="Script" path="res://scenes/game/game_data.gd" id="14_p8sh7"]
 [ext_resource type="Script" path="res://scenes/game/death_countdown.gd" id="15_adx2e"]
 [ext_resource type="PackedScene" uid="uid://cwow0via0onvn" path="res://VFX/snow/snow.tscn" id="17_hirnr"]
@@ -673,6 +674,9 @@ position = Vector2(337, 134)
 
 [node name="Kun3" parent="." instance=ExtResource("10_l6e2d")]
 position = Vector2(513, 207)
+
+[node name="Snowman" parent="." instance=ExtResource("13_v82gh")]
+position = Vector2(408, 164)
 
 [node name="EnemySpawner" type="Node" parent="."]
 script = ExtResource("13_g3bpi")

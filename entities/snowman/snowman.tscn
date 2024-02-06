@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://7ue6ltf3qy20"]
+
+[ext_resource type="Script" path="res://entities/snowman/snowman.gd" id="1_dyssy"]
+[ext_resource type="Texture2D" uid="uid://dcjgbofhk1f16" path="res://assets/art/snowy.png" id="1_eld8d"]
+[ext_resource type="PackedScene" uid="uid://cfosurdxu805n" path="res://common/loot/loot_bag.tscn" id="3_s7v82"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2re2"]
+atlas = ExtResource("1_eld8d")
+region = Rect2(64, 16, 32, 48)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_navjt"]
+radius = 7.0
+height = 26.0
+
+[sub_resource type="Animation" id="Animation_n6mpj"]
+resource_name = "swing"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.261799, -0.261799, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_iiou1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3y3rm"]
+_data = {
+"RESET": SubResource("Animation_iiou1"),
+"swing": SubResource("Animation_n6mpj")
+}
+
+[node name="Snowman" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_dyssy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_f2re2")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_navjt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3y3rm")
+}
+
+[node name="LootBag" parent="." instance=ExtResource("3_s7v82")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
