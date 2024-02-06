@@ -8,7 +8,6 @@
 offset_right = 21.0
 offset_bottom = 16.0
 size_flags_horizontal = 3
-mouse_default_cursor_shape = 2
 theme_override_styles/panel = ExtResource("1_fith2")
 script = ExtResource("1_r4bqq")
 check = true
@@ -18,19 +17,26 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(16, 16)
+custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 texture = ExtResource("2_cu6ab")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "asdasd"
 
+[node name="Condition" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 7
+text = "asd"
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="resized" from="." to="." method="_on_resized"]
