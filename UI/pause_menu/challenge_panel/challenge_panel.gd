@@ -10,7 +10,7 @@ var ui_root: CanvasLayer
 func _ready():
 	ui_root = get_tree().get_first_node_in_group("ui_canvas_layer")
 
-func render_challenges():
+func render():
 	var challenges = DatatableManager.get_data("challenges")
 
 	for child in grid_container.get_children():

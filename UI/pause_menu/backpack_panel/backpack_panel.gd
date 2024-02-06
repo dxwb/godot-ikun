@@ -1,11 +1,15 @@
 extends MenuPanel
 
+@onready var inventory = %Inventory
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func render():
+	var loots = BackpackManager.get_owned_loots()
+	var slots: Array[Slot] = []
+	for loot_id in loots:
+		var loot_data = loots[loot_id]
+		var slot = Slot.new()
+		slot.data = loot_data
+		slots.push_back(slot)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	inventory.slots = slots
+	inventory.render()

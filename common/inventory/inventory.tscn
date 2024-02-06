@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://fveyt4lvjp6h"]
+
+[ext_resource type="Script" path="res://common/inventory/inventory.gd" id="1_l3qxd"]
+[ext_resource type="PackedScene" uid="uid://c7d3rbdhhp5xv" path="res://common/inventory/slot_ui.tscn" id="2_itb18"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4os51"]
+content_margin_left = 1.0
+content_margin_top = 1.0
+content_margin_right = 1.0
+content_margin_bottom = 1.0
+bg_color = Color(0.188235, 0.219608, 0.262745, 1)
+
+[node name="Inventory" type="ScrollContainer"]
+offset_right = 102.0
+offset_bottom = 99.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("1_l3qxd")
+slot_ui_scene = ExtResource("2_itb18")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_4os51")
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 5
