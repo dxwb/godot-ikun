@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwow0via0onvn"]
+
+[ext_resource type="Material" uid="uid://blpvgg7epi6mv" path="res://VFX/snow/snow_particle_process.tres" id="1_y2x7c"]
+
+[node name="Snow" type="GPUParticles2D"]
+position = Vector2(320, -25)
+amount = 500
+process_material = ExtResource("1_y2x7c")
+lifetime = 20.0
+randomness = 1.0
