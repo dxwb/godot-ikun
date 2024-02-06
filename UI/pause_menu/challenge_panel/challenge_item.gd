@@ -12,17 +12,13 @@ signal click()
 
 func _ready():
 	set_check(check)
-	call_deferred("_set_pivot")
-
-func _set_pivot():
-	pivot_offset = size / 2
 
 func _on_mouse_entered():
 	if not check: return
 
 	z_index = 1
 	var tween := create_tween()
-	tween.tween_property(self, "scale", Vector2(1.2, 1.2), .1)
+	tween.tween_property(self, "scale", Vector2(1.1, 1.1), .1)
 
 func _on_mouse_exited():
 	if not check: return
@@ -37,6 +33,9 @@ func _on_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			click.emit()
+
+func _on_resized():
+	pivot_offset = size / 2
 
 func set_challenge(chal_data: Dictionary):
 	texture_rect.texture = load(chal_data.texture)

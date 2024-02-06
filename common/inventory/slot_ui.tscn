@@ -18,6 +18,7 @@ region_rect = Rect2(5, 0, 22, 16)
 
 [node name="SlotUI" type="PanelContainer"]
 custom_minimum_size = Vector2(60, 60)
+mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_161oe")
 script = ExtResource("2_2dwos")
 
@@ -28,3 +29,6 @@ expand_mode = 1
 stretch_mode = 6
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="resized" from="TextureRect" to="." method="_on_texture_rect_resized"]
