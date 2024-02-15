@@ -14,7 +14,9 @@ func on_kun_entered_to_house(area: Area2D):
 	kun_count += 1
 
 	# 赶鸡数量大于下一个梯度的一半时，敌人退出场景
-	if current_enemy != null and kun_count >= gradient[index] / 2:
+	@warning_ignore("integer_division")
+	var half = floori(gradient[index] / 2)
+	if current_enemy != null and kun_count >= half:
 		current_enemy.leave_scene()
 		current_enemy = null
 

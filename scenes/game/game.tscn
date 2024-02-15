@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dkqfcysl5kgn8"]
+[gd_scene load_steps=30 format=3 uid="uid://dkqfcysl5kgn8"]
 
 [ext_resource type="Texture2D" uid="uid://77p03m6lvlck" path="res://assets/art/water.png" id="1_85ivb"]
 [ext_resource type="Texture2D" uid="uid://bmdqtfgxrfajh" path="res://assets/art/hills.png" id="2_lul38"]
@@ -7,8 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://eeurcc2rw5n6" path="res://entities/player/player.tscn" id="5_v5wkx"]
 [ext_resource type="PackedScene" uid="uid://bi43kuo8aysxj" path="res://entities/kun_house/kun_house.tscn" id="6_p34uf"]
 [ext_resource type="PackedScene" uid="uid://drghvmfe4dg1i" path="res://UI/count_ui/count_ui.tscn" id="7_lo7df"]
+[ext_resource type="Texture2D" uid="uid://bf4d7sqhtw2b2" path="res://assets/art/ghost.png" id="8_c5sj7"]
 [ext_resource type="Texture2D" uid="uid://dljmp5rj6c3ef" path="res://assets/art/player.png" id="8_rvayy"]
 [ext_resource type="PackedScene" uid="uid://dci26b0jta0u3" path="res://UI/death_countdown_ui/death_countdown_ui.tscn" id="9_o4fp0"]
+[ext_resource type="Texture2D" uid="uid://dcjgbofhk1f16" path="res://assets/art/snowy.png" id="10_6wf6c"]
 [ext_resource type="PackedScene" uid="uid://bbwfnwqrlhl8n" path="res://entities/kun/kun.tscn" id="10_l6e2d"]
 [ext_resource type="PackedScene" uid="uid://jen87ijxmgm4" path="res://UI/challenge_ui/challenge_completed_notice.tscn" id="10_rpa7j"]
 [ext_resource type="PackedScene" uid="uid://b4l1llduemqit" path="res://UI/pause_menu/pause_menu.tscn" id="11_c5d7d"]
@@ -607,9 +609,17 @@ sources/1 = SubResource("TileSetAtlasSource_sm4ml")
 sources/2 = SubResource("TileSetAtlasSource_aqsut")
 sources/3 = SubResource("TileSetAtlasSource_0wsnt")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm4we"]
+atlas = ExtResource("8_c5sj7")
+region = Rect2(12, 14, 21, 19)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_jg73y"]
 atlas = ExtResource("8_rvayy")
 region = Rect2(17, 16, 14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1t0el"]
+atlas = ExtResource("10_6wf6c")
+region = Rect2(66, 17, 28, 28)
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -643,13 +653,30 @@ offset_right = 50.0
 offset_bottom = 56.0
 
 [node name="CaughtChickens" parent="CanvasLayer/CountUI" instance=ExtResource("7_lo7df")]
+unique_name_in_owner = true
 layout_mode = 2
 
+[node name="GhostSpawnCount" parent="CanvasLayer/CountUI" instance=ExtResource("7_lo7df")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TextureRect" parent="CanvasLayer/CountUI/GhostSpawnCount/MarginContainer/HBoxContainer" index="0"]
+texture = SubResource("AtlasTexture_hm4we")
+
 [node name="DeathCount" parent="CanvasLayer/CountUI" instance=ExtResource("7_lo7df")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="TextureRect" parent="CanvasLayer/CountUI/DeathCount/MarginContainer/HBoxContainer" index="0"]
 texture = SubResource("AtlasTexture_jg73y")
+
+[node name="SnowmanHitCount" parent="CanvasLayer/CountUI" instance=ExtResource("7_lo7df")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TextureRect" parent="CanvasLayer/CountUI/SnowmanHitCount/MarginContainer/HBoxContainer" index="0"]
+texture = SubResource("AtlasTexture_1t0el")
+flip_h = true
 
 [node name="DeathCountdownUI" parent="CanvasLayer" instance=ExtResource("9_o4fp0")]
 visible = false
@@ -697,8 +724,11 @@ script = ExtResource("14_p8sh7")
 [connection signal="died" from="Player" to="GameData" method="_on_player_died"]
 [connection signal="kun_entered" from="KunHouse" to="EnemySpawner" method="on_kun_entered_to_house"]
 [connection signal="kun_entered" from="KunHouse" to="GameData" method="_on_kun_house_kun_entered"]
+[connection signal="player_hit" from="Snowman" to="GameData" method="_on_snowman_player_hit"]
 [connection signal="enemy_spawned" from="EnemySpawner" to="GameData" method="_on_enemy_spawner_enemy_spawned"]
 [connection signal="countdown_timeout" from="DeathCountdown" to="Player" method="resuscitate"]
 [connection signal="timeout" from="DeathCountdown" to="DeathCountdown" method="_on_timeout"]
 
+[editable path="CanvasLayer/CountUI/GhostSpawnCount"]
 [editable path="CanvasLayer/CountUI/DeathCount"]
+[editable path="CanvasLayer/CountUI/SnowmanHitCount"]
