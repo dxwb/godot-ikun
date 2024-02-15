@@ -18,3 +18,6 @@ class_name SavedGame
 
 # 已收集的卡片
 @export var collected_cards: Array[StringName] = []
+
+# 是否已跟商人对话过
+@export var store_interacted := false

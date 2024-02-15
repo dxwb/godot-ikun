@@ -7,6 +7,9 @@ class_name Player
 @onready var state_machine = animation_tree["parameters/playback"]
 @onready var smokeParticle = $Smoke
 @onready var bloodParticle = $Blood
+@onready var current_speed = speed
+
+var disabled_move = false
 
 signal died()
 
@@ -19,8 +22,10 @@ func _ready():
 func _physics_process(delta):
 	if not is_alive: return
 
+	if disabled_move: return
+
 	var dir = Input.get_vector('walk_left', 'walk_right', 'walk_up', 'walk_down').normalized()
-	velocity = dir * speed
+	velocity = dir * current_speed
 	move_and_slide()
 	pick_new_state(dir)
 	set_animation(dir)
