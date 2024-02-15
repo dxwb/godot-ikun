@@ -1,0 +1,101 @@
+[gd_scene load_steps=9 format=3 uid="uid://doarf86jvl7lp"]
+
+[ext_resource type="PackedScene" uid="uid://ddpba7or00u5h" path="res://UI/store_ui/store_item.tscn" id="1_5sxhq"]
+[ext_resource type="Script" path="res://UI/store_ui/store_ui.gd" id="1_fh8br"]
+[ext_resource type="Texture2D" uid="uid://bf4d7sqhtw2b2" path="res://assets/art/ghost.png" id="2_fpavo"]
+[ext_resource type="Texture2D" uid="uid://dljmp5rj6c3ef" path="res://assets/art/player.png" id="3_r552c"]
+[ext_resource type="Texture2D" uid="uid://dcjgbofhk1f16" path="res://assets/art/snowy.png" id="4_hllrl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw0n6"]
+atlas = ExtResource("2_fpavo")
+region = Rect2(12, 14, 21, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3sdf"]
+atlas = ExtResource("3_r552c")
+region = Rect2(17, 16, 14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dauwc"]
+atlas = ExtResource("4_hllrl")
+region = Rect2(66, 17, 28, 28)
+
+[node name="StoreUi" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fh8br")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -98.0
+offset_right = 67.0
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="StoreItem" parent="PanelContainer/MarginContainer/GridContainer" instance=ExtResource("1_5sxhq")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StoreItem2" parent="PanelContainer/MarginContainer/GridContainer" instance=ExtResource("1_5sxhq")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TextureRect" parent="PanelContainer/MarginContainer/GridContainer/StoreItem2" index="0"]
+texture = SubResource("AtlasTexture_yw0n6")
+
+[node name="StoreItem3" parent="PanelContainer/MarginContainer/GridContainer" instance=ExtResource("1_5sxhq")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TextureRect" parent="PanelContainer/MarginContainer/GridContainer/StoreItem3" index="0"]
+texture = SubResource("AtlasTexture_r3sdf")
+
+[node name="StoreItem4" parent="PanelContainer/MarginContainer/GridContainer" instance=ExtResource("1_5sxhq")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TextureRect" parent="PanelContainer/MarginContainer/GridContainer/StoreItem4" index="0"]
+texture = SubResource("AtlasTexture_dauwc")
+flip_h = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/GridContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "=0"
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/GridContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "交易"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/GridContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+
+[editable path="PanelContainer/MarginContainer/GridContainer/StoreItem"]
+[editable path="PanelContainer/MarginContainer/GridContainer/StoreItem2"]
+[editable path="PanelContainer/MarginContainer/GridContainer/StoreItem3"]
+[editable path="PanelContainer/MarginContainer/GridContainer/StoreItem4"]

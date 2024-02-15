@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddpba7or00u5h"]
+
+[ext_resource type="Texture2D" uid="uid://bh72a8d8fxod2" path="res://assets/art/kun.png" id="1_083g1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52tct"]
+atlas = ExtResource("1_083g1")
+region = Rect2(1, 3, 11, 12)
+
+[node name="StoreItem" type="HBoxContainer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = SubResource("AtlasTexture_52tct")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SpinBox" type="SpinBox" parent="."]
+layout_mode = 2
