@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxyu1osnq2cui"]
+
+[ext_resource type="Script" path="res://common/interactive/interactive.gd" id="1_j8kqa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qp51t"]
+radius = 22.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnu8s"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_size = 1
+
+[node name="Interactive" type="Node2D"]
+script = ExtResource("1_j8kqa")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_qp51t")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_fnu8s")
+text = "E"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -48,7 +48,7 @@ func _on_snowman_player_hit():
 	snowman_hit_count_ui.set_num(snowman_hit_count)
 
 	# 挑战计算
-	#ChallengeService.complete_challenge_by_group("GHOST", ghost_spawn_count)
+	ChallengeService.complete_challenge_by_group("SNOWMAN", snowman_hit_count)
 
 	SaverLoader.save_game()
 
