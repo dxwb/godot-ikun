@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ghgdmabymr47"]
+
+[ext_resource type="Texture2D" uid="uid://bs7o3vwf0wrfk" path="res://assets/art/slot_machine_world.png" id="1_p6txy"]
+[ext_resource type="PackedScene" uid="uid://cxyu1osnq2cui" path="res://common/interactive/interactive.tscn" id="2_luqwl"]
+
+[node name="SlotMachine" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -20)
+texture = ExtResource("1_p6txy")
+
+[node name="Interactive" parent="." instance=ExtResource("2_luqwl")]
+
+[node name="CollisionShape2D" parent="Interactive/Area2D" index="0"]
+position = Vector2(0, -5)
+
+[node name="Label" parent="Interactive" index="1"]
+offset_top = -63.0
+offset_bottom = -47.0
+
+[editable path="Interactive"]

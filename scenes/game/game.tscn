@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dkqfcysl5kgn8"]
+[gd_scene load_steps=34 format=3 uid="uid://dkqfcysl5kgn8"]
 
 [ext_resource type="Texture2D" uid="uid://77p03m6lvlck" path="res://assets/art/water.png" id="1_85ivb"]
 [ext_resource type="Texture2D" uid="uid://bmdqtfgxrfajh" path="res://assets/art/hills.png" id="2_lul38"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://scenes/game/game_data.gd" id="14_p8sh7"]
 [ext_resource type="Script" path="res://scenes/game/death_countdown.gd" id="15_adx2e"]
 [ext_resource type="PackedScene" uid="uid://cwow0via0onvn" path="res://VFX/snow/snow.tscn" id="17_hirnr"]
+[ext_resource type="PackedScene" uid="uid://ghgdmabymr47" path="res://entities/slot_machine/slot_machine.tscn" id="19_78aop"]
 [ext_resource type="PackedScene" uid="uid://cwoixkekusr1" path="res://entities/store/store.tscn" id="21_rs6yv"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_sj7jw"]
@@ -724,6 +725,9 @@ position = Vector2(408, 164)
 
 [node name="Store" parent="." instance=ExtResource("21_rs6yv")]
 position = Vector2(434, 228)
+
+[node name="SlotMachine" parent="." instance=ExtResource("19_78aop")]
+position = Vector2(269, 206)
 
 [node name="EnemySpawner" type="Node" parent="."]
 script = ExtResource("13_g3bpi")
