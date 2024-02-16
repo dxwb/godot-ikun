@@ -9,7 +9,7 @@ class_name Player
 @onready var bloodParticle = $Blood
 @onready var current_speed = speed
 
-var disabled_move = false
+var _disabled_move = false
 
 signal died()
 
@@ -22,7 +22,7 @@ func _ready():
 func _physics_process(delta):
 	if not is_alive: return
 
-	if disabled_move: return
+	if _disabled_move: return
 
 	var dir = Input.get_vector('walk_left', 'walk_right', 'walk_up', 'walk_down').normalized()
 	velocity = dir * current_speed
@@ -66,3 +66,12 @@ func resuscitate():
 	is_alive = true
 	set_collision_layer_value(2, true)
 	global_position = birth_point
+
+# 禁用移动
+func disable_move():
+	_disabled_move = true
+
+
+# 启用移动
+func enable_move():
+	_disabled_move = false

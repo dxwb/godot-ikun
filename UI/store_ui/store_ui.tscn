@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://doarf86jvl7lp"]
+[gd_scene load_steps=16 format=3 uid="uid://doarf86jvl7lp"]
 
 [ext_resource type="PackedScene" uid="uid://ddpba7or00u5h" path="res://UI/store_ui/store_item.tscn" id="1_5sxhq"]
 [ext_resource type="Script" path="res://UI/store_ui/store_ui.gd" id="1_fh8br"]
 [ext_resource type="Texture2D" uid="uid://bf4d7sqhtw2b2" path="res://assets/art/ghost.png" id="2_fpavo"]
 [ext_resource type="Texture2D" uid="uid://dljmp5rj6c3ef" path="res://assets/art/player.png" id="3_r552c"]
 [ext_resource type="Texture2D" uid="uid://dcjgbofhk1f16" path="res://assets/art/snowy.png" id="4_hllrl"]
+[ext_resource type="Texture2D" uid="uid://hsusvm6gy58v" path="res://assets/art/UI_books.png" id="6_to44k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yw0n6"]
 atlas = ExtResource("2_fpavo")
@@ -18,7 +19,21 @@ region = Rect2(17, 16, 14, 16)
 atlas = ExtResource("4_hllrl")
 region = Rect2(66, 17, 28, 28)
 
-[node name="StoreUi" type="Control"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d4xl2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_apl8e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ivdqh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i844x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0o8me"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwkfq"]
+atlas = ExtResource("6_to44k")
+region = Rect2(784, 224, 16, 16)
+
+[node name="StoreUI" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -93,7 +108,32 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "交易"
 
+[node name="Control" type="Control" parent="PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="CloseButton" type="Button" parent="PanelContainer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -10.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 10.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_d4xl2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_apl8e")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ivdqh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i844x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0o8me")
+icon = SubResource("AtlasTexture_fwkfq")
+icon_alignment = 1
+expand_icon = true
+
 [connection signal="pressed" from="PanelContainer/MarginContainer/GridContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelContainer/Control/CloseButton" to="." method="_on_close_button_pressed"]
 
 [editable path="PanelContainer/MarginContainer/GridContainer/StoreItem"]
 [editable path="PanelContainer/MarginContainer/GridContainer/StoreItem2"]

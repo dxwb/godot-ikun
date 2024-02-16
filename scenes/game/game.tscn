@@ -706,6 +706,10 @@ position = Vector2(513, 207)
 [node name="Snowman" parent="." instance=ExtResource("13_v82gh")]
 position = Vector2(408, 164)
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Snow" parent="CanvasLayer2" instance=ExtResource("17_hirnr")]
+
 [node name="Store" parent="." instance=ExtResource("21_rs6yv")]
 position = Vector2(434, 228)
 
@@ -720,15 +724,13 @@ script = ExtResource("15_adx2e")
 [node name="GameData" type="Node" parent="."]
 script = ExtResource("14_p8sh7")
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
-[node name="Snow" parent="CanvasLayer2" instance=ExtResource("17_hirnr")]
-
 [connection signal="died" from="Player" to="DeathCountdown" method="_on_player_died"]
 [connection signal="died" from="Player" to="GameData" method="_on_player_died"]
 [connection signal="kun_entered" from="KunHouse" to="EnemySpawner" method="on_kun_entered_to_house"]
 [connection signal="kun_entered" from="KunHouse" to="GameData" method="_on_kun_house_kun_entered"]
 [connection signal="player_hit" from="Snowman" to="GameData" method="_on_snowman_player_hit"]
+[connection signal="dialogue_opened" from="Store" to="Player" method="disable_move"]
+[connection signal="store_ui_closed" from="Store" to="Player" method="enable_move"]
 [connection signal="enemy_spawned" from="EnemySpawner" to="GameData" method="_on_enemy_spawner_enemy_spawned"]
 [connection signal="countdown_timeout" from="DeathCountdown" to="Player" method="resuscitate"]
 [connection signal="timeout" from="DeathCountdown" to="DeathCountdown" method="_on_timeout"]
