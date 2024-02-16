@@ -34,5 +34,6 @@ visible = false
 
 [connection signal="interacted" from="Interactive" to="." method="_on_interactive_interacted"]
 [connection signal="closed" from="CanvasLayer/StoreUI" to="." method="_on_store_ui_closed"]
+[connection signal="traded" from="CanvasLayer/StoreUI" to="." method="_on_store_ui_traded"]
 
 [editable path="Interactive"]

@@ -264,7 +264,6 @@ position = Vector2(0, -7)
 texture = ExtResource("1_vra16")
 hframes = 4
 vframes = 5
-frame = 1
 
 [node name="Blood" parent="." instance=ExtResource("3_vmc5q")]
 position = Vector2(0, -7)

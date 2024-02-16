@@ -21,3 +21,6 @@ class_name SavedGame
 
 # 是否已跟商人对话过
 @export var store_interacted := false
+
+# 当前拥有的金币
+@export var glod := 0

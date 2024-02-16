@@ -16,7 +16,7 @@ var ghost_spawn_count_amount = 0
 var death_count_amount = 0
 var snowman_hit_count_amount = 0
 
-signal traded(amount: float)
+signal traded(data: Dictionary)
 signal closed()
 
 func _ready():
@@ -57,7 +57,16 @@ func _reset_value():
 	snowman_hit_count_ui.set_value(0)
 
 func _on_button_pressed():
-	traded.emit(caught_chickens_amount + ghost_spawn_count_amount + death_count_amount + snowman_hit_count_amount)
+	var dic = {
+		"amount": caught_chickens_amount + ghost_spawn_count_amount + death_count_amount + snowman_hit_count_amount,
+		"caught_chickens": -caught_chickens_ui.value,
+		"ghost_spawn_count": -ghost_spawn_count_ui.value,
+		"death_count": -death_count_ui.value,
+		"snowman_hit_count": -snowman_hit_count_ui.value
+	}
+	traded.emit(dic)
+	_set_max_value()
+	_reset_value()
 
 func open():
 	visible = true

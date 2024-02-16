@@ -1,5 +1,6 @@
 extends Node
 
+@onready var glod_count_ui = %GlodCount
 @onready var death_count_ui:  = %DeathCount
 @onready var caught_chickens_ui = %CaughtChickens
 @onready var ghost_spawn_count_ui = %GhostSpawnCount
@@ -53,7 +54,29 @@ func _on_snowman_player_hit():
 	SaverLoader.save_game()
 
 func _init_ui():
+	glod_count_ui.set_num(SaverLoader.running_data.glod)
 	caught_chickens_ui.set_num(SaverLoader.running_data.caught_kuns)
 	death_count_ui.set_num(SaverLoader.running_data.death_count)
 	ghost_spawn_count_ui.set_num(SaverLoader.running_data.ghost_spawn_count)
 	snowman_hit_count_ui.set_num(SaverLoader.running_data.snowman_hit_count)
+
+func _on_store_traded(data: Dictionary):
+	var glod = SaverLoader.running_data.glod + data.amount
+	var snowman_hit_count = SaverLoader.running_data.snowman_hit_count + data.snowman_hit_count
+	var ghost_spawn_count = SaverLoader.running_data.ghost_spawn_count + data.ghost_spawn_count
+	var caught_kuns = SaverLoader.running_data.caught_kuns + data.caught_chickens
+	var death_count = SaverLoader.running_data.death_count + data.death_count
+
+	SaverLoader.running_data.glod = glod
+	SaverLoader.running_data.snowman_hit_count = snowman_hit_count
+	SaverLoader.running_data.ghost_spawn_count = ghost_spawn_count
+	SaverLoader.running_data.caught_kuns = caught_kuns
+	SaverLoader.running_data.death_count = death_count
+
+	glod_count_ui.set_num(glod)
+	caught_chickens_ui.set_num(caught_kuns)
+	death_count_ui.set_num(death_count)
+	ghost_spawn_count_ui.set_num(ghost_spawn_count)
+	snowman_hit_count_ui.set_num(snowman_hit_count)
+
+	SaverLoader.save_game()
