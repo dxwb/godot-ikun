@@ -51,6 +51,7 @@ stretch_mode = 0
 metadata/_edit_lock_ = true
 
 [node name="SlotMachineItem" parent="." instance=ExtResource("4_fdksi")]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = -102.0
 offset_top = 142.0
@@ -58,17 +59,22 @@ offset_right = -42.0
 offset_bottom = 262.0
 
 [node name="SlotMachineItem2" parent="." instance=ExtResource("4_fdksi")]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 142.0
-offset_right = 108.0
-offset_bottom = 262.0
-
-[node name="SlotMachineItem3" parent="." instance=ExtResource("4_fdksi")]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = -27.0
 offset_top = 142.0
 offset_right = 33.0
 offset_bottom = 262.0
 
+[node name="SlotMachineItem3" parent="." instance=ExtResource("4_fdksi")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 48.0
+offset_top = 142.0
+offset_right = 108.0
+offset_bottom = 262.0
+
 [connection signal="pressed" from="Handler" to="." method="_on_handler_pressed"]
+[connection signal="stopped" from="SlotMachineItem" to="." method="_on_slot_machine_item_stopped"]
+[connection signal="stopped" from="SlotMachineItem2" to="." method="_on_slot_machine_item_stopped"]
+[connection signal="stopped" from="SlotMachineItem3" to="." method="_on_slot_machine_item_stopped"]

@@ -43,7 +43,7 @@ func _process(delta):
 func _stop_roll():
 	var tween = create_tween().set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT).set_parallel()
 	var index = _get_index() - randi_range(1, 4)
-	var target_index: int
+	var target_index: int# 经过处理的index，不会存在负数情况
 	var final_y: int
 	var distance: float
 	var dur: float
@@ -52,6 +52,7 @@ func _stop_roll():
 		target_index = index
 		final_y = target_index * -60 + 30
 		distance = -bottom_row.position.y + final_y
+		# 计算停下来所需时间
 		dur = distance / speed + 1
 		tween.tween_property(bottom_row, "position:y", final_y, dur)
 		tween.tween_property(top_row, "position:y", final_y - 300, dur)
@@ -68,7 +69,7 @@ func _stop_roll():
 	await tween.finished
 	stopped.emit(target_index)
 
-# 获取当前滚动中处于哪个项目
+# 获取当前滚动中处于哪个项目，可能是负数
 func _get_index() -> int:
 	@warning_ignore("integer_division")
 	var index = ceili((bottom_row.position.y - HALF_SIZE / 2) / -HALF_SIZE)
