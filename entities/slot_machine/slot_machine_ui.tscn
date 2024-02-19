@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://dc4mswyxvh1of"]
+
+[ext_resource type="Texture2D" uid="uid://cdj43k5kjvbi6" path="res://assets/art/slot_machine/slot-machine1.png" id="1_5xsrk"]
+[ext_resource type="Script" path="res://entities/slot_machine/slot_machine_ui.gd" id="1_mrfpo"]
+[ext_resource type="Texture2D" uid="uid://ceynqktkn7u62" path="res://assets/art/slot_machine/slot-machine2.png" id="2_u81mi"]
+[ext_resource type="PackedScene" uid="uid://cekknp4pw2hxb" path="res://entities/slot_machine/slot_machine_item.tscn" id="4_fdksi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4avnv"]
+atlas = ExtResource("2_u81mi")
+region = Rect2(0, 0, 92, 328)
+
+[node name="SlotMachineUI" type="Control"]
+layout_mode = 3
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mrfpo")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5xsrk")
+expand_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="Handler" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 152.0
+offset_top = -193.0
+offset_right = 206.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+texture_normal = SubResource("AtlasTexture_4avnv")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_lock_ = true
+
+[node name="SlotMachineItem" parent="." instance=ExtResource("4_fdksi")]
+layout_mode = 0
+offset_left = -102.0
+offset_top = 142.0
+offset_right = -42.0
+offset_bottom = 262.0
+
+[node name="SlotMachineItem2" parent="." instance=ExtResource("4_fdksi")]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 142.0
+offset_right = 108.0
+offset_bottom = 262.0
+
+[node name="SlotMachineItem3" parent="." instance=ExtResource("4_fdksi")]
+layout_mode = 0
+offset_left = -27.0
+offset_top = 142.0
+offset_right = 33.0
+offset_bottom = 262.0
+
+[connection signal="pressed" from="Handler" to="." method="_on_handler_pressed"]
