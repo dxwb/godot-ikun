@@ -125,6 +125,7 @@ metadata/_edit_lock_ = true
 position = Vector2(30, 60)
 scale = Vector2(0.967742, 1)
 blend_mode = 2
+range_layer_max = 1
 texture = ExtResource("6_6cuk2")
 metadata/_edit_lock_ = true
 
