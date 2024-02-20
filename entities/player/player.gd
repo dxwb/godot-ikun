@@ -71,7 +71,6 @@ func resuscitate():
 func disable_move():
 	_disabled_move = true
 
-
 # 启用移动
 func enable_move():
 	_disabled_move = false

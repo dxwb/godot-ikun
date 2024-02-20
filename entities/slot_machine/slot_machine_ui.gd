@@ -8,6 +8,7 @@ var running := false
 var result: Array[int] = []
 
 signal stopped(result: Array[int])
+signal closed()
 
 func run():
 	if running: return
@@ -40,3 +41,7 @@ func _on_slot_machine_item_stopped(index):
 		running = false
 		print(result)
 		stopped.emit(result)
+
+func _on_close_button_pressed():
+	close()
+	closed.emit()

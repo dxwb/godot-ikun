@@ -1,13 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://dc4mswyxvh1of"]
+[gd_scene load_steps=13 format=3 uid="uid://dc4mswyxvh1of"]
 
 [ext_resource type="Texture2D" uid="uid://cdj43k5kjvbi6" path="res://assets/art/slot_machine/slot-machine1.png" id="1_5xsrk"]
 [ext_resource type="Script" path="res://entities/slot_machine/slot_machine_ui.gd" id="1_mrfpo"]
 [ext_resource type="Texture2D" uid="uid://ceynqktkn7u62" path="res://assets/art/slot_machine/slot-machine2.png" id="2_u81mi"]
 [ext_resource type="PackedScene" uid="uid://cekknp4pw2hxb" path="res://entities/slot_machine/slot_machine_item.tscn" id="4_fdksi"]
+[ext_resource type="Texture2D" uid="uid://hsusvm6gy58v" path="res://assets/art/UI_books.png" id="5_pw7ck"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4avnv"]
 atlas = ExtResource("2_u81mi")
 region = Rect2(0, 0, 92, 328)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4u8fn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ww0rm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lys1l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tb4ca"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7h6uq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_017bp"]
+atlas = ExtResource("5_pw7ck")
+region = Rect2(784, 224, 16, 16)
 
 [node name="SlotMachineUI" type="Control"]
 layout_mode = 3
@@ -74,7 +89,31 @@ offset_top = 142.0
 offset_right = 108.0
 offset_bottom = 262.0
 
+[node name="CloseButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 162.0
+offset_top = -100.0
+offset_right = 186.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4u8fn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ww0rm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lys1l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tb4ca")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7h6uq")
+icon = SubResource("AtlasTexture_017bp")
+icon_alignment = 1
+expand_icon = true
+
 [connection signal="pressed" from="Handler" to="." method="_on_handler_pressed"]
 [connection signal="stopped" from="SlotMachineItem" to="." method="_on_slot_machine_item_stopped"]
 [connection signal="stopped" from="SlotMachineItem2" to="." method="_on_slot_machine_item_stopped"]
 [connection signal="stopped" from="SlotMachineItem3" to="." method="_on_slot_machine_item_stopped"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

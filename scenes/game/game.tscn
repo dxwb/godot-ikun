@@ -727,7 +727,7 @@ position = Vector2(408, 164)
 position = Vector2(434, 228)
 
 [node name="SlotMachine" parent="." instance=ExtResource("19_78aop")]
-position = Vector2(269, 206)
+position = Vector2(551, 195)
 
 [node name="EnemySpawner" type="Node" parent="."]
 script = ExtResource("13_g3bpi")
@@ -748,6 +748,8 @@ script = ExtResource("14_p8sh7")
 [connection signal="dialogue_opened" from="Store" to="Player" method="disable_move"]
 [connection signal="store_ui_closed" from="Store" to="Player" method="enable_move"]
 [connection signal="traded" from="Store" to="GameData" method="_on_store_traded"]
+[connection signal="ui_closed" from="SlotMachine" to="Player" method="enable_move"]
+[connection signal="ui_opened" from="SlotMachine" to="Player" method="disable_move"]
 [connection signal="enemy_spawned" from="EnemySpawner" to="GameData" method="_on_enemy_spawner_enemy_spawned"]
 [connection signal="countdown_timeout" from="DeathCountdown" to="Player" method="resuscitate"]
 [connection signal="timeout" from="DeathCountdown" to="DeathCountdown" method="_on_timeout"]

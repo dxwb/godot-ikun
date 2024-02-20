@@ -22,11 +22,13 @@ offset_top = -63.0
 offset_bottom = -47.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
 
 [node name="SlotMachineUI" parent="CanvasLayer" instance=ExtResource("4_jyyo2")]
 unique_name_in_owner = true
 visible = false
 
 [connection signal="interacted" from="Interactive" to="." method="_on_interactive_interacted"]
+[connection signal="closed" from="CanvasLayer/SlotMachineUI" to="." method="_on_slot_machine_ui_closed"]
 
 [editable path="Interactive"]

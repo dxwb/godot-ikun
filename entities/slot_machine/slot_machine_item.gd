@@ -14,7 +14,7 @@ const SIZE := 120
 @warning_ignore("integer_division")
 const HALF_SIZE := SIZE / 2
 
-#var items: Array[Dictionary] = []
+var images: Array[Texture2D] = []
 var state = States.STOP
 
 var top_row: VBoxContainer:
@@ -27,18 +27,32 @@ var bottom_row: VBoxContainer:
 
 signal stopped(index: int)
 
-func run():
-	state = States.ROLLING
-
-func stop():
-	_stop_roll()
-
 func _process(delta):
 	match state:
 		States.STOP:
 			pass
 		States.ROLLING:
 			_roll(delta)
+
+func _row_init():
+	for img in images:
+		var texture_rect1 = TextureRect.new()
+
+		texture_rect1.texture = img
+		texture_rect1.expand_mode = TextureRect.EXPAND_FIT_HEIGHT
+		texture_rect1.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+		texture_rect1.use_parent_material = true
+
+		var texture_rect2 = texture_rect1.duplicate(DUPLICATE_USE_INSTANTIATION)
+
+		row_1.add_child(texture_rect1)
+		row_2.add_child(texture_rect2)
+
+func run():
+	state = States.ROLLING
+
+func stop():
+	_stop_roll()
 
 func _stop_roll():
 	var tween = create_tween().set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT).set_parallel()
