@@ -80,3 +80,9 @@ func _on_store_traded(data: Dictionary):
 	snowman_hit_count_ui.set_num(snowman_hit_count)
 
 	SaverLoader.save_game()
+
+func _on_slot_machine_init_slot_machine_played(cost):
+	SaverLoader.running_data.glod -= cost
+	glod_count_ui.set_num(SaverLoader.running_data.glod)
+
+	SaverLoader.save_game()

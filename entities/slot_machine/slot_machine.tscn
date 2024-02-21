@@ -30,5 +30,6 @@ visible = false
 
 [connection signal="interacted" from="Interactive" to="." method="_on_interactive_interacted"]
 [connection signal="closed" from="CanvasLayer/SlotMachineUI" to="." method="_on_slot_machine_ui_closed"]
+[connection signal="stopped" from="CanvasLayer/SlotMachineUI" to="." method="_on_slot_machine_ui_stopped"]
 
 [editable path="Interactive"]
