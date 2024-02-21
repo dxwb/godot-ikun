@@ -1,15 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4l1llduemqit"]
+[gd_scene load_steps=7 format=3 uid="uid://b4l1llduemqit"]
 
 [ext_resource type="Script" path="res://UI/pause_menu/pause_menu.gd" id="1_sbhy6"]
 [ext_resource type="PackedScene" uid="uid://cxsq4xo0mdscc" path="res://UI/pause_menu/backpack_panel/backpack_panel.tscn" id="2_5g7mv"]
 [ext_resource type="Texture2D" uid="uid://hsusvm6gy58v" path="res://assets/art/UI_books.png" id="2_brsjr"]
 [ext_resource type="PackedScene" uid="uid://c50uu5paig2ut" path="res://UI/pause_menu/challenge_panel/challenge_panel.tscn" id="3_dp1ap"]
-[ext_resource type="PackedScene" uid="uid://cqwj1cct67j22" path="res://UI/pause_menu/menu_panel.tscn" id="3_ieo57"]
-[ext_resource type="Texture2D" uid="uid://dwubf3o5hpss0" path="res://assets/art/icons.png" id="4_4l8m3"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kaw1f"]
-atlas = ExtResource("4_4l8m3")
-region = Rect2(16, 16, 16, 16)
+[ext_resource type="PackedScene" uid="uid://c0g4orm62cw7a" path="res://UI/pause_menu/setting_panel/setting_panel.tscn" id="4_xfuyt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8t10g"]
 atlas = ExtResource("2_brsjr")
@@ -17,7 +12,6 @@ region = Rect2(784, 208, 16, 16)
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,14 +51,9 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="SettingPanel" parent="Control/TabContainer" instance=ExtResource("3_ieo57")]
+[node name="SettingPanel" parent="Control/TabContainer" instance=ExtResource("4_xfuyt")]
 visible = false
 layout_mode = 2
-icon = SubResource("AtlasTexture_kaw1f")
-
-[node name="Label" type="Label" parent="Control/TabContainer/SettingPanel"]
-layout_mode = 2
-text = "222"
 
 [node name="CloseButton" type="Button" parent="Control"]
 layout_mode = 1

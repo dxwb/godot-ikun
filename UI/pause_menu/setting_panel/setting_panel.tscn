@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0g4orm62cw7a"]
+
+[ext_resource type="Script" path="res://UI/pause_menu/setting_panel/setting_panel.gd" id="1_0teqr"]
+[ext_resource type="Texture2D" uid="uid://dwubf3o5hpss0" path="res://assets/art/icons.png" id="2_0j1he"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jpqsc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_448fg"]
+atlas = ExtResource("2_0j1he")
+region = Rect2(16, 16, 16, 16)
+
+[node name="SettingPanel" type="PanelContainer"]
+offset_right = 407.0
+offset_bottom = 291.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jpqsc")
+script = ExtResource("1_0teqr")
+icon = SubResource("AtlasTexture_448fg")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "zxczxc"

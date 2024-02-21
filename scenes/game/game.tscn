@@ -713,6 +713,7 @@ grow_horizontal = 2
 [node name="ChallengeCompletedNotice" parent="CanvasLayer" instance=ExtResource("10_rpa7j")]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_c5d7d")]
+visible = false
 
 [node name="Button" type="Button" parent="CanvasLayer"]
 anchors_preset = 1

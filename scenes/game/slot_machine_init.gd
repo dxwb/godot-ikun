@@ -9,6 +9,9 @@ signal slot_machine_played(cost: int)
 var rewards: Array[Dictionary] = []
 
 func _ready():
+	call_deferred("_init_slot_machine")
+
+func _init_slot_machine():
 	var cards = DatatableManager.get_data("cards")
 	var images: Array[Texture2D] = []
 
@@ -21,6 +24,7 @@ func _ready():
 	slot_machine.set_slot_images(images)
 
 func _on_slot_machine_ui_opened():
+	_init_slot_machine()
 	slot_machine.disabled = SaverLoader.running_data.glod < COST
 
 func _on_slot_machine_roll_stoped(result):
