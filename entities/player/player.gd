@@ -2,14 +2,13 @@ extends CharacterBody2D
 class_name Player
 
 @export var speed = 100.0
+@export var disabled_move = false
 
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree["parameters/playback"]
 @onready var smokeParticle = $Smoke
 @onready var bloodParticle = $Blood
 @onready var current_speed = speed
-
-var _disabled_move = false
 
 signal died()
 
@@ -22,7 +21,7 @@ func _ready():
 func _physics_process(delta):
 	if not is_alive: return
 
-	if _disabled_move: return
+	if disabled_move: return
 
 	var dir = Input.get_vector('walk_left', 'walk_right', 'walk_up', 'walk_down').normalized()
 	velocity = dir * current_speed
@@ -69,8 +68,8 @@ func resuscitate():
 
 # 禁用移动
 func disable_move():
-	_disabled_move = true
+	disabled_move = true
 
 # 启用移动
 func enable_move():
-	_disabled_move = false
+	disabled_move = false

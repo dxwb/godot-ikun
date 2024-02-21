@@ -1,0 +1,170 @@
+[gd_scene load_steps=18 format=3 uid="uid://cepsfxgd2vk53"]
+
+[ext_resource type="Texture2D" uid="uid://dvtwfkakn5sbs" path="res://assets/art/parallax_background/11_background.png" id="1_asrrt"]
+[ext_resource type="Script" path="res://scenes/title_menu/title_menu.gd" id="1_c1www"]
+[ext_resource type="Texture2D" uid="uid://npxfh2pr42sf" path="res://assets/art/parallax_background/10_distant_clouds.png" id="2_3v54e"]
+[ext_resource type="Texture2D" uid="uid://jsfqd3jytta4" path="res://assets/art/parallax_background/09_distant_clouds1.png" id="3_5jp8v"]
+[ext_resource type="Texture2D" uid="uid://0m2eho30l0b7" path="res://assets/art/parallax_background/08_clouds.png" id="4_p2xyc"]
+[ext_resource type="Texture2D" uid="uid://cwa2dx8j3jkfi" path="res://assets/art/parallax_background/07_huge_clouds.png" id="5_ggd1x"]
+[ext_resource type="Texture2D" uid="uid://ca3n63ssmd5wm" path="res://assets/art/parallax_background/06_hill2.png" id="6_tiw17"]
+[ext_resource type="Texture2D" uid="uid://b0kwidym5i45q" path="res://assets/art/parallax_background/05_hill1.png" id="7_rf0fd"]
+[ext_resource type="Texture2D" uid="uid://d2medoqe64ptv" path="res://assets/art/parallax_background/04_bushes.png" id="8_wwep3"]
+[ext_resource type="Texture2D" uid="uid://cx0ak32vbq6wu" path="res://assets/art/parallax_background/03_distant_trees.png" id="9_c7mo5"]
+[ext_resource type="Texture2D" uid="uid://d03q6hydpc7ij" path="res://assets/art/parallax_background/02_trees and bushes.png" id="10_bgy6f"]
+[ext_resource type="Texture2D" uid="uid://cr606d138mqnq" path="res://assets/art/parallax_background/01_ground.png" id="11_8ig1l"]
+[ext_resource type="Texture2D" uid="uid://dljmp5rj6c3ef" path="res://assets/art/player.png" id="13_bchwr"]
+[ext_resource type="FontFile" uid="uid://d05ubkhhhg7px" path="res://assets/fonts/VonwaonBitmap-16pxLite.ttf" id="14_6p3ss"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ix7s"]
+atlas = ExtResource("13_bchwr")
+region = Rect2(96, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dy5f"]
+atlas = ExtResource("13_bchwr")
+region = Rect2(144, 144, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x1h65"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ix7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dy5f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="TitleMenu" type="Node2D"]
+script = ExtResource("1_c1www")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_asrrt")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("2_3v54e")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource("3_5jp8v")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+texture = ExtResource("4_p2xyc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+texture = ExtResource("5_ggd1x")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+texture = ExtResource("6_tiw17")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+texture = ExtResource("7_rf0fd")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 0)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer8"]
+texture = ExtResource("8_wwep3")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer9" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 0)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer9"]
+texture = ExtResource("9_c7mo5")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer10" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.9, 0)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer10"]
+texture = ExtResource("10_bgy6f")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer11" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1, 0)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer11"]
+texture = ExtResource("11_8ig1l")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(320, 304)
+sprite_frames = SubResource("SpriteFrames_x1h65")
+autoplay = "default"
+frame_progress = 0.480933
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 102.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0.0784314, 0.137255, 0.227451, 1)
+theme_override_fonts/normal_font = ExtResource("14_6p3ss")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "
+[center][wave amp=50.0 freq=5.0 connected=1][rainbow freq=1.0 sat=0.8 val=0.8][font_size=40]赶鸡[/font_size]模拟器[/rainbow][/wave][/center]"
+fit_content = true
+metadata/_edit_lock_ = true
