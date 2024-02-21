@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dkqfcysl5kgn8"]
+[gd_scene load_steps=37 format=3 uid="uid://dkqfcysl5kgn8"]
 
 [ext_resource type="Texture2D" uid="uid://77p03m6lvlck" path="res://assets/art/water.png" id="1_85ivb"]
 [ext_resource type="Texture2D" uid="uid://bmdqtfgxrfajh" path="res://assets/art/hills.png" id="2_lul38"]
@@ -629,6 +629,12 @@ region = Rect2(17, 16, 14, 16)
 atlas = ExtResource("10_6wf6c")
 region = Rect2(66, 17, 28, 28)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ck6s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nibh"]
+atlas = ExtResource("8_g1qbj")
+region = Rect2(240, 176, 16, 16)
+
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 
@@ -708,6 +714,23 @@ grow_horizontal = 2
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_c5d7d")]
 
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -26.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 26.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5ck6s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5ck6s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5ck6s")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5ck6s")
+icon = SubResource("AtlasTexture_5nibh")
+icon_alignment = 1
+
 [node name="Kun" parent="." instance=ExtResource("10_l6e2d")]
 position = Vector2(167, 167)
 
@@ -749,6 +772,7 @@ script = ExtResource("14_p8sh7")
 [connection signal="died" from="Player" to="GameData" method="_on_player_died"]
 [connection signal="kun_entered" from="KunHouse" to="EnemySpawner" method="on_kun_entered_to_house"]
 [connection signal="kun_entered" from="KunHouse" to="GameData" method="_on_kun_house_kun_entered"]
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/PauseMenu" method="open"]
 [connection signal="player_hit" from="Snowman" to="GameData" method="_on_snowman_player_hit"]
 [connection signal="dialogue_opened" from="Store" to="Player" method="disable_move"]
 [connection signal="store_ui_closed" from="Store" to="Player" method="enable_move"]
