@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ghgdmabymr47"]
+[gd_scene load_steps=6 format=3 uid="uid://ghgdmabymr47"]
 
 [ext_resource type="Script" path="res://entities/slot_machine/slot_machine.gd" id="1_lyply"]
 [ext_resource type="Texture2D" uid="uid://bs7o3vwf0wrfk" path="res://assets/art/slot_machine_world.png" id="1_p6txy"]
 [ext_resource type="PackedScene" uid="uid://cxyu1osnq2cui" path="res://common/interactive/interactive.tscn" id="2_luqwl"]
 [ext_resource type="PackedScene" uid="uid://dc4mswyxvh1of" path="res://entities/slot_machine/slot_machine_ui.tscn" id="4_jyyo2"]
+[ext_resource type="PackedScene" uid="uid://cfosurdxu805n" path="res://common/loot/loot_bag.tscn" id="5_44jq7"]
 
 [node name="SlotMachine" type="Node2D"]
 script = ExtResource("1_lyply")
@@ -27,6 +28,9 @@ layer = 2
 [node name="SlotMachineUI" parent="CanvasLayer" instance=ExtResource("4_jyyo2")]
 unique_name_in_owner = true
 visible = false
+
+[node name="LootBag" parent="." instance=ExtResource("5_44jq7")]
+unique_name_in_owner = true
 
 [connection signal="interacted" from="Interactive" to="." method="_on_interactive_interacted"]
 [connection signal="closed" from="CanvasLayer/SlotMachineUI" to="." method="_on_slot_machine_ui_closed"]

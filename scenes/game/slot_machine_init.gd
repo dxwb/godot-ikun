@@ -29,9 +29,14 @@ func _on_slot_machine_roll_stoped(result):
 	var reward_index = _get_reward_index(result)
 
 	if reward_index == null: return
-	
-	print("获得奖励")
-	print(rewards[reward_index])
+
+	var getting_card = rewards[reward_index]
+
+	# 是否已拥有此卡片
+	if SaverLoader.running_data.collected_cards.has(getting_card.name_id):
+		slot_machine_played.emit(-COST * 2)
+	else:
+		slot_machine.loot_bag.drop_loot(getting_card)
 
 func _get_reward_index(arr: Array[int]):
 	var tmp = []

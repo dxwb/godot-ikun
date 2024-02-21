@@ -3,6 +3,7 @@ class_name LootBag
 
 @export var loot_scene: PackedScene
 
+# 随机掉落
 func drop():
 	var loot_data = _get_random_loot()
 
@@ -13,12 +14,16 @@ func drop():
 	var droprate = loot_data.droprate / 100
 
 	if f <= droprate:
-		var loot = loot_scene.instantiate()
+		drop_loot(loot_data)
 
-		loot.loot_data = loot_data
-		loot.global_position = owner.global_position
+# 指定战利品掉落
+func drop_loot(loot_data: Dictionary):
+	var loot = loot_scene.instantiate()
 
-		get_tree().get_current_scene().call_deferred("add_child", loot)
+	loot.loot_data = loot_data
+	loot.global_position = owner.global_position
+
+	get_tree().get_current_scene().call_deferred("add_child", loot)
 
 func _get_random_loot():
 	var loots = BackpackManager.get_unowned_loots() as Dictionary

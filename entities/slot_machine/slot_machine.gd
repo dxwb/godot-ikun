@@ -1,11 +1,12 @@
 extends Node2D
 
+@onready var slot_machine_ui = %SlotMachineUI
+@onready var loot_bag = %LootBag
+
 @export var disabled = false:
 	set(value):
 		disabled = value
 		slot_machine_ui.disabled = value
-
-@onready var slot_machine_ui = %SlotMachineUI
 
 signal ui_opened()
 signal ui_closed()

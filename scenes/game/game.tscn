@@ -652,7 +652,7 @@ position = Vector2(334, 233)
 position = Vector2(344, 79)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["ui_canvas_layer"]]
-layer = 2
+layer = 3
 
 [node name="CountUI" type="VBoxContainer" parent="CanvasLayer"]
 offset_left = 10.0
