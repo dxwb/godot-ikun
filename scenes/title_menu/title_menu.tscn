@@ -145,7 +145,7 @@ metadata/_edit_lock_ = true
 position = Vector2(320, 304)
 sprite_frames = SubResource("SpriteFrames_x1h65")
 autoplay = "default"
-frame_progress = 0.480933
+frame_progress = 0.248863
 metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -160,7 +160,6 @@ offset_bottom = 102.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_colors/default_color = Color(0.0784314, 0.137255, 0.227451, 1)
 theme_override_fonts/normal_font = ExtResource("14_6p3ss")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
@@ -168,3 +167,32 @@ text = "
 [center][wave amp=50.0 freq=5.0 connected=1][rainbow freq=1.0 sat=0.8 val=0.8][font_size=40]赶鸡[/font_size]模拟器[/rainbow][/wave][/center]"
 fit_content = true
 metadata/_edit_lock_ = true
+
+[node name="ButtonGroup" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -15.5
+offset_right = 20.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="CanvasLayer/ButtonGroup"]
+layout_mode = 2
+text = "开始"
+
+[node name="SettingButton" type="Button" parent="CanvasLayer/ButtonGroup"]
+layout_mode = 2
+text = "设置"
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/ButtonGroup"]
+layout_mode = 2
+text = "退出"
+
+[connection signal="pressed" from="CanvasLayer/ButtonGroup/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonGroup/SettingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonGroup/ExitButton" to="." method="_on_exit_button_pressed"]
