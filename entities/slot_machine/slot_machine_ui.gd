@@ -2,7 +2,7 @@ extends Control
 
 @onready var handler = %Handler
 @onready var handler_texture = handler.texture_normal as AtlasTexture
-@onready var items := [%SlotMachineItem, %SlotMachineItem2, %SlotMachineItem3]
+@onready var items = [%SlotMachineItem, %SlotMachineItem2, %SlotMachineItem3]
 
 var running := false
 var result: Array[int] = []
@@ -29,6 +29,11 @@ func open():
 
 func close():
 	visible = false
+
+func set_slot_images(images: Array[Texture2D]):
+	for item in items:
+		item.images = images
+		item.row_init()
 
 func _on_handler_pressed():
 	run()

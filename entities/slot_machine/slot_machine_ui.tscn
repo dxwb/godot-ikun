@@ -111,6 +111,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_7h6uq")
 icon = SubResource("AtlasTexture_017bp")
 icon_alignment = 1
 expand_icon = true
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="Handler" to="." method="_on_handler_pressed"]
 [connection signal="stopped" from="SlotMachineItem" to="." method="_on_slot_machine_item_stopped"]

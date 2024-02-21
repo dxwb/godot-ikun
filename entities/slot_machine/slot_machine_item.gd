@@ -15,6 +15,11 @@ const SIZE := 120
 const HALF_SIZE := SIZE / 2
 
 var images: Array[Texture2D] = []
+
+var row_size: int:
+	get:
+		return images.size() * HALF_SIZE
+
 var state = States.STOP
 
 var top_row: VBoxContainer:
@@ -34,7 +39,13 @@ func _process(delta):
 		States.ROLLING:
 			_roll(delta)
 
-func _row_init():
+func row_init():
+	for item in row_1.get_children():
+		item.queue_free()
+
+	for item in row_2.get_children():
+		item.queue_free()
+
 	for img in images:
 		var texture_rect1 = TextureRect.new()
 
@@ -48,6 +59,8 @@ func _row_init():
 		row_1.add_child(texture_rect1)
 		row_2.add_child(texture_rect2)
 
+	row_1.position.y = row_2.position.y - row_size
+
 func run():
 	state = States.ROLLING
 
@@ -58,25 +71,25 @@ func _stop_roll():
 	var tween = create_tween().set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT).set_parallel()
 	var index = _get_index() - randi_range(1, 4)
 	var target_index: int# 经过处理的index，不会存在负数情况
-	var final_y: int
+	var final_y: float
 	var distance: float
 	var dur: float
 
 	if index >= 0:
 		target_index = index
-		final_y = target_index * -60 + 30
+		final_y = target_index * -HALF_SIZE + float(HALF_SIZE) / 2
 		distance = -bottom_row.position.y + final_y
 		# 计算停下来所需时间
 		dur = distance / speed + 1
 		tween.tween_property(bottom_row, "position:y", final_y, dur)
-		tween.tween_property(top_row, "position:y", final_y - 300, dur)
+		tween.tween_property(top_row, "position:y", final_y - row_size, dur)
 	else:
 		target_index = 5 + index
-		final_y = target_index * -60 + 30
+		final_y = target_index * -HALF_SIZE + float(HALF_SIZE) / 2
 		distance = -top_row.position.y + final_y
 		dur = distance / speed + 1
 		tween.tween_property(top_row, "position:y", final_y, dur)
-		tween.tween_property(bottom_row, "position:y", final_y + 300, dur)
+		tween.tween_property(bottom_row, "position:y", final_y + row_size, dur)
 
 	state = States.STOP
 
@@ -97,4 +110,4 @@ func _roll(delta):
 
 func _reset_row_y():
 	if bottom_row.position.y >= SIZE:
-		bottom_row.position.y = top_row.position.y - 300
+		bottom_row.position.y = top_row.position.y - row_size
