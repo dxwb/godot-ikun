@@ -67,4 +67,5 @@ grow_horizontal = 0
 icon = SubResource("AtlasTexture_8t10g")
 
 [connection signal="tab_changed" from="Control/TabContainer" to="." method="_on_tab_container_tab_changed"]
+[connection signal="scene_before_leave" from="Control/TabContainer/SettingPanel" to="." method="close"]
 [connection signal="pressed" from="Control/CloseButton" to="." method="_on_close_button_pressed"]

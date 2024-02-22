@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0g4orm62cw7a"]
+[gd_scene load_steps=7 format=3 uid="uid://c0g4orm62cw7a"]
 
 [ext_resource type="Script" path="res://UI/pause_menu/setting_panel/setting_panel.gd" id="1_0teqr"]
 [ext_resource type="Texture2D" uid="uid://dwubf3o5hpss0" path="res://assets/art/icons.png" id="2_0j1he"]
@@ -9,6 +9,14 @@
 atlas = ExtResource("2_0j1he")
 region = Rect2(16, 16, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk8ol"]
+atlas = ExtResource("2_0j1he")
+region = Rect2(176, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nnp0"]
+atlas = ExtResource("2_0j1he")
+region = Rect2(48, 16, 16, 16)
+
 [node name="SettingPanel" type="PanelContainer"]
 offset_right = 407.0
 offset_bottom = 291.0
@@ -16,6 +24,50 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_jpqsc")
 script = ExtResource("1_0teqr")
 icon = SubResource("AtlasTexture_448fg")
 
-[node name="Label" type="Label" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-text = "zxczxc"
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+texture = SubResource("AtlasTexture_sk8ol")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+texture = SubResource("AtlasTexture_1nnp0")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "返回主菜单"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
