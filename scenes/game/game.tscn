@@ -749,10 +749,13 @@ position = Vector2(408, 164)
 [node name="Snow" parent="CanvasLayer2" instance=ExtResource("17_hirnr")]
 
 [node name="Store" parent="." instance=ExtResource("21_rs6yv")]
+unique_name_in_owner = true
+visible = false
 position = Vector2(434, 228)
 
 [node name="SlotMachine" parent="." instance=ExtResource("19_78aop")]
 unique_name_in_owner = true
+visible = false
 position = Vector2(551, 195)
 
 [node name="SlotMachineInit" type="Node" parent="."]
