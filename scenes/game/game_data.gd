@@ -91,6 +91,18 @@ func _on_store_traded(data: Dictionary):
 	ghost_spawn_count_ui.set_num(ghost_spawn_count)
 	snowman_hit_count_ui.set_num(snowman_hit_count)
 
+	# 挑战计算
+	ChallengeService.complete_challenge_by_group("GLOD", glod)
+
+	if data.amount > 0:
+		var traded_glod = SaverLoader.running_data.traded_glod + data.amount
+		SaverLoader.running_data.traded_glod = traded_glod
+		ChallengeService.complete_challenge_by_group("STORE", traded_glod)
+	elif data.amount < 0:
+		var play_slot_machine_glod = SaverLoader.running_data.play_slot_machine_glod + -data.amount
+		SaverLoader.running_data.play_slot_machine_glod = play_slot_machine_glod
+		ChallengeService.complete_challenge_by_group("SLOT_MACHINE", play_slot_machine_glod)
+
 	SaverLoader.save_game()
 
 	_check_slot_machine_visible()
@@ -107,8 +119,11 @@ func _check_store_visible():
 		SaverLoader.running_data.ghost_spawn_count > 0 and
 		SaverLoader.running_data.snowman_hit_count > 0):
 		store.visible = true
+		ChallengeService.complete_challenge("hi_store")
 	else:
 		store.visible = false
 
 func _check_slot_machine_visible():
-	slot_machine.visible = SaverLoader.running_data.glod > 0
+	if SaverLoader.running_data.glod > 0:
+		slot_machine.visible = true
+		ChallengeService.complete_challenge("hi_slot_machine")

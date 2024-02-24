@@ -23,7 +23,7 @@ func _on_tab_container_tab_changed(tab: int):
 func open():
 	show()
 	get_tree().paused = true
-	tab_children[0].render()
+	tab_children[tab_container.current_tab].render()
 
 func close():
 	hide()

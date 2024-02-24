@@ -24,3 +24,9 @@ class_name SavedGame
 
 # 当前拥有的金币
 @export var glod := 0
+
+# 累计交易的金币
+@export var traded_glod := 0
+
+# 累计摇奖的金币
+@export var play_slot_machine_glod := 0

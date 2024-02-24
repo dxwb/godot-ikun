@@ -26,5 +26,5 @@ int,string,string,string,int,string,string,string,string
 10023,500_slot_machine,大赌伤身,SLOT_MACHINE,500,中,res://assets/challenge_textures/first_slot_machine.png,摇奖金额达到500,
 10024,1000_slot_machine,赌怪,SLOT_MACHINE,1000,上,res://assets/challenge_textures/first_slot_machine.png,摇奖金额达到1000,
 10025,first_card,第一张卡,CARD,1,下,res://assets/challenge_textures/first_card.png,收集一张卡片,
-10026,50_card,斗地主,CARD,15,中,res://assets/challenge_textures/first_card.png,收集50%的卡片,
-10027,100_card,卡牌大师,CARD,30,上,res://assets/challenge_textures/first_card.png,收集所有卡片,
+10026,50_card,斗地主,CARD,27,中,res://assets/challenge_textures/first_card.png,收集50%的卡片,
+10027,100_card,卡牌大师,CARD,54,上,res://assets/challenge_textures/first_card.png,收集所有卡片,

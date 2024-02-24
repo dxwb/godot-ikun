@@ -2,6 +2,10 @@ extends Node
 
 func add_loot(loot_data: Dictionary):
 	SaverLoader.running_data.collected_cards.push_back(loot_data.name_id)
+
+	if SaverLoader.running_data.collected_cards:
+		ChallengeService.complete_challenge_by_group("CARD", SaverLoader.running_data.collected_cards.size())
+
 	SaverLoader.save_game()
 
 func get_owned_loots() -> Dictionary:
