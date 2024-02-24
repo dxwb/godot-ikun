@@ -1,8 +1,57 @@
 ID,name_id,title,droprate,rarity,texture,note
 ID,更具辨识度的ID,显示名称,爆率,稀有度,图片纹理,备注
 int,string,string,float,string,string,string
-20001,yibaojing,已报警,50,下,res://assets/kun_pictures/yibaojing.png,报警了报警了
-20002,meixiangdao,没想到啊,30,中,res://assets/kun_pictures/meixiangdao.png,原来你TM就是黑粉！
-20003,touting,偷听,20,上,res://assets/kun_pictures/touting.jpg,听说有人打篮球缺人？
-20004,qianniao,千鸟,10,奇,res://assets/kun_pictures/qianniao.jpg,千鸟、雷切
-20005,maren,骂人,5,秘,res://assets/kun_pictures/maren.jpg,你怎么骂人啊？
+20001,01_1,黑桃A,5,奇,res://assets/kun_pictures/01_1.png,Ace of spades
+20002,01_2,红桃A,5,上,res://assets/kun_pictures/01_2.png,Ace of hearts
+20003,01_3,梅花A,5,中,res://assets/kun_pictures/01_3.png,Ace of clubs
+20004,01_4,方块A,5,下,res://assets/kun_pictures/01_4.png,Ace of diamonds
+20005,02_1,黑桃2,5,奇,res://assets/kun_pictures/02_1.png,Two of spades
+20006,02_2,红桃2,5,上,res://assets/kun_pictures/02_2.png,Two of hearts
+20007,02_3,梅花2,5,中,res://assets/kun_pictures/02_3.png,Two of clubs
+20008,02_4,方块2,5,下,res://assets/kun_pictures/02_4.png,Two of diamonds
+20009,03_1,黑桃3,5,奇,res://assets/kun_pictures/03_1.png,Three of spades
+20010,03_2,红桃3,5,上,res://assets/kun_pictures/03_2.png,Three of hearts
+20011,03_3,梅花3,5,中,res://assets/kun_pictures/03_3.png,Three of clubs
+20012,03_4,方块3,5,下,res://assets/kun_pictures/03_4.png,Three of diamonds
+20013,04_1,黑桃4,5,奇,res://assets/kun_pictures/04_1.png,Four of spades
+20014,04_2,红桃4,5,上,res://assets/kun_pictures/04_2.png,Four of hearts
+20015,04_3,梅花4,5,中,res://assets/kun_pictures/04_3.png,Four of clubs
+20016,04_4,方块4,5,下,res://assets/kun_pictures/04_4.png,Four of diamonds
+20017,05_1,黑桃5,5,奇,res://assets/kun_pictures/05_1.png,Five of spades
+20018,05_2,红桃5,5,上,res://assets/kun_pictures/05_2.png,Five of hearts
+20019,05_3,梅花5,5,中,res://assets/kun_pictures/05_3.png,Five of clubs
+20020,05_4,方块5,5,下,res://assets/kun_pictures/05_4.png,Five of diamonds
+20021,06_1,黑桃6,5,奇,res://assets/kun_pictures/06_1.png,Six of spades
+20022,06_2,红桃6,5,上,res://assets/kun_pictures/06_2.png,Six of hearts
+20023,06_3,梅花6,5,中,res://assets/kun_pictures/06_3.png,Six of clubs
+20024,06_4,方块6,5,下,res://assets/kun_pictures/06_4.png,Six of diamonds
+20025,07_1,黑桃7,5,奇,res://assets/kun_pictures/07_1.png,Seven of spades
+20026,07_2,红桃7,5,上,res://assets/kun_pictures/07_2.png,Seven of hearts
+20027,07_3,梅花7,5,中,res://assets/kun_pictures/07_3.png,Seven of clubs
+20028,07_4,方块7,5,下,res://assets/kun_pictures/07_4.png,Seven of diamonds
+20029,08_1,黑桃8,5,奇,res://assets/kun_pictures/08_1.png,Eight of spades
+20030,08_2,红桃8,5,上,res://assets/kun_pictures/08_2.png,Eight of hearts
+20031,08_3,梅花8,5,中,res://assets/kun_pictures/08_3.png,Eight of clubs
+20032,08_4,方块8,5,下,res://assets/kun_pictures/08_4.png,Eight of diamonds
+20033,09_1,黑桃9,5,奇,res://assets/kun_pictures/09_1.png,Nine of spades
+20034,09_2,红桃9,5,上,res://assets/kun_pictures/09_2.png,Nine of hearts
+20035,09_3,梅花9,5,中,res://assets/kun_pictures/09_3.png,Nine of clubs
+20036,09_4,方块9,5,下,res://assets/kun_pictures/09_4.png,Nine of diamonds
+20037,10_1,黑桃10,5,奇,res://assets/kun_pictures/10_1.png,Ten of spades
+20038,10_2,红桃10,5,上,res://assets/kun_pictures/10_2.png,Ten of hearts
+20039,10_3,梅花10,5,中,res://assets/kun_pictures/10_3.png,Ten of clubs
+20040,10_4,方块10,5,下,res://assets/kun_pictures/10_4.png,Ten of diamonds
+20041,11_1,黑桃J,5,奇,res://assets/kun_pictures/11_1.png,Jack of spades
+20042,11_2,红桃J,5,上,res://assets/kun_pictures/11_2.png,Jack of hearts
+20043,11_3,梅花J,5,中,res://assets/kun_pictures/11_3.png,Jack of clubs
+20044,11_4,方块J,5,下,res://assets/kun_pictures/11_4.png,Jack of diamonds
+20045,12_1,黑桃Q,5,奇,res://assets/kun_pictures/12_1.png,Queen of spades
+20046,12_2,红桃Q,5,上,res://assets/kun_pictures/12_2.png,Queen of hearts
+20047,12_3,梅花Q,5,中,res://assets/kun_pictures/12_3.png,Queen of clubs
+20048,12_4,方块Q,5,下,res://assets/kun_pictures/12_4.png,Queen of diamonds
+20049,13_1,黑桃K,5,奇,res://assets/kun_pictures/13_1.png,King of spades
+20050,13_2,红桃K,5,上,res://assets/kun_pictures/13_2.png,King of hearts
+20051,13_3,梅花K,5,中,res://assets/kun_pictures/13_3.png,King of clubs
+20052,13_4,方块K,5,下,res://assets/kun_pictures/13_4.png,King of diamonds
+20053,14_1,大王,2,秘,res://assets/kun_pictures/14_1.png,Big joker
+20054,14_2,小王,1,极,res://assets/kun_pictures/14_2.png,Little joker
