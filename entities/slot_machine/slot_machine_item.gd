@@ -51,7 +51,7 @@ func row_init():
 
 		texture_rect1.texture = img
 		texture_rect1.expand_mode = TextureRect.EXPAND_FIT_HEIGHT
-		texture_rect1.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+		texture_rect1.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		texture_rect1.use_parent_material = true
 
 		var texture_rect2 = texture_rect1.duplicate(DUPLICATE_USE_INSTANTIATION)
@@ -69,7 +69,7 @@ func stop():
 
 func _stop_roll():
 	var tween = create_tween().set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT).set_parallel()
-	var index = _get_index() - randi_range(1, 4)
+	var index = _get_index() - randi_range(1, images.size())
 	var target_index: int# 经过处理的index，不会存在负数情况
 	var final_y: float
 	var distance: float

@@ -15,6 +15,27 @@ var result: Array[int] = []
 signal stopped(result: Array[int])
 signal closed()
 
+#var test = [
+	#"res://assets/kun_pictures/01_1.jpg",
+	#"res://assets/kun_pictures/02_3.jpg",
+	#"res://assets/kun_pictures/04_3.jpg",
+	#"res://assets/kun_pictures/05_4.jpg",
+	#"res://assets/kun_pictures/07_1.jpg",
+	#"res://assets/kun_pictures/08_2.jpg",
+	#"res://assets/kun_pictures/09_4.jpg",
+	#"res://assets/kun_pictures/11_4.jpg",
+	#"res://assets/kun_pictures/13_1.jpg",
+	#"res://assets/kun_pictures/14_2.jpg"
+#]
+#func _ready():
+	#var images: Array[Texture2D] = []
+#
+	#for t in test:
+		#var texture = load(t)
+		#images.push_back(texture)
+#
+	#set_slot_images(images)
+
 func run():
 	if running: return
 

@@ -12,19 +12,31 @@ func _ready():
 	call_deferred("_init_slot_machine")
 
 func _init_slot_machine():
-	var cards = DatatableManager.get_data("cards")
+	var cards = _get_random_cards()
 	var images: Array[Texture2D] = []
 
-	for key in cards:
-		var card = cards[key]
+	for card in cards:
 		var texture = load(card.texture)
 		images.push_back(texture)
 		rewards.push_back(card)
 
 	slot_machine.set_slot_images(images)
 
+func _get_random_cards() -> Array[Dictionary]:
+	var cards = DatatableManager.get_data("cards")
+	var keys = cards.keys()
+	var result: Array[Dictionary] = []
+
+	while result.size() < 10:
+		var key = keys.pick_random()
+		var card = cards[key]
+
+		if not result.has(card):
+			result.push_back(card)
+
+	return result
+
 func _on_slot_machine_ui_opened():
-	_init_slot_machine()
 	slot_machine.disabled = SaverLoader.running_data.glod < COST
 
 func _on_slot_machine_roll_stoped(result):
@@ -36,7 +48,7 @@ func _on_slot_machine_roll_stoped(result):
 
 	var getting_card = rewards[reward_index]
 
-	# 是否已拥有此卡片
+	 #是否已拥有此卡片
 	if SaverLoader.running_data.collected_cards.has(getting_card.name_id):
 		slot_machine_played.emit(-COST * 2)
 	else:

@@ -1,11 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://cekknp4pw2hxb"]
+[gd_scene load_steps=6 format=3 uid="uid://cekknp4pw2hxb"]
 
-[ext_resource type="Texture2D" uid="uid://c1y7c8de8ghip" path="res://assets/kun_pictures/maren.jpg" id="1_d4e8e"]
 [ext_resource type="Script" path="res://entities/slot_machine/slot_machine_item.gd" id="1_peism"]
-[ext_resource type="Texture2D" uid="uid://dng2dpjc3yu5g" path="res://assets/kun_pictures/meixiangdao.png" id="2_nixef"]
-[ext_resource type="Texture2D" uid="uid://bv288b4tn3kh7" path="res://assets/kun_pictures/qianniao.jpg" id="3_2i6sf"]
-[ext_resource type="Texture2D" uid="uid://j05g3nt6ym7y" path="res://assets/kun_pictures/touting.jpg" id="4_omk1s"]
-[ext_resource type="Texture2D" uid="uid://bnsrsh1j5l6f0" path="res://assets/kun_pictures/yibaojing.png" id="5_gnpbe"]
 [ext_resource type="Texture2D" uid="uid://cc8gfjuqo6g8b" path="res://assets/art/slot_machine/light.jpg" id="6_6cuk2"]
 [ext_resource type="Texture2D" uid="uid://djivqxt6styea" path="res://assets/art/slot_machine/slot_border.png" id="7_86mrl"]
 
@@ -32,46 +27,6 @@ offset_bottom = 30.0
 grow_horizontal = 2
 theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="Row"]
-use_parent_material = true
-layout_mode = 2
-texture = ExtResource("1_d4e8e")
-expand_mode = 4
-stretch_mode = 6
-metadata/_edit_lock_ = true
-
-[node name="TextureRect2" type="TextureRect" parent="Row"]
-use_parent_material = true
-layout_mode = 2
-texture = ExtResource("2_nixef")
-expand_mode = 4
-stretch_mode = 6
-metadata/_edit_lock_ = true
-
-[node name="TextureRect3" type="TextureRect" parent="Row"]
-use_parent_material = true
-layout_mode = 2
-texture = ExtResource("3_2i6sf")
-expand_mode = 4
-stretch_mode = 6
-metadata/_edit_lock_ = true
-
-[node name="TextureRect4" type="TextureRect" parent="Row"]
-use_parent_material = true
-layout_mode = 2
-texture = ExtResource("4_omk1s")
-expand_mode = 4
-stretch_mode = 6
-metadata/_edit_lock_ = true
-
-[node name="TextureRect5" type="TextureRect" parent="Row"]
-use_parent_material = true
-layout_mode = 2
-texture = ExtResource("5_gnpbe")
-expand_mode = 4
-stretch_mode = 6
-metadata/_edit_lock_ = true
-
 [node name="Row2" type="VBoxContainer" parent="."]
 material = SubResource("CanvasItemMaterial_ie73x")
 layout_mode = 2
@@ -80,46 +35,6 @@ offset_right = 60.0
 offset_bottom = 330.0
 grow_horizontal = 2
 theme_override_constants/separation = 0
-
-[node name="TextureRect" type="TextureRect" parent="Row2"]
-use_parent_material = true
-layout_mode = 2
-texture = ExtResource("1_d4e8e")
-expand_mode = 4
-stretch_mode = 6
-metadata/_edit_lock_ = true
-
-[node name="TextureRect2" type="TextureRect" parent="Row2"]
-use_parent_material = true
-layout_mode = 2
-texture = ExtResource("2_nixef")
-expand_mode = 4
-stretch_mode = 6
-metadata/_edit_lock_ = true
-
-[node name="TextureRect3" type="TextureRect" parent="Row2"]
-use_parent_material = true
-layout_mode = 2
-texture = ExtResource("3_2i6sf")
-expand_mode = 4
-stretch_mode = 6
-metadata/_edit_lock_ = true
-
-[node name="TextureRect4" type="TextureRect" parent="Row2"]
-use_parent_material = true
-layout_mode = 2
-texture = ExtResource("4_omk1s")
-expand_mode = 4
-stretch_mode = 6
-metadata/_edit_lock_ = true
-
-[node name="TextureRect5" type="TextureRect" parent="Row2"]
-use_parent_material = true
-layout_mode = 2
-texture = ExtResource("5_gnpbe")
-expand_mode = 4
-stretch_mode = 6
-metadata/_edit_lock_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(30, 60)
