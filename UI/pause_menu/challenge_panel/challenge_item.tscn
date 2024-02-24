@@ -2,7 +2,7 @@
 
 [ext_resource type="StyleBox" uid="uid://bvqblbhl76hkg" path="res://UI/pause_menu/challenge_panel/item_check_style.tres" id="1_fith2"]
 [ext_resource type="Script" path="res://UI/pause_menu/challenge_panel/challenge_item.gd" id="1_r4bqq"]
-[ext_resource type="Texture2D" uid="uid://g2jpwo3ix6yo" path="res://assets/challenge_textures/first_blood.jpg" id="2_cu6ab"]
+[ext_resource type="Texture2D" uid="uid://c0lkdw7ky04mp" path="res://assets/challenge_textures/first_blood.png" id="2_cu6ab"]
 
 [node name="ChallengeItem" type="PanelContainer"]
 offset_right = 21.0

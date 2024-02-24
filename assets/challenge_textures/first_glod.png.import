@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pmqknhwwg5h5"
-path="res://.godot/imported/first_kun.jpg-72b2852173df2d79b1b9d55c53383951.ctex"
+uid="uid://d3gfxepvmnkwy"
+path="res://.godot/imported/first_glod.png-2156704a268bbac6301401e7f31baa93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/challenge_textures/first_kun.jpg"
-dest_files=["res://.godot/imported/first_kun.jpg-72b2852173df2d79b1b9d55c53383951.ctex"]
+source_file="res://assets/challenge_textures/first_glod.png"
+dest_files=["res://.godot/imported/first_glod.png-2156704a268bbac6301401e7f31baa93.ctex"]
 
 [params]
 

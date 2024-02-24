@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g2jpwo3ix6yo"
-path="res://.godot/imported/first_blood.jpg-06413562241ee638accb05664446692e.ctex"
+uid="uid://c0lkdw7ky04mp"
+path="res://.godot/imported/first_blood.png-760d3f7f6f906cf9ef6e0525bcfb00d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/challenge_textures/first_blood.jpg"
-dest_files=["res://.godot/imported/first_blood.jpg-06413562241ee638accb05664446692e.ctex"]
+source_file="res://assets/challenge_textures/first_blood.png"
+dest_files=["res://.godot/imported/first_blood.png-760d3f7f6f906cf9ef6e0525bcfb00d7.ctex"]
 
 [params]
 

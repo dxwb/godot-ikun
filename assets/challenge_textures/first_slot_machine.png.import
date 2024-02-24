@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2raensvv146r"
-path="res://.godot/imported/hello_ghost.jpg-4b19b12188b334b36927cc30e308bd51.ctex"
+uid="uid://cdtsj08wjv2fa"
+path="res://.godot/imported/first_slot_machine.png-69c6f6465984ec79a96b34a951e95c3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/challenge_textures/hello_ghost.jpg"
-dest_files=["res://.godot/imported/hello_ghost.jpg-4b19b12188b334b36927cc30e308bd51.ctex"]
+source_file="res://assets/challenge_textures/first_slot_machine.png"
+dest_files=["res://.godot/imported/first_slot_machine.png-69c6f6465984ec79a96b34a951e95c3d.ctex"]
 
 [params]
 
