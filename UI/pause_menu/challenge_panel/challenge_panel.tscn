@@ -27,6 +27,7 @@ icon = SubResource("AtlasTexture_lbgqg")
 [node name="GridContainer" type="GridContainer" parent="." index="0"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 3

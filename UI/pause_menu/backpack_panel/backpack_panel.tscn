@@ -21,7 +21,7 @@ icon = SubResource("AtlasTexture_ionfg")
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="GridContainer" parent="Inventory/PanelContainer" index="0"]
+[node name="GridContainer" parent="Inventory" index="0"]
 columns = 6
 
 [connection signal="slot_clicked" from="Inventory" to="." method="_on_inventory_slot_clicked"]

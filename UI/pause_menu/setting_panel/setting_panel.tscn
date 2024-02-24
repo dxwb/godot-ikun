@@ -17,7 +17,7 @@ region = Rect2(176, 240, 16, 16)
 atlas = ExtResource("2_0j1he")
 region = Rect2(48, 16, 16, 16)
 
-[node name="SettingPanel" type="PanelContainer"]
+[node name="SettingPanel" type="ScrollContainer"]
 offset_right = 407.0
 offset_bottom = 291.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_jpqsc")
@@ -26,6 +26,7 @@ icon = SubResource("AtlasTexture_448fg")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10

@@ -4,6 +4,6 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ptmo2"]
 
-[node name="MenuPanel" type="PanelContainer"]
+[node name="MenuPanel" type="ScrollContainer"]
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ptmo2")
 script = ExtResource("1_d131x")
