@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bcpspkiqwyq2a"]
 
 [ext_resource type="Script" path="res://UI/pause_menu/backpack_panel/card.gd" id="1_spejx"]
-[ext_resource type="Texture2D" uid="uid://rf5pdntcfo0n" path="res://assets/kun_pictures/01_1.jpg" id="2_1nxi0"]
+[ext_resource type="Texture2D" uid="uid://rf5pdntcfo0n" path="res://assets/card_textures/01_1.jpg" id="2_1nxi0"]
 [ext_resource type="Texture2D" uid="uid://bkxf4e8m0y6d4" path="res://assets/art/UI_time_weather.png" id="3_aeagt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2twct"]
