@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cepsfxgd2vk53"]
+[gd_scene load_steps=25 format=3 uid="uid://cepsfxgd2vk53"]
 
 [ext_resource type="Texture2D" uid="uid://dvtwfkakn5sbs" path="res://assets/art/parallax_background/11_background.png" id="1_asrrt"]
 [ext_resource type="Script" path="res://scenes/title_menu/title_menu.gd" id="1_c1www"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dljmp5rj6c3ef" path="res://assets/art/player.png" id="13_bchwr"]
 [ext_resource type="FontFile" uid="uid://d05ubkhhhg7px" path="res://assets/fonts/VonwaonBitmap-16pxLite.ttf" id="14_6p3ss"]
 [ext_resource type="Texture2D" uid="uid://bh72a8d8fxod2" path="res://assets/art/kun.png" id="14_hhoe0"]
+[ext_resource type="PackedScene" uid="uid://db4wfgn21ltx8" path="res://UI/setting_ui/setting_ui.tscn" id="16_cp7jn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ix7s"]
 atlas = ExtResource("13_bchwr")
@@ -235,6 +236,9 @@ text = "设置"
 [node name="ExitButton" type="Button" parent="CanvasLayer/ButtonGroup"]
 layout_mode = 2
 text = "退出"
+
+[node name="SettingUI" parent="CanvasLayer" instance=ExtResource("16_cp7jn")]
+visible = false
 
 [connection signal="pressed" from="CanvasLayer/ButtonGroup/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/ButtonGroup/SettingButton" to="." method="_on_setting_button_pressed"]

@@ -5,6 +5,8 @@ extends StaticBody2D
 @onready var sprite_2d = $Sprite2D
 @onready var spawn_timer = $SpawnTimer
 @onready var loot_bag = $LootBag
+@onready var kun_enter_sound = $Sounds/KunEnterSound
+@onready var kun_leave_sound = $Sounds/KunLeaveSound
 
 signal kun_entered(area: Area2D)
 
@@ -22,6 +24,7 @@ func _on_zone_triggered(area: Area2D):
 	emit_signal("kun_entered", area)
 
 	loot_bag.drop()
+	kun_enter_sound.play()
 
 # 让小鸡从鸡舍里面逃出来
 func _on_spawn_timer_timeout():
@@ -39,6 +42,7 @@ func _on_spawn_timer_timeout():
 
 	# 生成小鸡之后，设置随机时间
 	set_random_wait_time()
+	kun_leave_sound.play()
 
 func set_random_wait_time():
 	spawn_timer.wait_time = randf_range(2.0, 5.0)

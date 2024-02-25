@@ -1,6 +1,7 @@
 extends Control
 
 @onready var tab_container = %TabContainer
+@onready var switch_sound = $Sounds/SwitchSound
 
 var tab_children: Array[Node]
 
@@ -19,6 +20,7 @@ func _unhandled_key_input(event):
 
 func _on_tab_container_tab_changed(tab: int):
 	tab_children[tab].render()
+	switch_sound.play()
 
 func open():
 	show()

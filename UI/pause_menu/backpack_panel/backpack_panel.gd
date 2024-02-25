@@ -3,6 +3,7 @@ extends MenuPanel
 @export var card_scene: PackedScene
 
 @onready var inventory = %Inventory
+@onready var select_card = $Sounds/SelectCard
 
 var ui_root: CanvasLayer
 
@@ -23,7 +24,7 @@ func render():
 
 func _on_inventory_slot_clicked(slot: Slot):
 	var card = card_scene.instantiate()
-
 	ui_root.add_child(card)
-
 	card.call_deferred("set_card", slot.data)
+
+	select_card.play()

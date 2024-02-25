@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxsq4xo0mdscc"]
+[gd_scene load_steps=8 format=3 uid="uid://cxsq4xo0mdscc"]
 
 [ext_resource type="PackedScene" uid="uid://cqwj1cct67j22" path="res://UI/pause_menu/menu_panel.tscn" id="1_3m60c"]
 [ext_resource type="Texture2D" uid="uid://dwubf3o5hpss0" path="res://assets/art/icons.png" id="2_dy4hj"]
 [ext_resource type="Script" path="res://UI/pause_menu/backpack_panel/backpack_panel.gd" id="2_gql3j"]
 [ext_resource type="PackedScene" uid="uid://bcpspkiqwyq2a" path="res://UI/pause_menu/backpack_panel/card.tscn" id="3_je4i0"]
 [ext_resource type="PackedScene" uid="uid://fveyt4lvjp6h" path="res://common/inventory/inventory.tscn" id="4_spyv3"]
+[ext_resource type="AudioStream" uid="uid://c7la3jd84pawn" path="res://assets/sounds/select_card.ogg" id="6_e7emj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ionfg"]
 atlas = ExtResource("2_dy4hj")
@@ -23,6 +24,12 @@ layout_mode = 2
 
 [node name="GridContainer" parent="Inventory" index="0"]
 columns = 6
+
+[node name="Sounds" type="Node" parent="." index="1"]
+
+[node name="SelectCard" type="AudioStreamPlayer" parent="Sounds" index="0"]
+stream = ExtResource("6_e7emj")
+bus = &"SFX"
 
 [connection signal="slot_clicked" from="Inventory" to="." method="_on_inventory_slot_clicked"]
 

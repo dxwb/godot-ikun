@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4l1llduemqit"]
+[gd_scene load_steps=8 format=3 uid="uid://b4l1llduemqit"]
 
 [ext_resource type="Script" path="res://UI/pause_menu/pause_menu.gd" id="1_sbhy6"]
 [ext_resource type="PackedScene" uid="uid://cxsq4xo0mdscc" path="res://UI/pause_menu/backpack_panel/backpack_panel.tscn" id="2_5g7mv"]
 [ext_resource type="Texture2D" uid="uid://hsusvm6gy58v" path="res://assets/art/UI_books.png" id="2_brsjr"]
 [ext_resource type="PackedScene" uid="uid://c50uu5paig2ut" path="res://UI/pause_menu/challenge_panel/challenge_panel.tscn" id="3_dp1ap"]
 [ext_resource type="PackedScene" uid="uid://c0g4orm62cw7a" path="res://UI/pause_menu/setting_panel/setting_panel.tscn" id="4_xfuyt"]
+[ext_resource type="AudioStream" uid="uid://bl0b7baef0087" path="res://assets/sounds/switch.ogg" id="6_q4kdl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8t10g"]
 atlas = ExtResource("2_brsjr")
@@ -65,6 +66,12 @@ offset_right = -8.0
 offset_bottom = 24.0
 grow_horizontal = 0
 icon = SubResource("AtlasTexture_8t10g")
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="SwitchSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("6_q4kdl")
+bus = &"SFX"
 
 [connection signal="tab_changed" from="Control/TabContainer" to="." method="_on_tab_container_tab_changed"]
 [connection signal="scene_before_leave" from="Control/TabContainer/SettingPanel" to="." method="close"]

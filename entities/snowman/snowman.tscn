@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://7ue6ltf3qy20"]
+[gd_scene load_steps=10 format=3 uid="uid://7ue6ltf3qy20"]
 
 [ext_resource type="Script" path="res://entities/snowman/snowman.gd" id="1_dyssy"]
 [ext_resource type="Texture2D" uid="uid://dcjgbofhk1f16" path="res://assets/art/snowy.png" id="1_eld8d"]
 [ext_resource type="PackedScene" uid="uid://cfosurdxu805n" path="res://common/loot/loot_bag.tscn" id="3_s7v82"]
+[ext_resource type="AudioStream" uid="uid://d3o8lgp3yd824" path="res://assets/sounds/snowman_hit.wav" id="4_ka2ja"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f2re2"]
 atlas = ExtResource("1_eld8d")
@@ -69,5 +70,10 @@ libraries = {
 }
 
 [node name="LootBag" parent="." instance=ExtResource("3_s7v82")]
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="HitSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("4_ka2ja")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
