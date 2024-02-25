@@ -47,6 +47,7 @@ bus = &"SFX"
 
 [node name="KunLeaveSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("7_xxo2a")
+bus = &"SFX"
 
 [connection signal="entered" from="Zone" to="." method="_on_zone_triggered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

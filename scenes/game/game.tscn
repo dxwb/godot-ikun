@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dkqfcysl5kgn8"]
+[gd_scene load_steps=39 format=3 uid="uid://dkqfcysl5kgn8"]
 
 [ext_resource type="Texture2D" uid="uid://77p03m6lvlck" path="res://assets/art/water.png" id="1_85ivb"]
 [ext_resource type="Texture2D" uid="uid://bmdqtfgxrfajh" path="res://assets/art/hills.png" id="2_lul38"]
@@ -23,7 +23,9 @@
 [ext_resource type="PackedScene" uid="uid://cwow0via0onvn" path="res://VFX/snow/snow.tscn" id="17_hirnr"]
 [ext_resource type="PackedScene" uid="uid://ghgdmabymr47" path="res://entities/slot_machine/slot_machine.tscn" id="19_78aop"]
 [ext_resource type="Script" path="res://scenes/game/slot_machine_init.gd" id="20_3v1wf"]
+[ext_resource type="AudioStream" uid="uid://bu4ahhmkl2hp4" path="res://assets/sounds/pickup_coin.wav" id="21_mrl8m"]
 [ext_resource type="PackedScene" uid="uid://cwoixkekusr1" path="res://entities/store/store.tscn" id="21_rs6yv"]
+[ext_resource type="AudioStream" uid="uid://jj7bhb7ppvsl" path="res://assets/sounds/ghost_appear.wav" id="24_sjcq7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_sj7jw"]
 vertices = PackedVector2Array(118, 338, 102, 230, 155, 230, 155, 246, 187, 246, 187, 310, 580, 322, 325, 310, 325, 278, 331, 278, 331, 310, 501, 310, 501, 294, 517, 294, 517, 278, 549, 278, 549, 246, 581, 246, 581, 167, 549, 167, 549, 39, 583, 32, 443, 39, 443, 71, 373, 71, 373, 36, 91, 159, 72, 42, 91, 42, 459, 199, 437, 199, 437, 166, 459, 166, 315, 71, 213, 71, 213, 39, 315, 37, 485, 230, 485, 135, 523, 215, 523, 247, 491, 247, 325, 102, 325, 96, 363, 96, 363, 102, 357, 247, 469, 102, 469, 70, 523, 70, 523, 198, 555, 198, 555, 215, 411, 135, 411, 230, 491, 263, 475, 263, 475, 279, 357, 279, 299, 247, 299, 279, 213, 279, 213, 215, 181, 215, 181, 199, 187, 102, 117, 199, 117, 70, 187, 70)
@@ -761,10 +763,22 @@ position = Vector2(551, 195)
 [node name="SlotMachineInit" type="Node" parent="."]
 script = ExtResource("20_3v1wf")
 
+[node name="Sounds" type="Node" parent="SlotMachineInit"]
+
+[node name="GetGlodSound" type="AudioStreamPlayer" parent="SlotMachineInit/Sounds"]
+stream = ExtResource("21_mrl8m")
+bus = &"SFX"
+
 [node name="EnemySpawner" type="Node" parent="."]
 script = ExtResource("13_g3bpi")
 enemy_packed_scene = ExtResource("12_tvnhi")
 gradient = Array[int]([5, 10, 15, 20, 25])
+
+[node name="Sounds" type="Node" parent="EnemySpawner"]
+
+[node name="AppearSound" type="AudioStreamPlayer" parent="EnemySpawner/Sounds"]
+stream = ExtResource("24_sjcq7")
+bus = &"SFX"
 
 [node name="DeathCountdown" type="Timer" parent="."]
 script = ExtResource("15_adx2e")

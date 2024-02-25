@@ -1,8 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfosurdxu805n"]
+[gd_scene load_steps=4 format=3 uid="uid://cfosurdxu805n"]
 
 [ext_resource type="Script" path="res://common/loot/loot_bag.gd" id="1_mjwbl"]
 [ext_resource type="PackedScene" uid="uid://b8i2j5ngdksvi" path="res://common/loot/loot.tscn" id="2_8wuqv"]
+[ext_resource type="AudioStream" uid="uid://c6y1hp4f8s5uf" path="res://assets/sounds/loot_drop.wav" id="3_4qvmo"]
 
 [node name="LootBag" type="Node"]
 script = ExtResource("1_mjwbl")
 loot_scene = ExtResource("2_8wuqv")
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="DropSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("3_4qvmo")
+bus = &"SFX"

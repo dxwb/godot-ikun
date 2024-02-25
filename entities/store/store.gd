@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var store_ui = %StoreUI
+@onready var traded_sound = $Sounds/TradedSound
 
 signal dialogue_opened()
 signal dialogue_closed()
@@ -32,3 +33,4 @@ func _on_store_ui_closed():
 
 func _on_store_ui_traded(data: Dictionary):
 	traded.emit(data)
+	traded_sound.play()

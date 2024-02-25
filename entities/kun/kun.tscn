@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bbwfnwqrlhl8n"]
+[gd_scene load_steps=29 format=3 uid="uid://bbwfnwqrlhl8n"]
 
 [ext_resource type="Texture2D" uid="uid://bh72a8d8fxod2" path="res://assets/art/kun.png" id="1_dy8lm"]
 [ext_resource type="Script" path="res://entities/kun/kun.gd" id="1_olteq"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dcaa474wogoyc" path="res://VFX/fireworks/fireworks.tscn" id="9_82alb"]
 [ext_resource type="Script" path="res://entities/kun/states/leave_home_state.gd" id="10_8t0fq"]
 [ext_resource type="PackedScene" uid="uid://do4gtca4bjigf" path="res://common/zone/receiver.tscn" id="11_55e88"]
+[ext_resource type="AudioStream" uid="uid://djpmm28snbp4m" path="res://assets/sounds/kun_scare.mp3" id="12_ru4tc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogox0"]
 size = Vector2(7, 5)
@@ -344,6 +345,12 @@ parameters/walk/blend_position = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KunHouseReceiver"]
 position = Vector2(-1, -5)
 shape = SubResource("CircleShape2D_kq73s")
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="ScareSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("12_ru4tc")
+bus = &"SFX"
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="navigation_finished" from="NavigationAgent2D" to="LeaveHomeState" method="_on_navigation_agent_2d_navigation_finished"]

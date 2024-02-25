@@ -7,6 +7,7 @@ class_name Kun
 @onready var movement = $Movement
 @onready var flee_area = $FleeArea
 @onready var kun_house_receiver = $KunHouseReceiver
+@onready var scare_sound = $Sounds/ScareSound
 
 var player = null
 var leave_home_target: Vector2
@@ -34,6 +35,7 @@ func _on_navigation_agent_2d_navigation_finished():
 func _on_area_2d_body_entered(body):
 	player = body
 	state_chart.send_event('player_entered')
+	scare_sound.play()
 
 # 玩家离开警戒区域
 func _on_area_2d_body_exited(body):

@@ -3,6 +3,8 @@ extends Node
 @export var enemy_packed_scene: PackedScene
 @export var gradient: Array[int]
 
+@onready var appear_sound = $Sounds/AppearSound
+
 signal enemy_spawned(enemy: Enemy)
 
 var kun_count = 0
@@ -32,6 +34,8 @@ func on_kun_entered_to_house(area: Area2D):
 			index += 1
 
 		enemy_spawned.emit(enemy)
+
+		appear_sound.play()
 
 # 获取屏幕外随机坐标
 func get_random_position():

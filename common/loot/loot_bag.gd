@@ -2,6 +2,7 @@ extends Node
 class_name LootBag
 
 @export var loot_scene: PackedScene
+@onready var drop_sound = $Sounds/DropSound
 
 # 随机掉落
 func drop():
@@ -24,6 +25,8 @@ func drop_loot(loot_data: Dictionary):
 	loot.global_position = owner.global_position
 
 	get_tree().get_current_scene().call_deferred("add_child", loot)
+
+	drop_sound.play()
 
 func _get_random_loot():
 	var loots = BackpackManager.get_unowned_loots() as Dictionary

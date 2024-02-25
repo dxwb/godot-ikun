@@ -9,6 +9,8 @@ class_name Player
 @onready var smokeParticle = $Smoke
 @onready var bloodParticle = $Blood
 @onready var current_speed = speed
+@onready var died_sound = $Sounds/DiedSound
+@onready var resuscitate_sound = $Sounds/ResuscitateSound
 
 signal died()
 
@@ -59,12 +61,14 @@ func dead():
 	state_machine.travel('dead')
 	set_collision_layer_value(2, false)
 	set_walk_particle(Vector2.ZERO)
+	died_sound.play()
 
 # 复活
 func resuscitate():
 	is_alive = true
 	set_collision_layer_value(2, true)
 	global_position = birth_point
+	resuscitate_sound.play()
 
 # 禁用移动
 func disable_move():

@@ -75,5 +75,6 @@ libraries = {
 
 [node name="HitSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("4_ka2ja")
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

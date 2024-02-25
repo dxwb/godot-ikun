@@ -8,6 +8,7 @@ extends Control
 @onready var handler = %Handler
 @onready var handler_texture = handler.texture_normal as AtlasTexture
 @onready var items = [%SlotMachineItem, %SlotMachineItem2, %SlotMachineItem3]
+@onready var play_sound = $Sounds/PlaySound
 
 var running := false
 var result: Array[int] = []
@@ -50,6 +51,8 @@ func run():
 		var item = items[i]
 		item.run()
 		tween.tween_callback(item.stop).set_delay(duration if i == 0 else 0.5)
+
+	play_sound.play()
 
 func open():
 	visible = true

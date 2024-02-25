@@ -1,6 +1,7 @@
 extends Node
 
 @onready var slot_machine = %SlotMachine
+@onready var get_glod_sound = $Sounds/GetGlodSound
 
 const COST = 25
 
@@ -51,6 +52,7 @@ func _on_slot_machine_roll_stoped(result):
 	 #是否已拥有此卡片
 	if SaverLoader.running_data.collected_cards.has(getting_card.name_id):
 		slot_machine_played.emit(-COST * 2)
+		get_glod_sound.play()
 	else:
 		slot_machine.loot_bag.drop_loot(getting_card)
 

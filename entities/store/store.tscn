@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwoixkekusr1"]
+[gd_scene load_steps=6 format=3 uid="uid://cwoixkekusr1"]
 
 [ext_resource type="Texture2D" uid="uid://1vlcjaxkohro" path="res://assets/art/store.png" id="1_71j57"]
 [ext_resource type="Script" path="res://entities/store/store.gd" id="1_r2evh"]
 [ext_resource type="PackedScene" uid="uid://cxyu1osnq2cui" path="res://common/interactive/interactive.tscn" id="2_rh708"]
 [ext_resource type="PackedScene" uid="uid://doarf86jvl7lp" path="res://UI/store_ui/store_ui.tscn" id="4_a6wk8"]
+[ext_resource type="AudioStream" uid="uid://bu4ahhmkl2hp4" path="res://assets/sounds/pickup_coin.wav" id="5_4jolk"]
 
 [node name="Store" type="Node2D"]
 script = ExtResource("1_r2evh")
@@ -31,6 +32,12 @@ layer = 2
 [node name="StoreUI" parent="CanvasLayer" instance=ExtResource("4_a6wk8")]
 unique_name_in_owner = true
 visible = false
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="TradedSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("5_4jolk")
+bus = &"SFX"
 
 [connection signal="interacted" from="Interactive" to="." method="_on_interactive_interacted"]
 [connection signal="closed" from="CanvasLayer/StoreUI" to="." method="_on_store_ui_closed"]
