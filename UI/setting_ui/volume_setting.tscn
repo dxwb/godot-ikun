@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6d84qtdb4bx3"]
+
+[ext_resource type="Texture2D" uid="uid://dwubf3o5hpss0" path="res://assets/art/icons.png" id="1_2ckfq"]
+[ext_resource type="Script" path="res://UI/setting_ui/volume_setting.gd" id="1_grcrs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk8ol"]
+atlas = ExtResource("1_2ckfq")
+region = Rect2(176, 240, 16, 16)
+
+[node name="VolumeSetting" type="HBoxContainer"]
+offset_right = 259.0
+offset_bottom = 25.0
+theme_override_constants/separation = 10
+script = ExtResource("1_grcrs")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+texture = SubResource("AtlasTexture_sk8ol")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]

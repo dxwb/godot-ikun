@@ -37,5 +37,7 @@ shape = SubResource("RectangleShape2D_imp41")
 
 [node name="LootBag" parent="." instance=ExtResource("5_5jk40")]
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="entered" from="Zone" to="." method="_on_zone_triggered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
