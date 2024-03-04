@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnsrsh1j5l6f0"
-path="res://.godot/imported/yibaojing.png-61ffc4606e8970e61d3f1e4d9bb76bea.ctex"
+uid="uid://cohmti1jowqjb"
+path="res://.godot/imported/qianshoukunyin.jpg-ffc7a013cf6709a4c90306613b4438f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/card_textures/yibaojing.png"
-dest_files=["res://.godot/imported/yibaojing.png-61ffc4606e8970e61d3f1e4d9bb76bea.ctex"]
+source_file="res://assets/card_textures/qianshoukunyin.jpg"
+dest_files=["res://.godot/imported/qianshoukunyin.jpg-ffc7a013cf6709a4c90306613b4438f1.ctex"]
 
 [params]
 

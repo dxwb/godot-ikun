@@ -1,57 +1,43 @@
 ID,name_id,title,droprate,rarity,texture,note
 ID,更具辨识度的ID,显示名称,爆率,稀有度,图片纹理,备注
 int,string,string,float,string,string,string
-20001,01_1,黑桃A,5,奇,res://assets/card_textures/01_1.jpg,Ace of spades
-20002,01_2,红桃A,5,上,res://assets/card_textures/01_2.jpg,Ace of hearts
-20003,01_3,梅花A,5,中,res://assets/card_textures/01_3.jpg,Ace of clubs
-20004,01_4,方块A,5,下,res://assets/card_textures/01_4.jpg,Ace of diamonds
-20005,02_1,黑桃2,5,奇,res://assets/card_textures/02_1.jpg,Two of spades
-20006,02_2,红桃2,5,上,res://assets/card_textures/02_2.jpg,Two of hearts
-20007,02_3,梅花2,5,中,res://assets/card_textures/02_3.jpg,Two of clubs
-20008,02_4,方块2,5,下,res://assets/card_textures/02_4.jpg,Two of diamonds
-20009,03_1,黑桃3,5,奇,res://assets/card_textures/03_1.jpg,Three of spades
-20010,03_2,红桃3,5,上,res://assets/card_textures/03_2.jpg,Three of hearts
-20011,03_3,梅花3,5,中,res://assets/card_textures/03_3.jpg,Three of clubs
-20012,03_4,方块3,5,下,res://assets/card_textures/03_4.jpg,Three of diamonds
-20013,04_1,黑桃4,5,奇,res://assets/card_textures/04_1.jpg,Four of spades
-20014,04_2,红桃4,5,上,res://assets/card_textures/04_2.jpg,Four of hearts
-20015,04_3,梅花4,5,中,res://assets/card_textures/04_3.jpg,Four of clubs
-20016,04_4,方块4,5,下,res://assets/card_textures/04_4.jpg,Four of diamonds
-20017,05_1,黑桃5,5,奇,res://assets/card_textures/05_1.jpg,Five of spades
-20018,05_2,红桃5,5,上,res://assets/card_textures/05_2.jpg,Five of hearts
-20019,05_3,梅花5,5,中,res://assets/card_textures/05_3.jpg,Five of clubs
-20020,05_4,方块5,5,下,res://assets/card_textures/05_4.jpg,Five of diamonds
-20021,06_1,黑桃6,5,奇,res://assets/card_textures/06_1.jpg,Six of spades
-20022,06_2,红桃6,5,上,res://assets/card_textures/06_2.jpg,Six of hearts
-20023,06_3,梅花6,5,中,res://assets/card_textures/06_3.jpg,Six of clubs
-20024,06_4,方块6,5,下,res://assets/card_textures/06_4.jpg,Six of diamonds
-20025,07_1,黑桃7,5,奇,res://assets/card_textures/07_1.jpg,Seven of spades
-20026,07_2,红桃7,5,上,res://assets/card_textures/07_2.jpg,Seven of hearts
-20027,07_3,梅花7,5,中,res://assets/card_textures/07_3.jpg,Seven of clubs
-20028,07_4,方块7,5,下,res://assets/card_textures/07_4.jpg,Seven of diamonds
-20029,08_1,黑桃8,5,奇,res://assets/card_textures/08_1.jpg,Eight of spades
-20030,08_2,红桃8,5,上,res://assets/card_textures/08_2.jpg,Eight of hearts
-20031,08_3,梅花8,5,中,res://assets/card_textures/08_3.jpg,Eight of clubs
-20032,08_4,方块8,5,下,res://assets/card_textures/08_4.jpg,Eight of diamonds
-20033,09_1,黑桃9,5,奇,res://assets/card_textures/09_1.jpg,Nine of spades
-20034,09_2,红桃9,5,上,res://assets/card_textures/09_2.jpg,Nine of hearts
-20035,09_3,梅花9,5,中,res://assets/card_textures/09_3.jpg,Nine of clubs
-20036,09_4,方块9,5,下,res://assets/card_textures/09_4.jpg,Nine of diamonds
-20037,10_1,黑桃10,5,奇,res://assets/card_textures/10_1.jpg,Ten of spades
-20038,10_2,红桃10,5,上,res://assets/card_textures/10_2.jpg,Ten of hearts
-20039,10_3,梅花10,5,中,res://assets/card_textures/10_3.jpg,Ten of clubs
-20040,10_4,方块10,5,下,res://assets/card_textures/10_4.jpg,Ten of diamonds
-20041,11_1,黑桃J,5,奇,res://assets/card_textures/11_1.jpg,Jack of spades
-20042,11_2,红桃J,5,上,res://assets/card_textures/11_2.jpg,Jack of hearts
-20043,11_3,梅花J,5,中,res://assets/card_textures/11_3.jpg,Jack of clubs
-20044,11_4,方块J,5,下,res://assets/card_textures/11_4.jpg,Jack of diamonds
-20045,12_1,黑桃Q,5,奇,res://assets/card_textures/12_1.jpg,Queen of spades
-20046,12_2,红桃Q,5,上,res://assets/card_textures/12_2.jpg,Queen of hearts
-20047,12_3,梅花Q,5,中,res://assets/card_textures/12_3.jpg,Queen of clubs
-20048,12_4,方块Q,5,下,res://assets/card_textures/12_4.jpg,Queen of diamonds
-20049,13_1,黑桃K,5,奇,res://assets/card_textures/13_1.jpg,King of spades
-20050,13_2,红桃K,5,上,res://assets/card_textures/13_2.jpg,King of hearts
-20051,13_3,梅花K,5,中,res://assets/card_textures/13_3.jpg,King of clubs
-20052,13_4,方块K,5,下,res://assets/card_textures/13_4.jpg,King of diamonds
-20053,14_1,大王,2,秘,res://assets/card_textures/14_1.jpg,Big joker
-20054,14_2,小王,1,极,res://assets/card_textures/14_2.jpg,Little joker
+20001,yibaojing,已报警,5,下,res://assets/card_textures/yibaojing.jpg,报警了报警了
+20002,meixiangdao,没想到啊,5,下,res://assets/card_textures/meixiangdao.png,震惊！原来身边一直有个“卧底”，那句“没想到啊 原来你TM就是黑粉”让我瞬间醒悟。人心隔肚皮，真的得小心了！
+20003,touting,偷听,5,下,res://assets/card_textures/touting.jpg,“偷听听说有人打篮球缺人？”图中的卡通人物似乎对篮球有着浓厚的兴趣，说不定正在寻找篮球队友呢！快来加入我们吧！
+20004,qianniao,千鸟,5,下,res://assets/card_textures/qianniao.jpg,青春舞者，自信专注，舞动热情！黑白灰间的魅力，青春的力量在舞蹈中绽放。看他舞出青春的活力和梦想！
+20005,maren,骂人,5,下,res://assets/card_textures/maren.jpg,你怎么骂人啊？
+20006,qianshoukunyin,千手坤音,5,下,res://assets/card_textures/qianshoukunyin.jpg,“蜘蛛侠”现身！这个男人张开双臂，仿佛要拥抱整个世界。衣服上的蜘蛛图案更是增添了几分神秘感。
+20007,zhimibuwu,执迷不悟,5,下,res://assets/card_textures/zhimibuwu.jpg,熊猫头表情包配自拍，萌态可掬，困意十足，询问中透露一丝幽默。
+20008,xiangchilaofan,香翅捞饭,5,下,res://assets/card_textures/xiangchilaofan.jpg,红烧鸡翅配白饭，香翅捞饭引食欲，幽默表情包增添趣味。
+20009,kongju,恐惧,5,下,res://assets/card_textures/kongju.jpg,熊猫表情包来啦！这只可爱的熊猫宝宝似乎遇到了什么让它害怕的东西，哭着喊“快拿开！”真是又萌又有趣呢！
+20010,youshuzhi,有树枝,5,下,res://assets/card_textures/youshuzhi.jpg,卡通表情包，以鸡为形象，融入网络流行语“你有树枝吗”，展现幽默与机智。
+20011,zibei,紫杯,5,下,res://assets/card_textures/zibei.jpg,深紫色杯子，白色内壁和手柄，简约而时尚，宛如艺术品。
+20012,sushan,苏珊的扇子,5,下,res://assets/card_textures/sushan.jpg,这位黑发小哥哥用扇子遮脸，只露一只眼，真是又酷又神秘。你知道“速扇”是什么意思吗？快来解密吧！
+20013,youbing,油饼,5,下,res://assets/card_textures/youbing.jpg,"""油饼食不食？""老奶奶表情包太萌啦！瞬间回忆起小时候的味道，让人垂涎三尺！你小时候也喜欢吃油饼吗？"
+20014,shiren,食仁,5,下,res://assets/card_textures/shiren.jpg,今天的午餐与众不同，一堆带有人脸的智能米让我大开眼界。不仅美味，还有生物识别功能，真是科技改变生活！
+20015,bingkunkun,冰鲲鲲,5,下,res://assets/card_textures/bingkunkun.jpg,今天偶遇冰鲲大人，一身熊猫装扮，手拿“冰鱼昆昆”篮球，炫酷又可爱！真的让我眼前一亮！
+20016,lujijiao,卤鸡脚,5,下,res://assets/card_textures/lujijiao.jpg,"""小黑子""果然是个高手！站在两只鸡上，尽显平衡力！鸡脚都露出来了，这是在秀技术吗？"
+20017,lizhi,荔枝,5,下,res://assets/card_textures/lizhi.jpg,这颗荔枝戴着黑色的帽子，看起来好可爱！就像一个小小的精灵。尝一口，清甜满溢，真是夏天的味道！
+20018,doujizhiwang,斗鸡之王,5,下,res://assets/card_textures/doujizhiwang.jpg,今日笑点爆棚！xxx表情包来袭，从唱歌到瞪眼，每个动作都太逗了！配上这些文字，简直让人捧腹大笑！
+20019,shougoule,收购了,5,下,res://assets/card_textures/shougoule.jpg,看我新宠！金毛犬戴上帽子萌态十足，旁边火焰更是炫酷无比！自嘲“我蒸的售狗了”，实则骄傲满满！
+20020,shuzhi666,树枝666,5,下,res://assets/card_textures/shuzhi666.jpg,小黑子树上大显身手，公鸡站枝头，母鸡稳树干，真是666！dy号******，加油哦！
+20021,zhenshen,真身,5,下,res://assets/card_textures/zhenshen.jpg,男子戴鸡头套，表情滑稽逗趣！网友：这是要上演哪一出？快来围观，笑出腹肌！
+20022,niganma,你干嘛,5,下,res://assets/card_textures/niganma.jpg,这个姿势好舒服啊！看他这放松的样子，一定是做了什么美梦吧！
+20023,jifuzhou,鸡符咒,5,下,res://assets/card_textures/jifuzhou.jpg,原来这就是十二生肖之一的鸡啊！形象生动，简洁明了。不愧是中华文化的一部分！
+20024,tiefen,铁粉,5,下,res://assets/card_textures/tiefen.jpg,这黑色粉末里隐藏的笑容，原来是“铁粉”呀！看着就让人心生欢喜，微笑的力量果然无处不在！
+20025,kaodexiang,烤得香,5,下,res://assets/card_textures/kaodexiang.jpg,夏日的午后，坐在长条凳上，享受油炸鸡排的美味，吸管里透出丝丝清凉，小伞遮挡着烈日，生活如此惬意！
+20026,nitaimei,你太美,5,下,res://assets/card_textures/nitaimei.jpg,红衣黑帽，霸气十足！背后的画布更是惊艳，是他的半身照！虚鲲妹妹，你是最棒的！
+20027,jige,鸡哥,5,下,res://assets/card_textures/jige.jpg,金毛犬咬住红球，眼神中透露出一丝狡黠，“鸡哥，算了算”，看来它又想出了什么新点子！
+20028,weixie,威胁,5,下,res://assets/card_textures/weixie.jpg,对付小黑子，还得是枪好使
+20029,daoqie,盗窃,5,下,res://assets/card_textures/daoqie.jpg,黑衣男子手持工具，破坏白色大门，窗户透出诡异光芒。盗窃行为？勇敢还是愚蠢？
+20030,kaituanxuke,开团许可,5,下,res://assets/card_textures/kaituanxuke.jpg,“开团许可证”来啦！苏珊女神持证开团，***篮球协会权威签发，有效期长达两年半！快来加入我们，一起享受篮球的魅力吧！
+20031,kunliuzhihu,鲲流之主,5,下,res://assets/card_textures/kunliuzhihu.jpg,无形之美，最为致命！
+20032,diokun,dio鲲,5,下,res://assets/card_textures/diokun.jpg,我不做人啦！我要做鲲！
+20033,haimianbaokun,海绵宝鲲,5,下,res://assets/card_textures/haimianbaokun.jpg,为什么不问问神奇鲲螺呢？
+20034,vankun,van鲲,5,下,res://assets/card_textures/vankun.jpg,Deep Dark Fantasy
+20035,jingdiankun,经典鲲,5,下,res://assets/card_textures/jingdiankun.jpg,经典皮肤，没什么好说的
+20036,tuzikun,兔子鲲,5,下,res://assets/card_textures/tuzikun.jpg,兔子皮肤，没什么好说的
+20037,zuozhukun,佐助鲲,5,下,res://assets/card_textures/zuozhukun.jpg,那撸多！！！
+20038,xiaozhupeikun,小鲲配齐,5,下,res://assets/card_textures/xiaozhupeikun.jpg,小鲲配齐身上纹，掌声送给社会人
+20039,kedakun,可达鲲,5,下,res://assets/card_textures/kedakun.jpg,肯得鲲里面花钱还买不到，在这里你免费拥有
+20040,pikakun,皮卡鲲,5,下,res://assets/card_textures/pikakun.jpg,去吧！皮卡鲲！
