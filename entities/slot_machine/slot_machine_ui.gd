@@ -17,16 +17,16 @@ signal stopped(result: Array[int])
 signal closed()
 
 #var test = [
-	#"res://assets/kun_pictures/01_1.jpg",
-	#"res://assets/kun_pictures/02_3.jpg",
-	#"res://assets/kun_pictures/04_3.jpg",
-	#"res://assets/kun_pictures/05_4.jpg",
-	#"res://assets/kun_pictures/07_1.jpg",
-	#"res://assets/kun_pictures/08_2.jpg",
-	#"res://assets/kun_pictures/09_4.jpg",
-	#"res://assets/kun_pictures/11_4.jpg",
-	#"res://assets/kun_pictures/13_1.jpg",
-	#"res://assets/kun_pictures/14_2.jpg"
+	#"res://assets/card_textures/01_1.jpg",
+	#"res://assets/card_textures/02_3.jpg",
+	#"res://assets/card_textures/04_3.jpg",
+	#"res://assets/card_textures/05_4.jpg",
+	#"res://assets/card_textures/07_1.jpg",
+	#"res://assets/card_textures/08_2.jpg",
+	#"res://assets/card_textures/09_4.jpg",
+	#"res://assets/card_textures/11_4.jpg",
+	#"res://assets/card_textures/13_1.jpg",
+	#"res://assets/card_textures/14_2.jpg"
 #]
 #func _ready():
 	#var images: Array[Texture2D] = []

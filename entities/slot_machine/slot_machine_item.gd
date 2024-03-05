@@ -69,7 +69,8 @@ func stop():
 
 func _stop_roll():
 	var tween = create_tween().set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT).set_parallel()
-	var index = _get_index() - randi_range(1, images.size())
+	var rdm = randi_range(1, images.size())
+	var index = _get_index() - rdm
 	var target_index: int# 经过处理的index，不会存在负数情况
 	var final_y: float
 	var distance: float
@@ -84,7 +85,7 @@ func _stop_roll():
 		tween.tween_property(bottom_row, "position:y", final_y, dur)
 		tween.tween_property(top_row, "position:y", final_y - row_size, dur)
 	else:
-		target_index = 5 + index
+		target_index = images.size() + index
 		final_y = target_index * -HALF_SIZE + float(HALF_SIZE) / 2
 		distance = -top_row.position.y + final_y
 		dur = distance / speed + 1
