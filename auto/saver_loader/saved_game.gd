@@ -19,8 +19,14 @@ class_name SavedGame
 # 已收集的卡片
 @export var collected_cards: Array[StringName] = []
 
+# 商人是否已激活
+@export var store_activated := false
+
 # 是否已跟商人对话过
 @export var store_interacted := false
+
+# 老虎机是否已激活
+@export var slot_machine_activated := false
 
 # 当前拥有的金币
 @export var glod := 0
