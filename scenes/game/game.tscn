@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dkqfcysl5kgn8"]
+[gd_scene load_steps=39 format=3 uid="uid://dkqfcysl5kgn8"]
 
 [ext_resource type="Texture2D" uid="uid://77p03m6lvlck" path="res://assets/art/water.png" id="1_85ivb"]
 [ext_resource type="Texture2D" uid="uid://bmdqtfgxrfajh" path="res://assets/art/hills.png" id="2_lul38"]
@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://7ue6ltf3qy20" path="res://entities/snowman/snowman.tscn" id="13_v82gh"]
 [ext_resource type="Script" path="res://scenes/game/game_data.gd" id="14_p8sh7"]
 [ext_resource type="Script" path="res://scenes/game/death_countdown.gd" id="15_adx2e"]
-[ext_resource type="Script" path="res://scenes/game/glod_movement.gd" id="15_oa3rv"]
 [ext_resource type="PackedScene" uid="uid://cwow0via0onvn" path="res://VFX/snow/snow.tscn" id="17_hirnr"]
 [ext_resource type="PackedScene" uid="uid://rjwrkc64hnf8" path="res://entities/slot_machine/slot_machine.tscn" id="19_78aop"]
 [ext_resource type="Script" path="res://scenes/game/slot_machine_init.gd" id="20_3v1wf"]
@@ -635,16 +634,6 @@ region = Rect2(66, 17, 28, 28)
 atlas = ExtResource("8_g1qbj")
 region = Rect2(240, 176, 16, 16)
 
-[sub_resource type="Curve2D" id="Curve2D_v71ns"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 21, 23, -79.4103, -91.3967, 79.4103, 91.3967, 221, 110, 0, 0, 0, 0, 337, 404)
-}
-point_count = 3
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2x5y2"]
-atlas = ExtResource("8_g1qbj")
-region = Rect2(208, 208, 16, 16)
-
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 
@@ -741,20 +730,6 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_5ck6s")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5ck6s")
 icon = SubResource("AtlasTexture_5nibh")
 icon_alignment = 1
-
-[node name="GlodMovement" type="Node2D" parent="CanvasLayer"]
-visible = false
-script = ExtResource("15_oa3rv")
-
-[node name="Path2D" type="Path2D" parent="CanvasLayer/GlodMovement"]
-curve = SubResource("Curve2D_v71ns")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="CanvasLayer/GlodMovement/Path2D"]
-position = Vector2(21, 23)
-rotation = 0.41031
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/GlodMovement"]
-texture = SubResource("AtlasTexture_2x5y2")
 
 [node name="Kun" parent="." instance=ExtResource("10_l6e2d")]
 position = Vector2(167, 167)

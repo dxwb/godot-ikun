@@ -7,6 +7,7 @@ extends Node2D
 
 @onready var world = %SlotMachineWorld
 @onready var ui = %SlotMachineUI
+@onready var glod_movement = %GlodMovement
 
 signal ui_opened()
 signal ui_closed()
@@ -24,6 +25,7 @@ func _on_slot_machine_ui_closed():
 	ui_closed.emit()
 
 func _on_slot_machine_ui_started():
+	glod_movement.run()
 	roll_started.emit()
 
 func _on_slot_machine_ui_stopped(result):

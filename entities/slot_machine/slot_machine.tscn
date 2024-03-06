@@ -1,8 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://rjwrkc64hnf8"]
+[gd_scene load_steps=8 format=3 uid="uid://rjwrkc64hnf8"]
 
 [ext_resource type="Script" path="res://entities/slot_machine/slot_machine.gd" id="1_lyply"]
 [ext_resource type="PackedScene" uid="uid://ghgdmabymr47" path="res://entities/slot_machine/slot_machine_world.tscn" id="2_sgs63"]
 [ext_resource type="PackedScene" uid="uid://dc4mswyxvh1of" path="res://entities/slot_machine/slot_machine_ui.tscn" id="4_jyyo2"]
+[ext_resource type="Script" path="res://entities/slot_machine/glod_movement.gd" id="4_tvlqf"]
+[ext_resource type="Texture2D" uid="uid://dwubf3o5hpss0" path="res://assets/art/icons.png" id="5_dutxb"]
+
+[sub_resource type="Curve2D" id="Curve2D_33jjj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 21, 23, -79.4103, -91.3967, 79.4103, 91.3967, 221, 110, 0, 0, 0, 0, 337, 404)
+}
+point_count = 3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1leng"]
+atlas = ExtResource("5_dutxb")
+region = Rect2(208, 208, 16, 16)
 
 [node name="SlotMachine" type="Node2D"]
 script = ExtResource("1_lyply")
@@ -16,6 +28,21 @@ layer = 2
 [node name="SlotMachineUI" parent="CanvasLayer" instance=ExtResource("4_jyyo2")]
 unique_name_in_owner = true
 visible = false
+
+[node name="GlodMovement" type="Node2D" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("4_tvlqf")
+
+[node name="Path2D" type="Path2D" parent="CanvasLayer/GlodMovement"]
+curve = SubResource("Curve2D_33jjj")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="CanvasLayer/GlodMovement/Path2D"]
+position = Vector2(21, 23)
+rotation = 0.41031
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/GlodMovement"]
+texture = SubResource("AtlasTexture_1leng")
 
 [connection signal="interacted" from="SlotMachineWorld" to="." method="_on_slot_machine_world_interacted"]
 [connection signal="closed" from="CanvasLayer/SlotMachineUI" to="." method="_on_slot_machine_ui_closed"]
