@@ -148,6 +148,35 @@ fit_content = true
 stream = ExtResource("6_nn8ef")
 bus = &"SFX"
 
+[node name="DisabledTip" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 130.0
+offset_top = 130.0
+offset_right = 227.0
+offset_bottom = 162.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="DisabledTip"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DisabledTip/MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "您的[img]res://assets/texture_resources/glod.tres[/img]不够"
+fit_content = true
+
+[connection signal="mouse_entered" from="Handler" to="." method="_on_handler_mouse_entered"]
+[connection signal="mouse_exited" from="Handler" to="." method="_on_handler_mouse_exited"]
 [connection signal="pressed" from="Handler" to="." method="_on_handler_pressed"]
 [connection signal="stopped" from="SlotMachineItem" to="." method="_on_slot_machine_item_stopped"]
 [connection signal="stopped" from="SlotMachineItem2" to="." method="_on_slot_machine_item_stopped"]

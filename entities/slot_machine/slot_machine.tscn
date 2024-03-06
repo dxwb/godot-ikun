@@ -1,26 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://ghgdmabymr47"]
+[gd_scene load_steps=4 format=3 uid="uid://rjwrkc64hnf8"]
 
 [ext_resource type="Script" path="res://entities/slot_machine/slot_machine.gd" id="1_lyply"]
-[ext_resource type="Texture2D" uid="uid://bs7o3vwf0wrfk" path="res://assets/art/slot_machine_world.png" id="1_p6txy"]
-[ext_resource type="PackedScene" uid="uid://cxyu1osnq2cui" path="res://common/interactive/interactive.tscn" id="2_luqwl"]
+[ext_resource type="PackedScene" uid="uid://ghgdmabymr47" path="res://entities/slot_machine/slot_machine_world.tscn" id="2_sgs63"]
 [ext_resource type="PackedScene" uid="uid://dc4mswyxvh1of" path="res://entities/slot_machine/slot_machine_ui.tscn" id="4_jyyo2"]
-[ext_resource type="PackedScene" uid="uid://cfosurdxu805n" path="res://common/loot/loot_bag.tscn" id="5_44jq7"]
 
 [node name="SlotMachine" type="Node2D"]
 script = ExtResource("1_lyply")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, -20)
-texture = ExtResource("1_p6txy")
-
-[node name="Interactive" parent="." instance=ExtResource("2_luqwl")]
-
-[node name="CollisionShape2D" parent="Interactive/Area2D" index="0"]
-position = Vector2(0, -5)
-
-[node name="Label" parent="Interactive" index="1"]
-offset_top = -63.0
-offset_bottom = -47.0
+[node name="SlotMachineWorld" parent="." instance=ExtResource("2_sgs63")]
+unique_name_in_owner = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -29,11 +17,7 @@ layer = 2
 unique_name_in_owner = true
 visible = false
 
-[node name="LootBag" parent="." instance=ExtResource("5_44jq7")]
-unique_name_in_owner = true
-
-[connection signal="interacted" from="Interactive" to="." method="_on_interactive_interacted"]
+[connection signal="interacted" from="SlotMachineWorld" to="." method="_on_slot_machine_world_interacted"]
 [connection signal="closed" from="CanvasLayer/SlotMachineUI" to="." method="_on_slot_machine_ui_closed"]
+[connection signal="started" from="CanvasLayer/SlotMachineUI" to="." method="_on_slot_machine_ui_started"]
 [connection signal="stopped" from="CanvasLayer/SlotMachineUI" to="." method="_on_slot_machine_ui_stopped"]
-
-[editable path="Interactive"]

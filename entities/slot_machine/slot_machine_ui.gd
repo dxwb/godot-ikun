@@ -6,6 +6,7 @@ extends Control
 		handler.mouse_default_cursor_shape = CURSOR_FORBIDDEN if value else CURSOR_POINTING_HAND
 
 @onready var handler = %Handler
+@onready var disabled_tip = %DisabledTip
 @onready var handler_texture = handler.texture_normal as AtlasTexture
 @onready var items = [%SlotMachineItem, %SlotMachineItem2, %SlotMachineItem3]
 @onready var play_sound = $Sounds/PlaySound
@@ -13,7 +14,9 @@ extends Control
 var running := false
 var result: Array[int] = []
 
+signal started()
 signal stopped(result: Array[int])
+signal opened()
 signal closed()
 
 #var test = [
@@ -52,10 +55,12 @@ func run():
 		item.run()
 		tween.tween_callback(item.stop).set_delay(duration if i == 0 else 0.5)
 
+	started.emit()
 	play_sound.play()
 
 func open():
 	visible = true
+	opened.emit()
 
 func close():
 	visible = false
@@ -81,3 +86,20 @@ func _on_slot_machine_item_stopped(index):
 func _on_close_button_pressed():
 	close()
 	closed.emit()
+
+func _on_handler_mouse_entered():
+	if not disabled: return
+
+	var tween = create_tween()
+	disabled_tip.visible = true
+	tween.tween_property(disabled_tip, "modulate:a", 1, .1)
+
+func _on_handler_mouse_exited():
+	if not disabled_tip.visible: return
+
+	var tween = create_tween()
+	tween.tween_property(disabled_tip, "modulate:a", 0, .1)
+
+	await tween.finished
+
+	disabled_tip.visible = false

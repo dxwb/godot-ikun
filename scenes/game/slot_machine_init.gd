@@ -21,7 +21,7 @@ func _init_slot_machine():
 		images.push_back(texture)
 		rewards.push_back(card)
 
-	slot_machine.set_slot_images(images)
+	slot_machine.ui.set_slot_images(images)
 
 func _get_random_cards() -> Array[Dictionary]:
 	var cards = DatatableManager.get_data("cards")
@@ -54,7 +54,14 @@ func _on_slot_machine_roll_stoped(result):
 		slot_machine_played.emit(-COST * 2)
 		get_glod_sound.play()
 	else:
-		slot_machine.loot_bag.drop_loot(getting_card)
+		slot_machine.world.loot_bag.drop_loot(getting_card)
+
+func _on_slot_machine_roll_started():
+	if SaverLoader.running_data.glod < COST:
+		print("钱不够")
+		return
+
+	slot_machine_played.emit(COST)
 
 func _get_reward_index(arr: Array[int]):
 	var tmp = []
@@ -65,10 +72,3 @@ func _get_reward_index(arr: Array[int]):
 			tmp.push_back(i)
 
 	return null
-
-func _on_handler_pressed():
-	if SaverLoader.running_data.glod < COST:
-		print("钱不够")
-		return
-
-	slot_machine_played.emit(COST)

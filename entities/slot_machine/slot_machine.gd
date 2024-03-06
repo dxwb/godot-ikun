@@ -1,26 +1,30 @@
 extends Node2D
 
-@onready var slot_machine_ui = %SlotMachineUI
-@onready var loot_bag = %LootBag
-
 @export var disabled = false:
 	set(value):
 		disabled = value
-		slot_machine_ui.disabled = value
+		ui.disabled = value
+
+@onready var world = %SlotMachineWorld
+@onready var ui = %SlotMachineUI
 
 signal ui_opened()
 signal ui_closed()
+signal roll_started()
 signal roll_stoped(result: Array[int])
 
 func set_slot_images(images: Array[Texture2D]):
-	slot_machine_ui.set_slot_images(images)
+	ui.set_slot_images(images)
 
-func _on_interactive_interacted():
-	slot_machine_ui.open()
+func _on_slot_machine_world_interacted():
+	ui.open()
 	ui_opened.emit()
 
 func _on_slot_machine_ui_closed():
 	ui_closed.emit()
+
+func _on_slot_machine_ui_started():
+	roll_started.emit()
 
 func _on_slot_machine_ui_stopped(result):
 	roll_stoped.emit(result)
