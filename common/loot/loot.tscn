@@ -7,6 +7,7 @@
 size = Vector2(14, 18)
 
 [node name="Loot" type="Node2D"]
+z_index = 1
 script = ExtResource("1_6mhmu")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -17,6 +18,7 @@ offset_bottom = 3.0
 theme_type_variation = &"CardPanelContainer"
 
 [node name="PickUpReceiver" parent="." instance=ExtResource("1_h6led")]
+visible = false
 position = Vector2(0, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpReceiver"]
