@@ -1,0 +1,26 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=5 format=3 uid="uid://b4xk6fw88ij8y"]
+
+[sub_resource type="Gradient" id="Gradient_3n4o2"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 0.15, 1, 0, 0, 0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_i1l2d"]
+gradient = SubResource("Gradient_3n4o2")
+
+[sub_resource type="Curve" id="Curve_lfhx4"]
+min_value = 0.3
+_data = [Vector2(0, 0.3), 0.0, 0.98, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qmcxr"]
+curve = SubResource("Curve_lfhx4")
+
+[resource]
+particle_flag_disable_z = true
+angle_min = 1.0
+angle_max = 360.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_qmcxr")
+color_ramp = SubResource("GradientTexture1D_i1l2d")
+anim_offset_max = 1.0

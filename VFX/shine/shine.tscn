@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnkpanuckla3y"]
+
+[ext_resource type="Texture2D" uid="uid://cxu78h5usw2mq" path="res://assets/art/shine.png" id="1_h1l4y"]
+[ext_resource type="Material" uid="uid://b4xk6fw88ij8y" path="res://VFX/shine/shine_particle_process.tres" id="1_i88d0"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ak3sa"]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="Shine" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_ak3sa")
+position = Vector2(0, -6)
+process_material = ExtResource("1_i88d0")
+texture = ExtResource("1_h1l4y")
+local_coords = true

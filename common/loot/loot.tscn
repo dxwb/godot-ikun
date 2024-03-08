@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8i2j5ngdksvi"]
+[gd_scene load_steps=5 format=3 uid="uid://b8i2j5ngdksvi"]
 
 [ext_resource type="Script" path="res://common/loot/loot.gd" id="1_6mhmu"]
 [ext_resource type="PackedScene" uid="uid://do4gtca4bjigf" path="res://common/zone/receiver.tscn" id="1_h6led"]
+[ext_resource type="PackedScene" uid="uid://bnkpanuckla3y" path="res://VFX/shine/shine.tscn" id="2_1d1ih"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6vuq"]
 size = Vector2(14, 18)
@@ -9,6 +10,8 @@ size = Vector2(14, 18)
 [node name="Loot" type="Node2D"]
 z_index = 1
 script = ExtResource("1_6mhmu")
+
+[node name="Shine" parent="." instance=ExtResource("2_1d1ih")]
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 offset_left = -7.0
