@@ -32,6 +32,8 @@ func get_direction():
 
 	# 检测视椎体中是否有路走
 	var rad = 0
+	# 本次寻路的检测方向，表示先检测dir的正角度还是负角度
+	var detection_dir = [-1, 1].pick_random()
 	while (rad <= ANGLE_CONE_OF_VISION / 2):
 		var offset_dir = dir.rotated(rad)
 		set_ray_cast_point(offset_dir)
@@ -49,7 +51,7 @@ func get_direction():
 			flee_dir = minus_offset_dir
 			break
 
-		rad += ANGLE_BETWEEN_RAYS
+		rad += ANGLE_BETWEEN_RAYS * detection_dir
 
 	# flee_dir为空，说明在视椎体内没有路走，另寻他路
 	if (flee_dir == null):
@@ -70,7 +72,7 @@ func get_direction():
 				flee_dir = minus_offset_dir
 				break
 
-			rad += ANGLE_BETWEEN_RAYS
+			rad += ANGLE_BETWEEN_RAYS * detection_dir
 
 	# 如果四面八方没有路，等死
 	if (flee_dir == null):
