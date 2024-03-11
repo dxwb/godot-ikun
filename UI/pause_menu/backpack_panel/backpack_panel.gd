@@ -2,8 +2,10 @@ extends MenuPanel
 
 @export var card_scene: PackedScene
 
+@onready var content = %Content
 @onready var inventory = %Inventory
 @onready var select_card = $Sounds/SelectCard
+@onready var empty_label = %EmptyLabel
 
 var ui_root: CanvasLayer
 
@@ -19,8 +21,18 @@ func render():
 		slot.data = loot_data
 		slots.push_back(slot)
 
-	inventory.slots = slots
-	inventory.render()
+	if slots.size() > 0:
+		content.size_flags_horizontal = SIZE_SHRINK_BEGIN
+		content.size_flags_vertical = SIZE_SHRINK_BEGIN
+		empty_label.visible = false
+		inventory.visible = true
+		inventory.slots = slots
+		inventory.render()
+	else:
+		content.size_flags_horizontal = SIZE_EXPAND_FILL
+		content.size_flags_vertical = SIZE_EXPAND_FILL
+		empty_label.visible = true
+		inventory.visible = false
 
 func _on_inventory_slot_clicked(slot: Slot):
 	var card = card_scene.instantiate()
