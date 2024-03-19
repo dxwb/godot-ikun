@@ -1,14 +1,13 @@
 extends CharacterBody2D
 class_name Player
 
-@export var speed = 100.0
 @export var disabled_move = false
 
+@onready var stats: Stat = $Stats
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree["parameters/playback"]
 @onready var smokeParticle = $Smoke
 @onready var bloodParticle = $Blood
-@onready var current_speed = speed
 @onready var died_sound = $Sounds/DiedSound
 @onready var resuscitate_sound = $Sounds/ResuscitateSound
 
@@ -26,12 +25,23 @@ func _physics_process(delta):
 	if disabled_move: return
 
 	var dir = Input.get_vector('walk_left', 'walk_right', 'walk_up', 'walk_down').normalized()
-	velocity = dir * current_speed
+	velocity = dir * stats.stat_speed * (1 + stats.stat_percent_speed / 100.0)
 	move_and_slide()
 	pick_new_state(dir)
 	set_animation(dir)
 	set_walk_particle(dir)
 	set_smoke_z_index(dir)
+
+func _unhandled_key_input(event):
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_T:
+			var eff = TimeLimitedEffect.new()
+			eff.key = "stat_percent_speed"
+			eff.value = 50.0
+			eff.duration = 1.0
+			stats.add_effect(eff)
+
+			print(stats.effects)
 
 func set_smoke_z_index(moveInput):
 	if (smokeParticle.emitting):

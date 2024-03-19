@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://eeurcc2rw5n6"]
+[gd_scene load_steps=35 format=3 uid="uid://eeurcc2rw5n6"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_b03eb"]
 [ext_resource type="Texture2D" uid="uid://dljmp5rj6c3ef" path="res://assets/art/player.png" id="1_vra16"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bi0sx3gir7eop" path="res://common/zone/zone.tscn" id="6_vvaj2"]
 [ext_resource type="AudioStream" uid="uid://r8e1s255205t" path="res://assets/sounds/player_died.wav" id="7_xxixo"]
 [ext_resource type="AudioStream" uid="uid://c5iwy86uvt6x1" path="res://assets/sounds/player_resuscitate.ogg" id="8_ak76n"]
+[ext_resource type="Script" path="res://common/buff/stats.gd" id="9_hiusn"]
 
 [sub_resource type="Animation" id="Animation_axld4"]
 resource_name = "dead"
@@ -244,6 +245,10 @@ collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_b03eb")
 
+[node name="Stats" type="Node" parent="."]
+script = ExtResource("9_hiusn")
+stat_speed = 100.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_r3x1j")
@@ -266,7 +271,6 @@ position = Vector2(0, -7)
 texture = ExtResource("1_vra16")
 hframes = 4
 vframes = 5
-frame = 1
 
 [node name="Blood" parent="." instance=ExtResource("3_vmc5q")]
 position = Vector2(0, -7)
