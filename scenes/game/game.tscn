@@ -1,11 +1,13 @@
-[gd_scene load_steps=39 format=3 uid="uid://dkqfcysl5kgn8"]
+[gd_scene load_steps=40 format=3 uid="uid://dkqfcysl5kgn8"]
 
 [ext_resource type="Texture2D" uid="uid://77p03m6lvlck" path="res://assets/art/water.png" id="1_85ivb"]
+[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_erjhs"]
 [ext_resource type="Texture2D" uid="uid://bmdqtfgxrfajh" path="res://assets/art/hills.png" id="2_lul38"]
 [ext_resource type="Texture2D" uid="uid://dr5tb8wchq7fq" path="res://assets/art/grass.png" id="3_8ihik"]
 [ext_resource type="Texture2D" uid="uid://dnd4hjlglk7bo" path="res://assets/art/fences.png" id="4_jps3f"]
 [ext_resource type="PackedScene" uid="uid://eeurcc2rw5n6" path="res://entities/player/player.tscn" id="5_v5wkx"]
 [ext_resource type="PackedScene" uid="uid://bi43kuo8aysxj" path="res://entities/kun_house/kun_house.tscn" id="6_p34uf"]
+[ext_resource type="Script" path="res://scenes/game/ui.gd" id="7_hk3re"]
 [ext_resource type="PackedScene" uid="uid://drghvmfe4dg1i" path="res://UI/count_ui/count_ui.tscn" id="7_lo7df"]
 [ext_resource type="Texture2D" uid="uid://bv7j8xp83jk4y" path="res://assets/texture_resources/glod.tres" id="8_77fvn"]
 [ext_resource type="Texture2D" uid="uid://bf4d7sqhtw2b2" path="res://assets/art/ghost.png" id="8_c5sj7"]
@@ -19,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://dkudctx1718u4" path="res://entities/enemy/enemy.tscn" id="12_tvnhi"]
 [ext_resource type="Script" path="res://scenes/game/enemy_spawner.gd" id="13_g3bpi"]
 [ext_resource type="PackedScene" uid="uid://7ue6ltf3qy20" path="res://entities/snowman/snowman.tscn" id="13_v82gh"]
-[ext_resource type="Script" path="res://scenes/game/game_data.gd" id="14_p8sh7"]
 [ext_resource type="Script" path="res://scenes/game/death_countdown.gd" id="15_adx2e"]
 [ext_resource type="PackedScene" uid="uid://cwow0via0onvn" path="res://VFX/snow/snow.tscn" id="17_hirnr"]
 [ext_resource type="PackedScene" uid="uid://rjwrkc64hnf8" path="res://entities/slot_machine/slot_machine.tscn" id="19_78aop"]
@@ -636,6 +637,7 @@ region = Rect2(240, 176, 16, 16)
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_erjhs")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_sj7jw")
@@ -658,6 +660,7 @@ position = Vector2(344, 79)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["ui_canvas_layer"]]
 layer = 3
+script = ExtResource("7_hk3re")
 
 [node name="CountUI" type="VBoxContainer" parent="CanvasLayer"]
 offset_left = 10.0
@@ -780,25 +783,22 @@ bus = &"SFX"
 [node name="DeathCountdown" type="Timer" parent="."]
 script = ExtResource("15_adx2e")
 
-[node name="GameData" type="Node" parent="."]
-script = ExtResource("14_p8sh7")
-
+[connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="died" from="Player" to="DeathCountdown" method="_on_player_died"]
-[connection signal="died" from="Player" to="GameData" method="_on_player_died"]
+[connection signal="kun_entered" from="KunHouse" to="." method="_on_kun_house_kun_entered"]
 [connection signal="kun_entered" from="KunHouse" to="EnemySpawner" method="on_kun_entered_to_house"]
-[connection signal="kun_entered" from="KunHouse" to="GameData" method="_on_kun_house_kun_entered"]
 [connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/PauseMenu" method="open"]
-[connection signal="player_hit" from="Snowman" to="GameData" method="_on_snowman_player_hit"]
+[connection signal="player_hit" from="Snowman" to="." method="_on_snowman_player_hit"]
 [connection signal="dialogue_opened" from="Store" to="Player" method="disable_move"]
 [connection signal="store_ui_closed" from="Store" to="Player" method="enable_move"]
-[connection signal="traded" from="Store" to="GameData" method="_on_store_traded"]
+[connection signal="traded" from="Store" to="." method="_on_store_traded"]
 [connection signal="roll_started" from="SlotMachine" to="SlotMachineInit" method="_on_slot_machine_roll_started"]
 [connection signal="roll_stoped" from="SlotMachine" to="SlotMachineInit" method="_on_slot_machine_roll_stoped"]
 [connection signal="ui_closed" from="SlotMachine" to="Player" method="enable_move"]
 [connection signal="ui_opened" from="SlotMachine" to="Player" method="disable_move"]
 [connection signal="ui_opened" from="SlotMachine" to="SlotMachineInit" method="_on_slot_machine_ui_opened"]
-[connection signal="slot_machine_played" from="SlotMachineInit" to="GameData" method="_on_slot_machine_init_slot_machine_played"]
-[connection signal="enemy_spawned" from="EnemySpawner" to="GameData" method="_on_enemy_spawner_enemy_spawned"]
+[connection signal="slot_machine_played" from="SlotMachineInit" to="." method="_on_slot_machine_init_slot_machine_played"]
+[connection signal="enemy_spawned" from="EnemySpawner" to="." method="_on_enemy_spawner_enemy_spawned"]
 [connection signal="countdown_timeout" from="DeathCountdown" to="Player" method="resuscitate"]
 [connection signal="timeout" from="DeathCountdown" to="DeathCountdown" method="_on_timeout"]
 
