@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TimeLimitedEffect" load_steps=2 format=3 uid="uid://cdabje3si456p"]
+
+[ext_resource type="Script" path="res://common/buff/time_limited_effect.gd" id="1_p35ey"]
+
+[resource]
+script = ExtResource("1_p35ey")
+duration = 1.0
+key = "stat_percent_speed"
+value = 50.0
+scene_to_be_added = ""
+scene_params = {}

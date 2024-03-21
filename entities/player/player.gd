@@ -35,12 +35,8 @@ func _physics_process(delta):
 func _unhandled_key_input(event):
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_T:
-			var eff = TimeLimitedEffect.new()
-			eff.key = "stat_percent_speed"
-			eff.value = 50.0
-			eff.duration = 1.0
+			var eff = load("res://common/effects/speed_up.tres")
 			stats.add_effect(eff)
-
 			print(stats.effects)
 
 func set_smoke_z_index(moveInput):
