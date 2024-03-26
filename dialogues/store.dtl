@@ -1,0 +1,10 @@
+if {store_interacted} == true:
+	store_character: <欢迎光临！/有好货来了 ~ /来喽 ~ >
+else:
+	store_character: <嘿！/你好，/哟！>小猫咪。
+	store_character: 你肯定会很奇怪我是何人对不对？我是一个商人。
+	store_character: 但是我不卖东西，我收购东西。
+	store_character: 我看到你已经收集了很多能量了，你在这里每一个动作都能收集能量，甚至死亡。
+	store_character: 我需要它们，所以我愿意用一些金钱跟你兑换。
+	store_character: 如果你想跟我交易，就过来找我吧。
+	set {store_interacted} = true
