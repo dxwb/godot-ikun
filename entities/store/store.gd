@@ -13,13 +13,12 @@ var is_shopping = false
 func _on_interactive_interacted():
 	if is_shopping: return
 
-	const store_dialogue = preload("res://dialogues/store.dialogue")
-	var dialogue = DialogueManager.show_dialogue_balloon(store_dialogue, "store_dialogue")
+	# var dialogue = DialogueManager.show_dialogue_balloon(store_dialogue, "store_dialogue")
 
 	is_shopping = true
 	dialogue_opened.emit()
 
-	await dialogue.tree_exited
+	# await dialogue.tree_exited
 
 	_on_interactive_dialogue_close()
 

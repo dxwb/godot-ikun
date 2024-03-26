@@ -23,7 +23,6 @@ SceneManager="*res://auto/scene_manager.gd"
 ProcedureManager="*res://auto/procedure_manager/procedure_manager.tscn"
 ChallengeService="*res://auto/challenge_service/challenge_service.tscn"
 BackpackManager="*res://auto/backpack_manager.gd"
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 SettingManager="*res://auto/setting_manager/setting_manager.tscn"
 
 [debug]
@@ -49,7 +48,7 @@ project/assembly_name="ikun"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg")
 
 [filesystem]
 
