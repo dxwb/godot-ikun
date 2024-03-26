@@ -23,17 +23,15 @@ layout_mode = 2
 [node name="MusicVolumeSetting" parent="VBoxContainer" instance=ExtResource("2_2jexm")]
 unique_name_in_owner = true
 layout_mode = 2
-bus_index = 1
 
 [node name="VFXVolumeSetting" parent="VBoxContainer" instance=ExtResource("2_2jexm")]
 unique_name_in_owner = true
 layout_mode = 2
-bus_index = 2
 
 [node name="TextureRect" parent="VBoxContainer/VFXVolumeSetting" index="0"]
 texture = SubResource("AtlasTexture_rfoey")
 
-[connection signal="volume_changed" from="VBoxContainer/MusicVolumeSetting" to="." method="_on_volume_changed"]
-[connection signal="volume_changed" from="VBoxContainer/VFXVolumeSetting" to="." method="_on_volume_changed"]
+[connection signal="volume_changed" from="VBoxContainer/MusicVolumeSetting" to="." method="_on_music_volume_setting_volume_changed"]
+[connection signal="volume_changed" from="VBoxContainer/VFXVolumeSetting" to="." method="_on_vfx_volume_setting_volume_changed"]
 
 [editable path="VBoxContainer/VFXVolumeSetting"]

@@ -1,4 +1,4 @@
-if {store_interacted} == true:
+if SaverLoader.running_data.store_interacted == true:
 	store_character: <欢迎光临！/有好货来了 ~ /来喽 ~ >
 else:
 	store_character: <嘿！/你好，/哟！>小猫咪。
@@ -7,4 +7,4 @@ else:
 	store_character: 我看到你已经收集了很多能量了，你在这里每一个动作都能收集能量，甚至死亡。
 	store_character: 我需要它们，所以我愿意用一些金钱跟你兑换。
 	store_character: 如果你想跟我交易，就过来找我吧。
-	set {store_interacted} = true
+	set SaverLoader.running_data.store_interacted = true
