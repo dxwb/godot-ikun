@@ -2,9 +2,6 @@ extends DialogicSubsystem
 
 ## Subsystem that manages history storing.
 
-signal open_requested
-signal close_requested
-
 
 ## Simple history that stores limited information
 ## Used for the history display
@@ -22,11 +19,12 @@ signal full_event_history_changed
 var already_read_history_enabled := false
 var already_read_history_content := {}
 var _was_last_event_already_read := false
+
 signal already_read_event_reached
 signal not_read_event_reached
 
-
-#region INITIALIZE
+####################################################################################################
+##					INITIALIZE
 ####################################################################################################
 
 func _ready() -> void:
@@ -38,17 +36,14 @@ func _ready() -> void:
 	already_read_history_enabled = ProjectSettings.get_setting('dialogic/history/already_read_history_enabled', false)
 
 
-func open_history() -> void:
-	open_requested.emit()
+####################################################################################################
+##					STATE
+####################################################################################################
 
+# nothing implemented right now
 
-func close_history() -> void:
-	close_requested.emit()
-
-#endregion
-
-
-#region SIMPLE HISTORY
+####################################################################################################
+##					SIMPLE HISTORY
 ####################################################################################################
 
 func store_simple_history_entry(text:String, event_type:String, extra_info := {}) -> void:
@@ -62,20 +57,21 @@ func store_simple_history_entry(text:String, event_type:String, extra_info := {}
 func get_simple_history() -> Array:
 	return simple_history_content
 
-#endregion
 
 
-#region FULL EVENT HISTORY
+####################################################################################################
+##					FULL EVENT HISTORY
 ####################################################################################################
 
-## Called on each event
+# called on each event
 func store_full_event(event:DialogicEvent) -> void:
 	if !full_event_history_enabled: return
 	full_event_history_content.append(event)
 	full_event_history_changed.emit()
 
 
-#region ALREADY READ HISTORY
+####################################################################################################
+##					ALREADY READ HISTORY
 ####################################################################################################
 
 ## Takes the current timeline event and creates a unique key for it.
@@ -118,5 +114,3 @@ func check_already_read(event: DialogicEvent) -> void:
 
 func was_last_event_already_read() -> bool:
 	return _was_last_event_already_read
-
-#endregion

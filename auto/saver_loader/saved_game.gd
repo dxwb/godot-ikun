@@ -49,6 +49,9 @@ class_name SavedGame
 		store_interacted = val
 		_emit("store_interacted", val)
 
+func set_store_interacted_true():
+	store_interacted = true
+
 # 老虎机是否已激活
 @export var slot_machine_activated := false:
 	set(val):

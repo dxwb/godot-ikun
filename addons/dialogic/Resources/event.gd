@@ -9,11 +9,11 @@ extends Resource
 
 ## Emmited when the event starts.
 ## The signal is emmited with the event resource [code]event_resource[/code]
-signal event_started(event_resource:DialogicEvent)
+signal event_started(event_resource)
 
 ## Emmited when the event finish.
 ## The signal is emmited with the event resource [code]event_resource[/code]
-signal event_finished(event_resource:DialogicEvent)
+signal event_finished(event_resource)
 
 
 ### Main Event Properties ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -35,8 +35,8 @@ var needs_indentation: bool = false
 var can_contain_events: bool = false
 ## If [can_contain_events] is true this is a reference to the end branch event
 var end_branch_event: DialogicEndBranchEvent = null
-## If this is true this event will group with other similar events (like choices do).
-var wants_to_group: bool = false
+## If this is true this event expects a specific parent event.
+var needs_parent_event: bool = false
 
 
 ### Saving/Loading Properties ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -84,57 +84,62 @@ enum Location {HEADER, BODY}
 ## To differentiate the different types of fields for event properties in the visual editor
 enum ValueType {
 	# Strings
-	MULTILINE_TEXT, SINGLELINE_TEXT, CONDITION, FILE,
+	LABEL, MULTILINE_TEXT, SINGLELINE_TEXT, CONDITION,
 	# Booleans
-	BOOL, BOOL_BUTTON,
-	# Options
-	DYNAMIC_OPTIONS, FIXED_OPTIONS,
-	# Containers,
-	ARRAY, DICTIONARY,
-	# Numbers
-	NUMBER,
-	VECTOR2,
+	BOOL,
+	# Resources
+	COMPLEX_PICKER, FILE,
+	# Array
+	ARRAY,
+	# Integers
+	FIXED_OPTION_SELECTOR, INTEGER, VECTOR2,
+	# Floats
+	FLOAT, DECIBEL,
 	# Other
-	CUSTOM, BUTTON, LABEL
+	CUSTOM, BUTTON, KEY_VALUE_PAIRS
 }
 ## List that stores the fields for the editor
 var editor_list: Array = []
 ## Singal that notifies the visual editor block to update
 signal ui_update_needed
-signal ui_update_warning(text:String)
+signal ui_update_warning(text)
 
 
 ## Makes this resource printable.
 func _to_string() -> String:
 	return "[{name}:{id}]".format({"name":event_name, "id":get_instance_id()})
 
-#endregion
 
-
-#region EXECUTION
+################################################################################
+## 						EXECUTION
 ################################################################################
 
 ## Executes the event behaviour. In subclasses [_execute] (not this one) should be overriden!
 func execute(_dialogic_game_handler) -> void:
-	event_started.emit(self)
+	emit_signal("event_started", self)
 	dialogic = _dialogic_game_handler
 	call_deferred("_execute")
 
 
 ## Ends the event behaviour.
 func finish() -> void:
-	event_finished.emit(self)
+	emit_signal("event_finished", self)
 
 
 ## To be overridden by subclasses.
 func _execute() -> void:
 	finish()
 
-#endregion
 
-
-#region OVERRIDABLES
 ################################################################################
+## 						OVERRIDABLES
+################################################################################
+
+## to be overridden by sub-classes
+## if needs_parent_event is true, this needs to return true if the event is that event
+func is_expected_parent_event(event:DialogicEvent) -> bool:
+	return false
+
 
 ## to be overridden by sub-classes
 ## only called if can_contain_events is true.
@@ -150,10 +155,9 @@ func get_end_branch_control() -> Control:
 func should_execute_this_branch() -> bool:
 	return false
 
-#endregion
 
-
-#region TRANSLATIONS
+################################################################################
+## 					TRANSLATIONS
 ################################################################################
 
 ## Overwrite if this events needs translation.
@@ -189,16 +193,15 @@ func get_property_translation_key(property_name:String) -> String:
 ## Call this whenever you are using a translatable property
 func get_property_translated(property_name:String) -> String:
 	if !_translation_id.is_empty() and ProjectSettings.get_setting('dialogic/translation/enabled', false):
-		var translation := tr(get_property_translation_key(property_name))
+		var translation = tr(get_property_translation_key(property_name))
 		# if no translation is found tr() returns the id, but we want to fallback to the original
 		return translation if translation != get_property_translation_key(property_name) else _get_property_original_translation(property_name)
 	else:
 		return _get_property_original_translation(property_name)
 
-#endregion
 
-
-#region SAVE / LOAD (internal, don't override)
+################################################################################
+## 					SAVE / LOAD (internal, don't override)
 ################################################################################
 ### These functions are used by the timeline loader/saver
 ### They mainly use the overridable behaviour below, but enforce the unique_id saving
@@ -240,10 +243,9 @@ func _test_event_string(string:String) -> bool:
 		return is_valid_event(string.get_slice('#id:', 0))
 	return is_valid_event(string.strip_edges())
 
-#endregion
 
-
-#region SAVE / LOAD
+################################################################################
+## 					SAVE / LOAD
 ################################################################################
 ### All of these functions can/should be overridden by the sub classes
 
@@ -260,9 +262,9 @@ func get_shortcode_parameters() -> Dictionary:
 ## returns a readable presentation of the event (This is how it's stored)
 ## by default it uses a shortcode format, but can be overridden
 func to_text() -> String:
-	var result_string: String = "["+self.get_shortcode()
-	var params: Dictionary = get_shortcode_parameters()
-	var custom_defaults: Dictionary = DialogicUtil.get_custom_event_defaults(event_name)
+	var result_string : String = "["+self.get_shortcode()
+	var params : Dictionary = get_shortcode_parameters()
+	var custom_defaults :Dictionary = DialogicUtil.get_custom_event_defaults(event_name)
 	for parameter in params.keys():
 		if (typeof(get(params[parameter].property)) != typeof(custom_defaults.get(params[parameter].property, params[parameter].default))) or \
 		(get(params[parameter].property) != custom_defaults.get(params[parameter].property, params[parameter].default)):
@@ -290,13 +292,13 @@ func to_text() -> String:
 ## loads the variables from the string stored above
 ## by default it uses the shortcode format, but can be overridden
 func from_text(string:String) -> void:
-	var data: Dictionary = parse_shortcode_parameters(string)
-	var params: Dictionary = get_shortcode_parameters()
+	var data : Dictionary = parse_shortcode_parameters(string)
+	var params : Dictionary = get_shortcode_parameters()
 	for parameter in params.keys():
 		if not parameter in data:
 			continue
 
-		var value: Variant
+		var value :Variant
 		match typeof(get(params[parameter].property)):
 			TYPE_STRING:
 				value = data[parameter].replace('\\=', '=')
@@ -331,21 +333,20 @@ func is_string_full_event(string:String) -> bool:
 
 ## used to get all the shortcode parameters in a string as a dictionary
 func parse_shortcode_parameters(shortcode : String) -> Dictionary:
-	var regex: RegEx = RegEx.new()
+	var regex:RegEx = RegEx.new()
 	regex.compile('((?<parameter>[^\\s=]*)\\s*=\\s*"(?<value>([^=]|\\\\=)*)(?<!\\\\)")')
-	var dict: Dictionary = {}
+	var dict : Dictionary = {}
 	for result in regex.search_all(shortcode):
 		dict[result.get_string('parameter')] = result.get_string('value')
 	return dict
 
-#endregion
 
-
-#region EDITOR REPRESENTATION
+################################################################################
+## 					EDITOR REPRESENTATION
 ################################################################################
 
 func _get_icon() -> Resource:
-	var _icon_file_name := "res://addons/dialogic/Editor/Images/Pieces/closed-icon.svg" # Default
+	var _icon_file_name = "res://addons/dialogic/Editor/Images/Pieces/closed-icon.svg" # Default
 	if FileAccess.file_exists(self.get_script().get_path().get_base_dir() + "/icon.png"):
 		_icon_file_name = self.get_script().get_path().get_base_dir() + "/icon.png"
 	if FileAccess.file_exists(self.get_script().get_path().get_base_dir() + "/icon.svg"):
@@ -353,7 +354,7 @@ func _get_icon() -> Resource:
 	return load(_icon_file_name)
 
 
-func set_default_color(value:Variant) -> void:
+func set_default_color(value) -> void:
 	dialogic_color_name = value
 	event_color = DialogicUtil.get_color(value)
 
@@ -362,10 +363,7 @@ func set_default_color(value:Variant) -> void:
 func _enter_visual_editor(timeline_editor:DialogicEditor) -> void:
 	pass
 
-#endregion
-
-
-#region CODE COMPLETION
+####################### CODE COMPLETION ########################################
 ################################################################################
 
 ## This method can be overwritten to implement code completion for custom syntaxes
@@ -376,19 +374,15 @@ func _get_code_completion(CodeCompletionHelper:Node, TextNode:TextEdit, line:Str
 func _get_start_code_completion(CodeCompletionHelper:Node, TextNode:TextEdit) -> void:
 	pass
 
-#endregion
 
-
-#region SYNTAX HIGHLIGHTING
+#################### SYNTAX HIGHLIGHTING #######################################
 ################################################################################
 
 func _get_syntax_highlighting(Highlighter:SyntaxHighlighter, dict:Dictionary, line:String) -> Dictionary:
 	return dict
 
-#endregion
 
-
-#region EVENT FIELDS
+#################### EVENT FIELDS ##############################################
 ################################################################################
 
 func get_event_editor_info() -> Array:
@@ -417,25 +411,25 @@ func build_event_editor() -> void:
 ## @extra_info: 	Allows passing a lot more info to the field.
 ## 					What info can be passed is differnet for every field
 
-func add_header_label(text:String, condition:= "") -> void:
+func add_header_label(text:String, condition:String = "") -> void:
 	editor_list.append({
 		"name" 			: "something",
 		"type" 			:+ TYPE_STRING,
 		"location" 		: Location.HEADER,
 		"usage" 		: PROPERTY_USAGE_EDITOR,
-		"field_type" : ValueType.LABEL,
+		"dialogic_type" : ValueType.LABEL,
 		"display_info"  : {"text":text},
 		"condition" 	: condition
 		})
 
 
-func add_header_edit(variable:String, editor_type := ValueType.LABEL, extra_info:= {}, condition:= "") -> void:
+func add_header_edit(variable:String, editor_type = ValueType.LABEL, extra_info:Dictionary = {}, condition:String = "") -> void:
 	editor_list.append({
 		"name" 			: variable,
 		"type" 			: typeof(get(variable)),
 		"location" 		: Location.HEADER,
 		"usage" 		: PROPERTY_USAGE_DEFAULT,
-		"field_type" : editor_type,
+		"dialogic_type" : editor_type,
 		"display_info" 	: extra_info,
 		"left_text" 	: extra_info.get('left_text', ''),
 		"right_text" 	: extra_info.get('right_text', ''),
@@ -443,25 +437,25 @@ func add_header_edit(variable:String, editor_type := ValueType.LABEL, extra_info
 		})
 
 
-func add_header_button(text:String, callable:Callable, tooltip:String, icon: Variant = null, condition:= "") -> void:
+func add_header_button(text:String, callable:Callable, tooltip:String, icon: Variant = null, condition:String = "") -> void:
 	editor_list.append({
 		"name"			: "Button",
 		"type" 			: TYPE_STRING,
 		"location" 		: Location.HEADER,
 		"usage" 		: PROPERTY_USAGE_DEFAULT,
-		"field_type" : ValueType.BUTTON,
+		"dialogic_type" : ValueType.BUTTON,
 		"display_info" 	: {'text':text, 'tooltip':tooltip, 'callable':callable, 'icon':icon},
 		"condition" 	: condition,
 	})
 
 
-func add_body_edit(variable:String, editor_type := ValueType.LABEL, extra_info:= {}, condition:= "") -> void:
+func add_body_edit(variable:String, editor_type = ValueType.LABEL, extra_info:Dictionary = {}, condition:String = "") -> void:
 	editor_list.append({
 		"name" 			: variable,
 		"type" 			: typeof(get(variable)),
 		"location" 		: Location.BODY,
 		"usage" 		: PROPERTY_USAGE_DEFAULT,
-		"field_type" : editor_type,
+		"dialogic_type" : editor_type,
 		"display_info" 	: extra_info,
 		"left_text" 	: extra_info.get('left_text', ''),
 		"right_text" 	: extra_info.get('right_text', ''),
@@ -469,7 +463,7 @@ func add_body_edit(variable:String, editor_type := ValueType.LABEL, extra_info:=
 		})
 
 
-func add_body_line_break(condition:= "") -> void:
+func add_body_line_break(condition:String = "") -> void:
 	editor_list.append({
 		"name" 		: "linebreak",
 		"type" 		: TYPE_BOOL,
@@ -477,5 +471,3 @@ func add_body_line_break(condition:= "") -> void:
 		"usage" 	: PROPERTY_USAGE_DEFAULT,
 		"condition" : condition,
 		})
-
-#endregion

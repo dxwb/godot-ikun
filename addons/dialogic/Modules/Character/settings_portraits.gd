@@ -4,9 +4,9 @@ extends DialogicSettingsPage
 
 func _ready():
 	%JoinDefault.get_suggestions_func = get_join_animation_suggestions
-	%JoinDefault.mode = 1
+	%JoinDefault.enable_pretty_name = true
 	%LeaveDefault.get_suggestions_func = get_leave_animation_suggestions
-	%LeaveDefault.mode = 1
+	%LeaveDefault.enable_pretty_name = true
 
 
 func _refresh():

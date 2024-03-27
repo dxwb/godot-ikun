@@ -11,23 +11,22 @@ var choice_blocker := Timer.new()
 
 var last_question_info := {}
 
+func _ready():
+	choice_blocker.one_shot = true
+	DialogicUtil.update_timer_process_callback(choice_blocker)
+	add_child(choice_blocker)
 
-#region STATE
+
+####################################################################################################
+##					STATE
 ####################################################################################################
 
 func clear_game_state(clear_flag:=DialogicGameHandler.ClearFlags.FULL_CLEAR):
 	hide_all_choices()
 
 
-func _ready():
-	choice_blocker.one_shot = true
-	DialogicUtil.update_timer_process_callback(choice_blocker)
-	add_child(choice_blocker)
-
-#endregion
-
-
-#region MAIN METHODS
+####################################################################################################
+##					MAIN METHODS
 ####################################################################################################
 
 ## Hides all choice buttons.
@@ -44,20 +43,20 @@ func show_current_choices(instant:=true) -> void:
 	choice_blocker.stop()
 
 	var reveal_delay := float(ProjectSettings.get_setting('dialogic/choices/reveal_delay', 0.0))
-	var reveal_by_input: bool = ProjectSettings.get_setting('dialogic/choices/reveal_by_input', false)
+	var reveal_by_input :bool = ProjectSettings.get_setting('dialogic/choices/reveal_by_input', false)
 
 	if !instant and (reveal_delay != 0 or reveal_by_input):
 		if reveal_delay != 0:
 			choice_blocker.start(reveal_delay)
 			choice_blocker.timeout.connect(show_current_choices)
 		if reveal_by_input:
-			dialogic.Inputs.dialogic_action.connect(show_current_choices)
+			dialogic.Input.dialogic_action.connect(show_current_choices)
 		return
 
 	if choice_blocker.timeout.is_connected(show_current_choices):
 		choice_blocker.timeout.disconnect(show_current_choices)
-	if dialogic.Inputs.dialogic_action.is_connected(show_current_choices):
-		dialogic.Inputs.dialogic_action.disconnect(show_current_choices)
+	if dialogic.Input.dialogic_action.is_connected(show_current_choices):
+		dialogic.Input.dialogic_action.disconnect(show_current_choices)
 
 
 	var button_idx := 1
@@ -65,7 +64,7 @@ func show_current_choices(instant:=true) -> void:
 	for choice_index in get_current_choice_indexes():
 		var choice_event: DialogicEvent = dialogic.current_timeline_events[choice_index]
 		# check if condition is false
-		if not choice_event.condition.is_empty() and not dialogic.Expressions.execute_condition(choice_event.condition):
+		if not choice_event.condition.is_empty() and not dialogic.Expression.execute_condition(choice_event.condition):
 			if choice_event.else_action == DialogicChoiceEvent.ElseActions.DEFAULT:
 				choice_event.else_action = ProjectSettings.get_setting('dialogic/choices/def_false_behaviour', 0)
 
@@ -138,30 +137,22 @@ func show_choice(button_index:int, text:String, enabled:bool, event_index:int) -
 	if not shown_at_all:
 		printerr("[Dialogic] The layout you are using doesn't have enough Choice Buttons for the choices you are trying to display.")
 
-
 func _on_ChoiceButton_choice_selected(event_index:int, choice_info:={}) -> void:
 	if dialogic.paused or not choice_blocker.is_stopped():
 		return
-
 	choice_selected.emit(choice_info)
 	hide_all_choices()
 	dialogic.current_state = dialogic.States.IDLE
-	dialogic.handle_event(event_index+1)
-
-	if dialogic.has_subsystem('History'):
-		var all_choices: Array = dialogic.Choices.last_question_info['choices']
-		if dialogic.has_subsystem('VAR'):
-			dialogic.History.store_simple_history_entry(dialogic.VAR.parse_variables(choice_info.text), "Choice", {'all_choices': all_choices})
-		else:
-			dialogic.History.store_simple_history_entry(choice_info.text, "Choice", {'all_choices': all_choices})
-
+	dialogic.handle_event(event_index)
 
 
 func get_current_choice_indexes() -> Array:
 	var choices := []
-	var evt_idx := dialogic.current_event_idx
+	var evt_idx :int= dialogic.current_event_idx
 	var ignore := 0
 	while true:
+
+		evt_idx += 1
 		if evt_idx >= len(dialogic.current_timeline_events):
 			break
 		if dialogic.current_timeline_events[evt_idx] is DialogicChoiceEvent:
@@ -176,13 +167,10 @@ func get_current_choice_indexes() -> Array:
 
 		if dialogic.current_timeline_events[evt_idx] is DialogicEndBranchEvent:
 			ignore -= 1
-		evt_idx += 1
 	return choices
 
-#endregion
-
-
-#region HELPERS
+####################################################################################################
+##					HELPERS
 ####################################################################################################
 
 func is_question(index:int) -> bool:
@@ -190,15 +178,5 @@ func is_question(index:int) -> bool:
 		if len(dialogic.current_timeline_events)-1 != index:
 			if dialogic.current_timeline_events[index+1] is DialogicChoiceEvent:
 				return true
-
-	if dialogic.current_timeline_events[index] is DialogicChoiceEvent:
-		if index != 0 and dialogic.current_timeline_events[index-1] is DialogicEndBranchEvent:
-			if dialogic.current_timeline_events[dialogic.current_timeline_events[index-1].find_opening_index()] is DialogicChoiceEvent:
-				return false
-			else:
-				return true
-		else:
-			return true
 	return false
 
-#endregion

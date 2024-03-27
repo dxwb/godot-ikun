@@ -6,30 +6,27 @@ signal switched_timeline(info:Dictionary)
 signal jumped_to_label(info:Dictionary)
 signal returned_from_jump(info:Dictionary)
 
-
-#region STATE
+####################################################################################################
+##					STATE
 ####################################################################################################
 
-func clear_game_state(clear_flag:=DialogicGameHandler.ClearFlags.FULL_CLEAR) -> void:
+func clear_game_state(clear_flag:=DialogicGameHandler.ClearFlags.FULL_CLEAR):
 	dialogic.current_state_info['jump_stack'] = []
 
 
-func load_game_state(load_flag:=LoadFlags.FULL_LOAD) -> void:
+func load_game_state(load_flag:=LoadFlags.FULL_LOAD):
 	if not 'jump_stack' in dialogic.current_state_info:
 		dialogic.current_state_info['jump_stack'] = []
 
-#endregion
 
-
-#region MAIN METHODS
+####################################################################################################
+##					MAIN METHODS
 ####################################################################################################
 
 func jump_to_label(label:String) -> void:
 	if label.is_empty():
 		dialogic.current_event_idx = 0
-		jumped_to_label.emit({'timeline':dialogic.current_timeline, 'label':"TOP"})
 		return
-
 	var idx: int = -1
 	while true:
 		idx += 1
@@ -48,13 +45,12 @@ func push_to_jump_stack() -> void:
 
 
 func resume_from_last_jump() -> void:
-	var sub_timeline: DialogicTimeline = dialogic.current_timeline
-	var stack_info: Dictionary = dialogic.current_state_info['jump_stack'].pop_back()
+	var sub_timeline : DialogicTimeline = dialogic.current_timeline
+	var stack_info :Dictionary = dialogic.current_state_info['jump_stack'].pop_back()
 	dialogic.start_timeline(stack_info.timeline, stack_info.index+1)
 	returned_from_jump.emit({'sub_timeline':sub_timeline, 'label':stack_info.label})
 
 
-func is_jump_stack_empty() -> bool:
-	return len(dialogic.current_state_info['jump_stack']) < 1
 
-#endregion
+func is_jump_stack_empty():
+	return len(dialogic.current_state_info['jump_stack']) < 1

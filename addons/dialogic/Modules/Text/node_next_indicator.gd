@@ -15,15 +15,12 @@ extends Control
 
 ## What animation should the indicator do.
 @export_enum('bounce', 'blink', 'none') var animation := 0
-
-var texture_rect : TextureRect
-
 ## Set the image to use as the indicator.
-@export var texture : Texture2D = preload("res://addons/dialogic/Example Assets/next-indicator/next-indicator.png") as Texture2D:
+@export var texture := preload("res://addons/dialogic/Example Assets/next-indicator/next-indicator.png"):
 	set(_texture):
 		texture = _texture
-		if texture_rect:
-			texture_rect.texture = texture
+		if has_node('Texture'):
+			get_node('Texture').texture = texture
 
 @export var texture_size := Vector2(32,32):
 	set(_texture_size):
@@ -37,9 +34,8 @@ var tween: Tween
 
 func _ready():
 	add_to_group('dialogic_next_indicator')
-	
-	# Creating TextureRect if missing
-	if not texture_rect:
+	# Creating texture
+	if texture:
 		var icon := TextureRect.new()
 		icon.name = 'Texture'
 		icon.ignore_texture_size = true
@@ -47,10 +43,8 @@ func _ready():
 		icon.size = texture_size
 		icon.position = -icon.size
 		add_child(icon)
-		texture_rect = icon
-	
-	texture_rect.texture = texture
-	
+		icon.texture = texture
+
 	hide()
 	visibility_changed.connect(_on_visibility_changed)
 
