@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cepsfxgd2vk53"]
+[gd_scene load_steps=24 format=3 uid="uid://cepsfxgd2vk53"]
 
 [ext_resource type="Texture2D" uid="uid://dvtwfkakn5sbs" path="res://assets/art/parallax_background/11_background.png" id="1_asrrt"]
 [ext_resource type="Script" path="res://scenes/title_menu/title_menu.gd" id="1_c1www"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://d03q6hydpc7ij" path="res://assets/art/parallax_background/02_trees and bushes.png" id="10_bgy6f"]
 [ext_resource type="Texture2D" uid="uid://cr606d138mqnq" path="res://assets/art/parallax_background/01_ground.png" id="11_8ig1l"]
 [ext_resource type="Texture2D" uid="uid://dljmp5rj6c3ef" path="res://assets/art/player.png" id="13_bchwr"]
-[ext_resource type="FontFile" uid="uid://d05ubkhhhg7px" path="res://assets/fonts/VonwaonBitmap-16pxLite.ttf" id="14_6p3ss"]
 [ext_resource type="Texture2D" uid="uid://bh72a8d8fxod2" path="res://assets/art/kun.png" id="14_hhoe0"]
 [ext_resource type="PackedScene" uid="uid://bxtgf1h1afxoi" path="res://scenes/title_menu/setting_dialog/setting_dialog.tscn" id="16_gmpu0"]
 
@@ -204,7 +203,6 @@ offset_bottom = 102.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/normal_font = ExtResource("14_6p3ss")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "

@@ -8,4 +8,3 @@ else:
 	store_character: 我需要它们，所以我愿意用一些金钱跟你兑换。
 	store_character: 如果你想跟我交易，就过来找我吧。
 	if SaverLoader.running_data.set_store_interacted_true():
-	看看现在的值：{SaverLoader.running_data.store_interacted}

@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=18 format=3 uid="uid://cg72bwn8tk8yr"]
 
-[ext_resource type="FontFile" uid="uid://d05ubkhhhg7px" path="res://assets/fonts/VonwaonBitmap-16pxLite.ttf" id="1_x4p5e"]
+[ext_resource type="FontFile" uid="uid://mh7dhubs85lr" path="res://assets/fonts/Uranus_Pixel_11Px.ttf" id="1_7k87k"]
 [ext_resource type="Texture2D" uid="uid://hsusvm6gy58v" path="res://assets/art/UI_books.png" id="2_dshc8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8nuq3"]
@@ -100,16 +100,16 @@ texture_margin_top = 3.0
 texture_margin_right = 3.0
 
 [resource]
-Button/fonts/font = ExtResource("1_x4p5e")
+Button/fonts/font = ExtResource("1_7k87k")
 CardPanelContainer/base_type = &"PanelContainer"
 CardPanelContainer/styles/panel = SubResource("StyleBoxTexture_fclh0")
 Label/colors/font_color = Color(0.0784314, 0.137255, 0.227451, 1)
-Label/fonts/font = ExtResource("1_x4p5e")
+Label/fonts/font = ExtResource("1_7k87k")
 NoticePanelContainer/base_type = &"PanelContainer"
 NoticePanelContainer/styles/panel = SubResource("StyleBoxTexture_s5qie")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_pyn4y")
 RichTextLabel/colors/default_color = Color(0.0784314, 0.137255, 0.227451, 1)
-RichTextLabel/fonts/normal_font = ExtResource("1_x4p5e")
+RichTextLabel/fonts/normal_font = ExtResource("1_7k87k")
 TabContainer/styles/panel = SubResource("StyleBoxTexture_uxktf")
 TabContainer/styles/tab_focus = SubResource("StyleBoxTexture_yb44l")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_esawp")
