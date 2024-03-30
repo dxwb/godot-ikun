@@ -77,7 +77,10 @@ func set_store_interacted_true():
 		_emit("play_slot_machine_glod", val)
 
 func subscribe(property_key: String, fn: Callable):
-	connect(_get_signal_name(property_key), fn)
+	var signal_name = _get_signal_name(property_key)
+
+	_add_signal(signal_name)
+	connect(signal_name, fn)
 
 func _get_signal_name(property_key: String) -> String:
 	return property_key + "_changed"
@@ -85,7 +88,9 @@ func _get_signal_name(property_key: String) -> String:
 func _emit(property_key: String, value: Variant):
 	var signal_name = _get_signal_name(property_key)
 
+	_add_signal(signal_name)
+	emit_signal(signal_name, value)
+
+func _add_signal(signal_name: String):
 	if not has_user_signal(signal_name):
 		add_user_signal(signal_name)
-
-	emit_signal(signal_name, value)
