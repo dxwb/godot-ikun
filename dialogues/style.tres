@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=5 format=3 uid="uid://ct2b4n5jgwvto"]
+
+[ext_resource type="PackedScene" uid="uid://bquja8jyk8kbr" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_layer.tscn" id="1_lc2ob"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="1_mjcfa"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_gh21f"]
+
+[sub_resource type="Resource" id="Resource_fi1qv"]
+script = ExtResource("2_gh21f")
+scene = ExtResource("1_lc2ob")
+overrides = {}
+
+[resource]
+script = ExtResource("1_mjcfa")
+name = "style"
+base_overrides = {
+"canvas_layer": "2.0",
+"global_font": "\"res://assets/fonts/Uranus_Pixel_11Px.ttf\""
+}
+layers = Array[ExtResource("2_gh21f")]([SubResource("Resource_fi1qv")])
+metadata/_latest_layer = -1
