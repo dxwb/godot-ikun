@@ -7,7 +7,7 @@ func _process(delta):
 	parallax_background.scroll_offset.x -= 50 * delta
 
 func _on_start_button_pressed():
-	SceneManager.change_scene(Strings.GAME_SCENE)
+	SceneManager.change_scene_async(Strings.GAME_SCENE)
 
 func _on_setting_button_pressed():
 	setting_dialog.open()
