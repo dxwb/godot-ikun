@@ -1,4 +1,4 @@
-extends Node
+extends CanvasLayer
 
 var current_scene_name: StringName
 
